@@ -29,6 +29,7 @@ RUN apt-get install -y shinken-module-booster-nrpe
 RUN apt-get install -y shinken-module-logstore-sqlite
 
 RUN apt-get install -y python-openssl # required for $plugin
+RUN apt-get install -y python-lxml # required by scrapers plugins
 
 ### Nagvis
 
