@@ -24,7 +24,7 @@ def get_hosts_list():
         r = re.search('://((.*).qc.ca)', host['href'])
         if r is not None:
             res.add(r.group(2))
-    print res
+    
     return res
 
 def main():
