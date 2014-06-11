@@ -78,6 +78,7 @@ RUN chmod u+s /bin/ping6
 ## Shinken, Apache, Adagios
 
 ADD etc /etc
+ADD plugins /usr/lib/nagios/plugins
 
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken
