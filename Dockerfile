@@ -31,6 +31,10 @@ RUN apt-get install -y shinken-module-logstore-sqlite
 RUN apt-get install -y python-openssl # required for $plugin
 RUN apt-get install -y python-lxml # required by scrapers plugins
 
+### Plugins
+
+RUN apt-get install -y nagios-plugins
+
 ### Nagvis
 
 #ADD nagvis_debconf.dat /tmp/nagvis_debconf.dat 
@@ -89,6 +93,9 @@ RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/Simple-log/simple-log/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 
+### DEBUG
+
+RUN apt-get install -y nano
 
 # Allow ssh connection from host
 # ADD id_rsa.pub /root/home/.ssh/authorized_keys
