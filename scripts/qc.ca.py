@@ -19,7 +19,7 @@ template = (
        host_name                qc.ca
        service_description      Check http for %(host)s.qc.ca
        alias                    %(host)s.qc.ca
-       check_command            check_http_service!%(host)s.qc.ca
+       check_command            check_http_service!%(host)s.qc.ca!/
 }
 """)
 

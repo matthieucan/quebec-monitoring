@@ -47,7 +47,7 @@ template = (
        host_name                DNS
        service_description      Check DNS for %(host)s_%(ip)s
        alias                    %(host)s_%(ip)s
-       check_command            check_dig_service!%(ip)s!qc.ca
+       check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
 }
 """)
 
