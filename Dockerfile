@@ -72,7 +72,7 @@ RUN pip install git+git://github.com/pynag/pynag.git
 ## Docker
 
 # makes `df` work
-RUN ln -s /proc/mounts /etc/mtab
+#RUN ln -s /proc/mounts /etc/mtab
 
 # run permissions for user `shinken`
 RUN chmod u+s /usr/lib/nagios/plugins/check_icmp
@@ -92,10 +92,6 @@ RUN sed -i 's/logstore-sqlite/logsqlite/g' /etc/shinken/modules/logstore_sqlite.
 RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/Simple-log/simple-log/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
-
-### DEBUG
-
-RUN apt-get install -y nano
 
 # Allow ssh connection from host
 # ADD id_rsa.pub /root/home/.ssh/authorized_keys
