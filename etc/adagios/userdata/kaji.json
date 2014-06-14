@@ -1,0 +1,22 @@
+{
+   "views" : {
+      "quebec" : {
+         "columns" : [],
+         "sorts" : [],
+         "metadata" : [
+            {
+               "template" : "quebec.html",
+               "fullscreen" : false,
+               "data_source" : "services",
+               "view_name" : "quebec",
+               "reload_interval" : "0"
+            }
+         ],
+         "stats" : [],
+         "filters" : []
+      }
+   },
+   "refresh_rate" : "30",
+   "language" : "en",
+   "theme" : "default"
+}
