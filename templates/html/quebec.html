@@ -53,6 +53,11 @@
      padding: 15px;
      font-size: 1.3em;
    }
+   .map_container {
+     float: right;
+     height: 300px;
+     width: 400px;
+   }
    .box .hidden {
      display: none;
      text-align: left;
@@ -91,6 +96,8 @@
    .color-4 {
      color: white;
    }
+   /* work-around to not display pink zones in Firefox */
+   .olImageLoadError{display: none !important;}
   </style>
 </head>
 <body>
@@ -113,29 +120,175 @@
       </p>
     </div>
     <hr style="height: 1px; border: 0; border-top: 1px solid white;" />
+    
     <div class="row-fluid">
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Trafic" text="Plugin output" icon="fa fa-road fa-3x" state=1 id="box1" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Célibataires" text="Plugin output" icon="fa fa-heart-o fa-3x" state=1 id="box2" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="DNS" text="Plugin output" icon="fa fa-gears fa-3x" state=1 id="box3" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Hopitaux" text="Plugin output" icon="fa fa-h-square fa-3x" state=1 id="box4" %}
+      
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_traffic')" id="box_traffic">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-road fa-3x"></i>
+          <h2>Trafic</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_traffic_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_dating')" id="box_dating">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-heart-o fa-3x"></i>
+          <h2>Célibataires</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_dating_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns'); dns_map.map.updateSize();" id="box_dns">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-gears fa-3x"></i>
+          <h2>DNS</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_dns_content">
+            <div class="row-fluid">
+              <div class="map_container" id="box_dns_right"></div>
+              <div class="">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Vestibulum posuere sit amet nulla vitae
+              tincidunt. Nunc eget vehicula dui. Cras porta
+              sollicitudin interdum. Quisque sed egestas dui, eu
+              tempus magna. Cras accumsan fringilla
+              pretium. Pellentesque vel congue metus. Aenean enim
+              augue, porttitor quis metus et, porta blandit nisi. Duis
+              dignissim tortor vel lorem porta auctor. Suspendisse
+              semper, arcu vitae porta viverra, turpis ipsum ultricies
+              metus, vel malesuada erat ligula id nisl. Pellentesque
+              dictum sit amet velit ut hendrerit. Aenean viverra nisi
+              lorem, ut consequat arcu hendrerit ut. Nullam rutrum
+              neque turpis, sit amet hendrerit purus hendrerit ac. Sed
+              mi orci, semper vitae tincidunt non, venenatis eu
+              nunc. Curabitur lacus purus, mollis quis faucibus sed,
+              facilisis quis neque.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_hospitals')" id="box_hospitals">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-h-square fa-3x"></i>
+          <h2>Hôpitaux</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_hospitals_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
     </div>
+    
     <div class="row-fluid">
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Aéroports" text="Plugin output" icon="fa fa-paper-plane-o fa-3x" state=1 id="box5" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Banques" text="Plugin output" icon="fa fa-btc fa-3x" state=1 id="box6" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Météo" text="Plugin output" icon="fa fa-cloud fa-3x" state=1 id="box7" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Métro" text="Plugin output" icon="fa fa-arrow-circle-down fa-3x" state=1 id="box8" %}
+      
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_airports')" id="box_airports">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-paper-plane-o fa-3x"></i>
+          <h2>Aéroports</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_airports_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_banks')" id="box_banks">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-btc fa-3x"></i>
+          <h2>Banques</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_banks_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_weather')" id="box_weather">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-cloud fa-3x"></i>
+          <h2>Météo</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_weather_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_metro')" id="box_metro">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-arrow-circle-down fa-3x"></i>
+          <h2>Métro</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_metro_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+      
     </div>
+    
     <div class="row-fluid">
-      {% include "custom_views/templates/quebec_box.html.inc" with title="FAI" text="Plugin output" icon="fa fa-signal fa-3x" state=1 id="box9" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Sites web" text="Plugin output" icon="fa fa-desktop fa-3x" state=1 id="box10" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Écologie" text="Plugin output" icon="fa fa-tree fa-3x" state=1 id="box11" %}
-      {% include "custom_views/templates/quebec_box.html.inc" with title="Grenouille" text="Plugin output" icon="fa fa-rocket fa-3x" state=1 id="box12" %}
+      
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_isp')" id="box_isp">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-signal fa-3x"></i>
+          <h2>FAI</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_isp_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_websites')" id="box_websites">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-desktop fa-3x"></i>
+          <h2>Sites web</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_websites_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_ecology')" id="box_ecology">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-tree fa-3x"></i>
+          <h2>Écologie</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_ecology_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_frog')" id="box_frog">
+        <div class="box border border-1">
+          <i class="color-1 fa fa-rocket fa-3x"></i>
+          <h2>Grenouille</h2>
+          <p>YOLO</p>
+          <div class="hidden" id="box_frog_content">
+            YOLO
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
 
   <script src="{% url media path="external/jquery/jquery-1.9.1.min.js" %}"></script>
   <script src="{% url media path="external/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script src="{% url media path="external/openlayers/lib/OpenLayers.js" %}"></script>
+
   <script type="text/javascript">
     function tell_me_more() {
       $('#tell_me_more').toggle(400);
@@ -165,6 +318,56 @@
         $('.outerbox').show();
       }
     }
+    
+    function create_map() {
+      // var fromProjection = new OpenLayers.Projection("EPSG:4326");
+      // var toProjection   = new OpenLayers.Projection("EPSG:900913");
+      var position       = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);//.transform(new OpenLayers.Projection('EPSG:4326'), new OpenLayers.Projection('EPSG:3857'));
+      var zoom           = 4;
+      
+      var markers = new OpenLayers.Layer.Markers("Markers");
+      
+      var OSMLayer = new OpenLayers.Layer.OSM('OSM Map', null, {
+        eventListeners: {
+          tileloaded: function(evt) {
+            var ctx = evt.tile.getCanvasContext();
+            if (ctx) {
+              var imgd = ctx.getImageData(0, 0, evt.tile.size.w, evt.tile.size.h);
+              var pix = imgd.data;
+              for (var i = 0, n = pix.length; i < n; i += 4) {
+                if (pix[i] == 181 && pix[i+1] == 208 && pix[i+2] == 208) {
+                  // makes the ocean transparent
+                  pix[i+3] = 0;
+                  pix[i] = pix[i + 1] = pix[i + 2] = 255;
+                }
+                else if (pix[i] == 241 && pix[i+1] == 238 && pix[i+2] == 232) {
+                  // makes the land white
+                  pix[i] = pix[i + 1] = pix[i + 2] = 255;
+                }
+              }
+              ctx.putImageData(imgd, 0, 0);
+              evt.tile.imgDiv.removeAttribute("crossorigin");
+              evt.tile.imgDiv.src = ctx.canvas.toDataURL();
+            }
+          }
+        },
+      });
+      
+      var map = new OpenLayers.Map({
+       layers: [OSMLayer, markers],
+       center: position,
+       zoom: zoom,
+      });
+      return {map: map, markers: markers};
+    }
+    
+    function create_dns_map() {
+      var o = create_map();
+      o.map.render("box_dns_right");
+      return o;
+    }
+    
+    var dns_map = create_dns_map();
   </script>
 </body>
 </html>
