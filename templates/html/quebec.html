@@ -147,19 +147,24 @@
           <h2>Célibataires</h2>
           <p>YOLO</p>
           <div class="hidden" id="box_dating_content">
-            YOLO
+            {{ data }}
           </div>
         </div>
       </div>
+      
+      {% for line in data %}
+      {% if line.description == 'Banks' %}
 
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns'); dns_map.map.updateSize();" id="box_dns">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-gears fa-3x"></i>
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns'); dns_map.map.updateSize();" id="box_banks">
+        <div class="box border border-{{ line.state }}">
+          <i class="color-{{ line.state }} fa fa-btc fa-3x"></i>
           <h2>DNS</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_dns_content">
+          <p>
+                {{ line.plugin_output }}
+          </p>
+          <div class="hidden" id="box_banks_content">
             <div class="row-fluid">
-              <div class="map_container" id="box_dns_right"></div>
+              <div class="map_container" id="box_banks_right"></div>
               <div class="">Lorem ipsum dolor sit amet, consectetur
               adipiscing elit. Vestibulum posuere sit amet nulla vitae
               tincidunt. Nunc eget vehicula dui. Cras porta
@@ -180,6 +185,9 @@
           </div>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+
 
       <div class="outerbox span3 color-1" onclick="toggle_box('box_hospitals')" id="box_hospitals">
         <div class="box border border-1">
@@ -207,12 +215,12 @@
         </div>
       </div>
 
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_banks')" id="box_banks">
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns')" id="box_dns">
         <div class="box border border-1">
-          <i class="color-1 fa fa-btc fa-3x"></i>
-          <h2>Banques</h2>
+          <i class="color-1 fa fa-gears fa-3x"></i>
+          <h2>DNS</h2>
           <p>YOLO</p>
-          <div class="hidden" id="box_banks_content">
+          <div class="hidden" id="box_dns_content">
             YOLO
           </div>
         </div>
@@ -368,13 +376,13 @@
       return {map: map, markers: markers};
     }
     
-    function create_dns_map() {
+    function create_banks_map() {
       var o = create_map();
-      o.map.render("box_dns_right");
+      o.map.render("box_banks_right");
       return o;
     }
     
-    var dns_map = create_dns_map();
+    var banks_map = create_banks_map();
   </script>
 </body>
 </html>
