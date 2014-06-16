@@ -147,7 +147,7 @@
           <h2>Célibataires</h2>
           <p>YOLO</p>
           <div class="hidden" id="box_dating_content">
-            {{ data }}
+            YOLO
           </div>
         </div>
       </div>
@@ -155,32 +155,23 @@
       {% for line in data %}
       {% if line.description == 'Banks' %}
 
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns'); dns_map.map.updateSize();" id="box_banks">
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_banks'); banks_map.map.updateSize();" id="box_banks">
         <div class="box border border-{{ line.state }}">
           <i class="color-{{ line.state }} fa fa-btc fa-3x"></i>
-          <h2>DNS</h2>
+          <h2>Banques</h2>
           <p>
-                {{ line.plugin_output }}
+            Problèmes : {{ line.plugin_output|length }}
           </p>
           <div class="hidden" id="box_banks_content">
             <div class="row-fluid">
               <div class="map_container" id="box_banks_right"></div>
-              <div class="">Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Vestibulum posuere sit amet nulla vitae
-              tincidunt. Nunc eget vehicula dui. Cras porta
-              sollicitudin interdum. Quisque sed egestas dui, eu
-              tempus magna. Cras accumsan fringilla
-              pretium. Pellentesque vel congue metus. Aenean enim
-              augue, porttitor quis metus et, porta blandit nisi. Duis
-              dignissim tortor vel lorem porta auctor. Suspendisse
-              semper, arcu vitae porta viverra, turpis ipsum ultricies
-              metus, vel malesuada erat ligula id nisl. Pellentesque
-              dictum sit amet velit ut hendrerit. Aenean viverra nisi
-              lorem, ut consequat arcu hendrerit ut. Nullam rutrum
-              neque turpis, sit amet hendrerit purus hendrerit ac. Sed
-              mi orci, semper vitae tincidunt non, venenatis eu
-              nunc. Curabitur lacus purus, mollis quis faucibus sed,
-              facilisis quis neque.</div>
+              <div class="">
+                <ul>
+                {% for s in line.host_services_with_state %}
+                  <li class="color-{{ s.1 }}">{{ s.0 }}</li>
+                {% endfor %}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
