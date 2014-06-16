@@ -83,6 +83,8 @@ RUN chmod u+s /bin/ping6
 
 ADD etc /etc
 ADD plugins /usr/lib/nagios/plugins
+#ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
+ADD templates/media /usr/local/lib/python2.7/dist-packages/adagios/media
 
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken
