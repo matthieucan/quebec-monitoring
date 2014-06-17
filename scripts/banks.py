@@ -80,6 +80,7 @@ define host {
        check_command                  bp_rule!%(all_banks)s
        business_rule_output_template  Cassé: $($HOST_NAME$ )$
        notes                          order_0
+       icon_image                     fa-btc
 }
 """)
 

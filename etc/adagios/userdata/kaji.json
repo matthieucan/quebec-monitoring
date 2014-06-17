@@ -41,8 +41,11 @@
             {
                "name" : "notes",
                "widget" : "default.html"
+            },
+            {
+               "name" : "icon_image",
+               "widget" : "default.html"
             }
-
          ]
       }
    }

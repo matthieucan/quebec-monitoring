@@ -30,6 +30,7 @@ postfix = (
        check_command                  bp_rule!%(all_websites)s
        business_rule_output_template  Casse: $($HOST_NAME$ )$
        notes                          order_0
+       icon_image                     fa-desktop
 }
 """)
 

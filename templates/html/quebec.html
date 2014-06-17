@@ -134,7 +134,7 @@
       {% with lines=box.list|dictsort:"notes" %}
       <div class="outerbox span3 color-1" onclick="toggle_box('box_{{ lines.0.name }}')" id="box_{{ lines.0.name }}">
         <div class="box border border-1">
-          <i class="color-1 fa fa-gears fa-3x"></i>
+          <i class="color-1 fa {{ lines.0.icon_image }} fa-3x"></i>
           <h2>{{ lines.0.name }}</h2>
           <p>42</p>
           <div class="hidden" id="box_traffic_content">

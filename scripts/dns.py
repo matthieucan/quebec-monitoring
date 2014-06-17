@@ -59,6 +59,7 @@ postfix = (
        business_rule_output_template    OK
        hostgroups                       group-dns
        notes                            order_0
+       icon_image                       fa-gears
 }
 """)
 
