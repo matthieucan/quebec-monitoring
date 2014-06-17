@@ -28,7 +28,7 @@ postfix = (
        host_name                      Websites
        hostgroups                     group-websites
        check_command                  bp_rule!%(all_websites)s
-       business_rule_output_template  Casse: $($HOST_NAME$ )$
+       business_rule_output_template  $(x)$
        notes                          order_0
        icon_image                     fa-desktop
 }

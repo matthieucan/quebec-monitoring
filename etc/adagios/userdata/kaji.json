@@ -45,7 +45,12 @@
             {
                "name" : "icon_image",
                "widget" : "default.html"
+            },
+            {
+               "name" : "plugin_output",
+               "widget" : "default.html"
             }
+
          ]
       }
    }

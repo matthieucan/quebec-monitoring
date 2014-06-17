@@ -136,9 +136,17 @@
         <div class="box border border-1">
           <i class="color-1 fa {{ lines.0.icon_image }} fa-3x"></i>
           <h2>{{ lines.0.name }}</h2>
-          <p>42</p>
+          <p>
+            {% if lines.0.plugin_output|length == 0 %}
+              OK
+            {% elif lines.0.plugin_output|length == 1 %}
+              1 problem
+            {% else %}
+              {{ lines.0.plugin_output|length }} problems
+            {% endif %}
+          </p>
           <div class="hidden" id="box_traffic_content">
-            YOLO
+            {{ lines }}
           </div>
         </div>
       </div>

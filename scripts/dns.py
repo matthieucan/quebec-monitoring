@@ -56,7 +56,7 @@ postfix = (
        host_name                        DNS
        hostgroups                       group-dns
        check_command                    bp_rule!%(all_dns)s
-       business_rule_output_template    OK
+       business_rule_output_template    $(x)$
        hostgroups                       group-dns
        notes                            order_0
        icon_image                       fa-gears
