@@ -132,7 +132,7 @@
     <div class="row-fluid">
       {% for box in data_ %}
       {% with lines=box.list|dictsort:"notes" %}
-      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.name }}')" id="box_{{ lines.0.name }}">
+      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.name }}'); {{ lines.0.name }}_map.map.updateSize();" id="box_{{ lines.0.name }}">
         <div class="box border border-{{ lines.0.state }}">
           <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
           <h2>{{ lines.0.name }}</h2>
@@ -145,12 +145,14 @@
               {{ lines.0.plugin_output|length }} problems
             {% endif %}
           </p>
-          <div class="hidden" id="box_traffic_content">
+          <div class="hidden" id="">
+            <div class="map_container" id="map_{{ lines.0.name }}"></div>
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>{{ line.display_name }}: <span class="color-{{ line.state }}">{{ line.plugin_output }}</span></li>
             {% endfor %}
             </ul>
+            <div style="clear:both;">&nbsp;</div>
           </div>
         </div>
       </div>
@@ -240,13 +242,16 @@
       return {map: map, markers: markers};
     }
     
-    function create_banks_map() {
+    function create_banks_map(id) {
       var o = create_map();
-      o.map.render("box_banks_right");
+      o.map.render("map_" + id);
       return o;
     }
-    
-    var banks_map = create_banks_map();
+    {% for box in data_ %}
+    {% with lines=box.list|dictsort:"notes" %}
+    var {{ lines.0.name }}_map = create_banks_map("{{ lines.0.name }}");
+    {% endwith %}
+    {% endfor %}
   </script>
 </body>
 </html>
