@@ -137,7 +137,7 @@
           <i class="color-1 fa {{ lines.0.icon_image }} fa-3x"></i>
           <h2>{{ lines.0.name }}</h2>
           <p>
-            {% if lines.0.plugin_output|length == 0 %}
+            {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
               OK
             {% elif lines.0.plugin_output|length == 1 %}
               1 problem
