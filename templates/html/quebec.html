@@ -128,165 +128,22 @@
     </div>
     <hr style="height: 1px; border: 0; border-top: 1px solid white;" />
     
+    {% regroup data by groups as data_ %}
     <div class="row-fluid">
-      
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_traffic')" id="box_traffic">
+      {% for box in data_ %}
+      {% with lines=box.list|dictsort:"notes" %}
+      <div class="outerbox span3 color-1" onclick="toggle_box('box_{{ lines.0.name }}')" id="box_{{ lines.0.name }}">
         <div class="box border border-1">
-          <i class="color-1 fa fa-road fa-3x"></i>
-          <h2>Trafic</h2>
-          <p>YOLO</p>
+          <i class="color-1 fa fa-gears fa-3x"></i>
+          <h2>{{ lines.0.name }}</h2>
+          <p>42</p>
           <div class="hidden" id="box_traffic_content">
             YOLO
           </div>
         </div>
       </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_dating')" id="box_dating">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-heart-o fa-3x"></i>
-          <h2>Célibataires</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_dating_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-      
-      {% for line in data %}
-      {% if line.description == 'Banks' %}
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_banks'); banks_map.map.updateSize();" id="box_banks">
-        <div class="box border border-{{ line.state }}">
-          <i class="color-{{ line.state }} fa fa-btc fa-3x"></i>
-          <h2>Banques</h2>
-          <p>
-            Problèmes : {{ line.plugin_output|length }}
-          </p>
-          <div class="hidden" id="box_banks_content">
-            <div class="row-fluid">
-              <div class="map_container" id="box_banks_right"></div>
-              <div class="">
-                <ul>
-                {% for s in line.host_services_with_state %}
-                  <li class="color-{{ s.1 }}">{{ s.0 }}</li>
-                {% endfor %}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
+      {% endwith %}
       {% endfor %}
-
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_hospitals')" id="box_hospitals">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-h-square fa-3x"></i>
-          <h2>Hôpitaux</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_hospitals_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-    </div>
-    
-    <div class="row-fluid">
-      
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_airports')" id="box_airports">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-paper-plane-o fa-3x"></i>
-          <h2>Aéroports</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_airports_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_dns')" id="box_dns">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-gears fa-3x"></i>
-          <h2>DNS</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_dns_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_weather')" id="box_weather">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-cloud fa-3x"></i>
-          <h2>Météo</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_weather_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_metro')" id="box_metro">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-arrow-circle-down fa-3x"></i>
-          <h2>Métro</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_metro_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    
-    <div class="row-fluid">
-      
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_isp')" id="box_isp">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-signal fa-3x"></i>
-          <h2>FAI</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_isp_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_websites')" id="box_websites">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-desktop fa-3x"></i>
-          <h2>Sites web</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_websites_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_ecology')" id="box_ecology">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-tree fa-3x"></i>
-          <h2>Écologie</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_ecology_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_frog')" id="box_frog">
-        <div class="box border border-1">
-          <i class="color-1 fa fa-rocket fa-3x"></i>
-          <h2>Grenouille</h2>
-          <p>YOLO</p>
-          <div class="hidden" id="box_frog_content">
-            YOLO
-          </div>
-        </div>
-      </div>
-
     </div>
 
   </div>

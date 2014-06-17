@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 DNS = {
     # Cogeco Cable (Trois-rivieres) 
@@ -34,29 +35,44 @@ DNS = {
 
 
 prefix = (
-"""define host {
-       use                      generic-host
-       host_name                DNS
-       alias                    DNS
-}
+"""
 """)
 
 template = (
-"""define service {
-       use                      generic-service
-       host_name                DNS
-       service_description      Check DNS for %(host)s_%(ip)s
+"""define host {
+       use                      generic-host
+       host_name                %(host)s_%(ip)s
+       address                  %(ip)s
        alias                    %(host)s_%(ip)s
        check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
+       hostgroups               group-dns
+       notes                    order_%(order)d
+}
+""")
+
+postfix = (
+"""define host {
+       use                              generic-host
+       host_name                        DNS
+       hostgroups                       group-dns
+       check_command                    bp_rule!%(all_dns)s
+       business_rule_output_template    OK
+       hostgroups                       group-dns
+       notes                            order_0
 }
 """)
 
 
 def main():
     print prefix
+    all_dns = []
+    order = 1
     for host, ips in DNS.iteritems():
         for ip in ips:
-            print template % {'host': host, 'ip': ip}
+            print template % {'host': host, 'ip': ip, 'order': order}
+            all_dns.append('%(host)s_%(ip)s' % {'host': host, 'ip': ip})
+            order += 1
+    print postfix % {'all_dns': '&'.join(all_dns)}
         
 
 if __name__ == '__main__':

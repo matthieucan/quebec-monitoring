@@ -50,40 +50,36 @@ BANKS = {
     }
 
 prefix = (
-"""define host {
-       use                      generic-host
-       host_name                banks
-       alias                    banks
-}
-
-define servicegroup {
+"""define servicegroup {
 	  servicegroup_name       group_banks
 	  alias                   Banks
 	  }
 """)
 
 template = (
-"""define service {
+"""define host {
        # not working yet, bug reported on Shinken:
        # https://github.com/naparuba/shinken/issues/1218#issuecomment-46223079
-       use                      generic-service
-       host_name                banks
-       alias                    Check http for %(bank)s online services
-       service_description      %(bank)s
-       labels                   group_banks
+       use                      generic-host
+       host_name                %(domain)s
+       address                  %(domain)s
+       alias                    %(domain)s
+       hostgroups               group-banks
+       notes                    order_%(order)d
        check_command            check_http_service!%(domain)s!%(path)s%(more_options)s
 }
 """)
 
 business_rule = (
 """
-define service {
-       use                            generic-service
-       host_name                      banks
-       service_description            Banks
+define host {
+       use                            generic-host
+       host_name                      Banks
+       hostgroups                     group-banks
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_banks)s
-       business_rule_output_template  Cassé: $($SERVICE_DESCRIPTION$ )$
+       business_rule_output_template  Cassé: $($HOST_NAME$ )$
+       notes                          order_0
 }
 """)
 
@@ -93,11 +89,12 @@ def main():
     print prefix
     # all_banks is a workaround while we wait for g:group_banks to work
     all_banks = []
-    for bank, values in BANKS.iteritems():
-        all_banks.append('banks,%s' % bank)
+    for order, (bank, values) in enumerate(BANKS.iteritems()):
+        all_banks.append('%s' % values['domain'])
         print template % {'bank': bank,
                           'domain': values['domain'],
                           'path': values['path'],
+                          'order': order + 1,
                           'more_options': '!--ssl' if values['protocol'] == 'https' else ''}
     all_banks = '&'.join(all_banks)
     print business_rule % {'all_banks': all_banks}
