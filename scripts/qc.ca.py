@@ -16,6 +16,7 @@ template = (
        host_name                %(host)s.qc.ca
        address                  %(host)s.qc.ca
        alias                    %(host)s.qc.ca
+       display_name             %(host)s.qc.ca
        check_command            check_http_service!%(host)s.qc.ca!/
        hostgroups               group-websites
        notes                    order_%(order)d

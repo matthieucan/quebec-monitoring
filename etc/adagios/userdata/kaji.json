@@ -31,6 +31,11 @@
                "widget" : "default.html"
             },
             {
+               "name" : "display_name",
+               "widget" : "default.html"
+            },
+
+            {
                "widget" : "default.html",
                "name" : "state"
             },

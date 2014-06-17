@@ -148,7 +148,7 @@
           <div class="hidden" id="box_traffic_content">
             <ul>
             {% for line in lines|slice:"1:" %}
-              <li>{{ line.name }}: <span class="color-{{ line.state }}">{{ line.plugin_output }}</span></li>
+              <li>{{ line.display_name }}: <span class="color-{{ line.state }}">{{ line.plugin_output }}</span></li>
             {% endfor %}
             </ul>
           </div>

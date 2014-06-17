@@ -64,6 +64,7 @@ template = (
        host_name                %(domain)s
        address                  %(domain)s
        alias                    %(domain)s
+       display_name             %(bank)s
        hostgroups               group-banks
        notes                    order_%(order)d
        check_command            check_http_service!%(domain)s!%(path)s%(more_options)s
@@ -92,7 +93,7 @@ def main():
     all_banks = []
     for order, (bank, values) in enumerate(BANKS.iteritems()):
         all_banks.append('%s' % values['domain'])
-        print template % {'bank': bank,
+        print template % {'bank': bank.replace('_', ' '),
                           'domain': values['domain'],
                           'path': values['path'],
                           'order': order + 1,

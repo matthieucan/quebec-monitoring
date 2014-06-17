@@ -44,6 +44,7 @@ template = (
        host_name                %(host)s_%(ip)s
        address                  %(ip)s
        alias                    %(host)s_%(ip)s
+       display_name             %(host)s (%(ip)s)
        check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
        hostgroups               group-dns
        notes                    order_%(order)d
