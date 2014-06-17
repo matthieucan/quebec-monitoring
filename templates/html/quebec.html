@@ -1,3 +1,4 @@
+{% load adagiostags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,9 +55,15 @@
      font-size: 1.3em;
    }
    .map_container {
+     height: 400px;
+   }
+   .map_outer {
      float: right;
-     height: 300px;
+     height: 400px;
      width: 400px;
+     border: 1px solid white;
+     margin-left: 40px !important;
+     margin-bottom: 40px !important;
    }
    .box .hidden {
      display: none;
@@ -146,7 +153,9 @@
             {% endif %}
           </p>
           <div class="hidden" id="">
-            <div class="map_container" id="map_{{ lines.0.name }}"></div>
+            <div class="map_outer">
+              <div class="map_container" id="map_{{ lines.0.name }}"></div>
+            </div>
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>{{ line.display_name }}: <span class="color-{{ line.state }}">{{ line.plugin_output }}</span></li>
@@ -199,10 +208,11 @@
         $('.outerbox').show();
       }
     }
+   
+    var fromProjection = new OpenLayers.Projection("EPSG:4326");
+    var toProjection   = new OpenLayers.Projection("EPSG:900913");
     
     function create_map() {
-      // var fromProjection = new OpenLayers.Projection("EPSG:4326");
-      // var toProjection   = new OpenLayers.Projection("EPSG:900913");
       var position       = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);//.transform(new OpenLayers.Projection('EPSG:4326'), new OpenLayers.Projection('EPSG:3857'));
       var zoom           = 4;
       
@@ -242,16 +252,28 @@
       return {map: map, markers: markers};
     }
     
-    function create_banks_map(id) {
-      var o = create_map();
-      o.map.render("map_" + id);
-      return o;
-    }
+    var icon_0 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker-green.png" %}');
+    var icon_1 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker.png" %}');
+    var icon_2 = icon_1;
+    var icon_3 = icon_1;
+    
     {% for box in data_ %}
     {% with lines=box.list|dictsort:"notes" %}
-    var {{ lines.0.name }}_map = create_banks_map("{{ lines.0.name }}");
+      var {{ lines.0.name }}_map = create_map();
+      {% for line in lines|slice:"1:" %}
+        {% with loc=line.address|locateip %}
+          {% if loc %}
+            {{ lines.0.name }}_map.markers.addMarker(new OpenLayers.Marker(
+                            new OpenLayers.LonLat({{ loc }}).transform(fromProjection, toProjection),
+                            icon_{{ line.state }}.clone()));
+          {% endif %}
+        {% endwith %}
+      {% endfor %}
+      
+      {{ lines.0.name }}_map.map.render("map_{{ lines.0.name }}");
     {% endwith %}
     {% endfor %}
   </script>
+  {{ "198.50.144.196"|locateip }}
 </body>
 </html>
