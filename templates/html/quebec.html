@@ -72,28 +72,28 @@
      border-width: 1px;
      border-style: solid;
    }
-   .border-1 {
+   .border-0 {
      border-color: white;
    }
-   .border-2 {
+   .border-1 {
      border-color: orange;
    }
-   .border-3 {
+   .border-2 {
      border-color: red;
    }
-   .border-4 {
+   .border-3 {
      border-color: white;
    }
-   .color-1 {
+   .color-0 {
      color: white;
    }
-   .color-2 {
+   .color-1 {
      color: orange;
    }
-   .color-3 {
+   .color-2 {
      color: red;
    }
-   .color-4 {
+   .color-3 {
      color: white;
    }
    /* work-around to not display pink zones in Firefox */
@@ -132,9 +132,9 @@
     <div class="row-fluid">
       {% for box in data_ %}
       {% with lines=box.list|dictsort:"notes" %}
-      <div class="outerbox span3 color-1" onclick="toggle_box('box_{{ lines.0.name }}')" id="box_{{ lines.0.name }}">
-        <div class="box border border-1">
-          <i class="color-1 fa {{ lines.0.icon_image }} fa-3x"></i>
+      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.name }}')" id="box_{{ lines.0.name }}">
+        <div class="box border border-{{ lines.0.state }}">
+          <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
           <h2>{{ lines.0.name }}</h2>
           <p>
             {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
@@ -146,7 +146,11 @@
             {% endif %}
           </p>
           <div class="hidden" id="box_traffic_content">
-            {{ lines }}
+            <ul>
+            {% for line in lines|slice:"1:" %}
+              <li>{{ line.name }}: <span class="color-{{ line.state }}">{{ line.plugin_output }}</span></li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
       </div>
