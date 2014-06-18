@@ -11,14 +11,14 @@ http://iceland.adagios.org by @palli.
 
 The only dependency is Docker, on Debian- or Ubuntu-based distros you
 can:
-'''
+```
 sudo apt-get install docker.io
-'''
+```
 
 After cloning the repository, just do:
-'''
+```
 sudo make run
-'''
+```
 
 ## Is it THAT simple?
 
@@ -37,6 +37,6 @@ relevant information in scripts/<category>.py.
 If you want to create a new category, add a script in
 scripts/<your-cool-idea>.py, and a line in the Makefile.
 
-*Pull requests, patches, bug reports, feedback and pizzas are always
- welcome!*
+__Pull requests, patches, bug reports, feedback and pizzas are always
+welcome!__
  
