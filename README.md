@@ -7,7 +7,7 @@ Let's monitor Quebec! This work is inspired by
 http://iceland.adagios.org by @palli.
 
 
-# How to: run at home
+## How to: run at home
 
 The only dependency is Docker, on Debian- or Ubuntu-based distros you
 can:
@@ -36,7 +36,7 @@ command.
 </dl>
 
 
-# How to: contribute
+## How to: contribute
 
 Everything here is based on:
 * back-end: the monitoring engine Shinken,
