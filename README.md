@@ -60,5 +60,6 @@ welcome!__
 
 If Github workflows (issues, pull-requests) are not suitable for you,
 or if you prefer to use traditional email, you can reach us through
-[supervision@savoirfairelinux.com](mailto:supervision@savoirfairelinux.com Say hi!).
+[supervision@savoirfairelinux.com](mailto:supervision@savoirfairelinux.com "Say hi!").
+
 We're looking forward to hearing from you!
