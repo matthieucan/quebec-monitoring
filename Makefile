@@ -1,4 +1,10 @@
-all: banks dns websites hospitals transports dating
+all: conf run
+
+run:
+	docker.io build -t quebec .
+	docker.io run -d -t quebec
+
+conf: banks dns websites hospitals transports dating
 
 banks:
 	scripts/banks.py > etc/shinken/adagios/banks.cfg
