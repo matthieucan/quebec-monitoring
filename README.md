@@ -50,9 +50,15 @@ Everything here is based on:
 If you want to add a metric in an existing category, you can add
 relevant information in `scripts/<category>.py`.
 
-If you want to create a new category, add a script in
+If you want to create a new category, create a script in
 `scripts/<your-cool-idea>.py`, and an entry in the Makefile.
 
 __Pull requests, patches, bug reports, feedback and pizzas are always
 welcome!__
- 
+
+## How to: contact us
+
+If Github workflows (issues, pull-requests) are not suitable for you,
+or if you prefer to use traditional email, you can reach us through
+[supervision@savoirfairelinux.com](mailto:supervision@savoirfairelinux.com
+Say hi!)
