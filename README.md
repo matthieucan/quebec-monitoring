@@ -31,9 +31,9 @@ command.
 
 <dl>
   <dt>What? You really use sudo? This looks dangerous.</dt>
-  <dd>Admin rights are required to use Docker. If you're not confident
-  doing this, you can easily check that no OS image is downloaded,
-  everything is built in the Dockerfile.</dd>
+  <dd>In order to use Docker, Admin rights are required. If you're not
+  confident doing this, you can easily check that no OS image is
+  downloaded, everything is built in the Dockerfile.</dd>
 
   <dt>Is it really that simple to run?</dt>
   <dd>Yes.</dd>
