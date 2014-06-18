@@ -1,4 +1,4 @@
-all: banks dns websites hospitals
+all: banks dns websites hospitals transports dating
 
 banks:
 	scripts/banks.py > etc/shinken/adagios/banks.cfg
@@ -11,3 +11,9 @@ websites:
 
 hospitals:
 	scripts/hospitals.py > etc/shinken/adagios/hospitals.cfg
+
+transports:
+	scripts/transports.py > etc/shinken/adagios/transports.cfg
+
+dating:
+	scripts/dating.py > etc/shinken/adagios/dating.cfg
