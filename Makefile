@@ -1,4 +1,4 @@
-all: banks dns qcca hospitals
+all: banks dns websites hospitals
 
 banks:
 	scripts/banks.py > etc/shinken/adagios/banks.cfg
@@ -6,8 +6,8 @@ banks:
 dns:
 	scripts/dns.py > etc/shinken/adagios/dns.cfg
 
-qcca:
-	scripts/qc.ca.py > etc/shinken/adagios/qc.ca.cfg
+websites:
+	scripts/websites.py > etc/shinken/adagios/websites.cfg
 
 hospitals:
 	scripts/hospitals.py > etc/shinken/adagios/hospitals.cfg
