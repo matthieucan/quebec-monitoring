@@ -34,6 +34,11 @@ command.
   <dd>In order to use Docker, admin rights are required. If you're not
   confident doing this, you can easily check that no OS image is
   downloaded, everything is built in the Dockerfile.</dd>
+  
+  <dt>What does it install on my machine?</dt>
+  <dd>Nothing, except for Docker if you didn't have it
+  already. Everything's installed in a container, which is more or
+  less a virtual machine that you can throw away afterwards :-)</dd>
 
   <dt>Is it really that simple to run?</dt>
   <dd>Yes.</dd>
