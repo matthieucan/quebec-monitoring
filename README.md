@@ -31,7 +31,7 @@ command.
 
 <dl>
   <dt>What? You really use sudo? This looks dangerous.</dt>
-  <dd>In order to use Docker, Admin rights are required. If you're not
+  <dd>In order to use Docker, admin rights are required. If you're not
   confident doing this, you can easily check that no OS image is
   downloaded, everything is built in the Dockerfile.</dd>
 
@@ -44,14 +44,14 @@ command.
 
 Everything here is based on:
 * back-end: the monitoring engine Shinken,
-* front-end: the Django applicatin Adagios,
+* front-end: the Django application Adagios,
 * all-in-the-box: the container manager Docker.
 
 If you want to add a metric in an existing category, you can add
-relevant information in scripts/<category>.py.
+relevant information in `scripts/<category>.py`.
 
 If you want to create a new category, add a script in
-scripts/<your-cool-idea>.py, and a line in the Makefile.
+`scripts/<your-cool-idea>.py`, and an entry in the Makefile.
 
 __Pull requests, patches, bug reports, feedback and pizzas are always
 welcome!__
