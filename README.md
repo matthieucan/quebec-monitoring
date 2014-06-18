@@ -26,7 +26,7 @@ s/docker.io/docker/g Makefile`
 
 And now, navigate to your container IP. In order to know your
 container IP, you can run `sudo docker.io inspect <container-number>`,
-replacing <container-number> by the last line returned by the previous
+replacing `<container-number>` by the last line returned by the previous
 command.
 
 <dl>
