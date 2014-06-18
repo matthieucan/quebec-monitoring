@@ -20,7 +20,11 @@ After cloning the repository, just do:
 $ sudo make run
 ```
 
-And now, just navigate to your container IP. In order to know your
+If you installed Docker manually, perhaps the command to run it is
+`docker` instead of `docker.io`. In this case, run `sed -i
+s/docker.io/docker/g Makefile`
+
+And now, navigate to your container IP. In order to know your
 container IP, you can run `sudo docker.io inspect <container-number>`,
 replacing <container-number> by the last line returned by the previous
 command.
