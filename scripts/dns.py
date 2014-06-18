@@ -39,26 +39,43 @@ prefix = (
 """)
 
 template = (
-"""define host {
+"""
+define host {
        use                      generic-host
        host_name                %(host)s_%(ip)s
        address                  %(ip)s
        alias                    %(host)s_%(ip)s
-       display_name             %(host)s (%(ip)s)
-       check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
-       hostgroups               group-dns
-       notes                    order_%(order)d
+       check_command            check_dummy!0!OK
 }
+define service {
+       use                      generic-service
+       host_name                %(host)s_%(ip)s
+       check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
+       display_name             %(host)s (%(ip)s)
+       service_description      %(host)s_%(ip)s
+       servicegroups            group-dns
+       notes                    order_%(order)d
+
+}
+
 """)
 
 postfix = (
-"""define host {
-       use                              generic-host
+"""
+define host {
+       use                            generic-host
+       host_name                      DNS
+       alias                          DNS
+       check_command                  check_dummy!0!OK
+}
+define service {
+       use                              generic-service
        host_name                        DNS
+       service_description              DNS
        hostgroups                       group-dns
        check_command                    bp_rule!%(all_dns)s
        business_rule_output_template    $(x)$
-       hostgroups                       group-dns
+       servicegroups                    group-dns
        notes                            order_0
        icon_image                       fa-gears
 }
@@ -72,7 +89,7 @@ def main():
     for host, ips in DNS.iteritems():
         for ip in ips:
             print template % {'host': host, 'ip': ip, 'order': order}
-            all_dns.append('%(host)s_%(ip)s' % {'host': host, 'ip': ip})
+            all_dns.append('%(host)s_%(ip)s,%(host)s_%(ip)s' % {'host': host, 'ip': ip})
             order += 1
     print postfix % {'all_dns': '&'.join(all_dns)}
         

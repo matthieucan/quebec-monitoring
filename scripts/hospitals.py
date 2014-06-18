@@ -53,15 +53,22 @@ HOSPITALS = {
                 
         
 template = (
-"""define host {
+"""
+define host {
        use                      generic-host
        host_name                %(region)s
        address                  %(ip)s
        alias                    %(region)s
-       display_name             %(region)s
-       hostgroups               group-hospitals
-       notes                    order_%(order)d
+       check_command            check_dummy!0!OK
+}
+define service {
+       use                      generic-service
+       host_name                %(region)s
        check_command            check_emergency_occupation!%(url)s!%(functional)s!%(occupied)s
+       display_name             %(region)s
+       service_description      %(region)s
+       servicegroups            group-hospitals
+       notes                    order_%(order)d
 }
 """)
 
@@ -70,7 +77,14 @@ business_rule = (
 define host {
        use                            generic-host
        host_name                      Hospitals
-       hostgroups                     group-hospitals
+       alias                          Hospitals
+       check_command                  check_dummy!0!OK
+}
+define service {
+       use                            generic-service
+       host_name                      Hospitals
+       servicegroups                  group-hospitals
+       service_description            Hospitals
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
@@ -83,7 +97,7 @@ def main():
     # all_hospitals is a workaround while we wait for g:group-hospitals to work
     all_hospitals = []
     for order, (region, values) in enumerate(HOSPITALS.iteritems()):
-        all_hospitals.append('%s' % region)
+        all_hospitals.append('%s,%s' % (region, region))
         print template % {'region': region,
                           'ip': values['ip'],
                           'url': values['url'],

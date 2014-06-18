@@ -9,7 +9,7 @@
             {
                "reload_interval" : "0",
                "fullscreen" : false,
-               "data_source" : "hosts",
+               "data_source" : "services",
                "template" : "quebec.html",
                "view_name" : "quebec"
             }
@@ -24,10 +24,10 @@
          "columns" : [
             {
                "widget" : "default.html",
-               "name" : "name"
+               "name" : "service_description"
             },
             {
-               "name" : "address",
+               "name" : "host_address",
                "widget" : "default.html"
             },
             {

@@ -50,10 +50,7 @@ BANKS = {
     }
 
 prefix = (
-"""define servicegroup {
-	  servicegroup_name       group_banks
-	  alias                   Banks
-	  }
+"""
 """)
 
 template = (
@@ -64,10 +61,17 @@ template = (
        host_name                %(domain)s
        address                  %(domain)s
        alias                    %(domain)s
-       display_name             %(bank)s
-       hostgroups               group-banks
-       notes                    order_%(order)d
+       check_command            check_dummy!0!OK
+}
+define service {
+       use                      generic-service
+       host_name                %(domain)s
        check_command            check_http_service!%(domain)s!%(path)s%(more_options)s
+       display_name             %(bank)s
+       service_description      %(domain)s
+       servicegroups            group-banks
+       notes                    order_%(order)d
+
 }
 """)
 
@@ -76,7 +80,14 @@ business_rule = (
 define host {
        use                            generic-host
        host_name                      Banks
-       hostgroups                     group-banks
+       alias                          Banks
+       check_command                  check_dummy!0!OK
+}
+define service {
+       use                            generic-service
+       host_name                      Banks
+       servicegroups                  group-banks
+       service_description            Banks
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_banks)s
        business_rule_output_template  $(x)$
@@ -92,7 +103,7 @@ def main():
     # all_banks is a workaround while we wait for g:group_banks to work
     all_banks = []
     for order, (bank, values) in enumerate(BANKS.iteritems()):
-        all_banks.append('%s' % values['domain'])
+        all_banks.append('%s,%s' % (values['domain'], values['domain']))
         print template % {'bank': bank.replace('_', ' '),
                           'domain': values['domain'],
                           'path': values['path'],

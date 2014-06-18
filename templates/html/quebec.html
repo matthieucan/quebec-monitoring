@@ -30,6 +30,10 @@
      background: rgba(0, 0, 0, 0.85);
      color: white;
    }
+   a {
+     color: #aaaaaa;
+     text-decoration: underline;
+   }
    div.box {
      padding: 10px;
      margin: 20px;
@@ -47,12 +51,14 @@
      display: none;
      margin-top: 20px;
    }
-   #click_tell_me_more {
+   .big-button {
      cursor: pointer;
      display: inline-block;
      border: 1px solid white;
      padding: 15px;
      font-size: 1.3em;
+     margin-left: 10px;
+     margin-right: 10px;
    }
    .map_container {
      height: 400px;
@@ -68,6 +74,9 @@
    .box .hidden {
      display: none;
      text-align: left;
+   }
+   .box .box_hidden_content li {
+     margin-bottom: 0.5em;
    }
    .outerbox_large {
      width:100%;
@@ -111,8 +120,8 @@
   <div id="wrap">
     <div class="jumbotron header">
       <h1>Québec 24x7</h1>
-      <p style="margin-top: 20px;">
-        <div id="click_tell_me_more" onclick="tell_me_more()">En savoir plus</div>
+      <div style="margin-top: 20px;">
+        <div class="big-button" id="click_tell_me_more" onclick="tell_me_more()">En savoir plus</div>
         <div id="tell_me_more">
           <p>Québec 24x7 est une application supervisant en permanence certaines métriques au Québec.</p>
           <p><a href="https://github.com/matthieucan/quebec-monitoring">Sources de l'application</a></p>
@@ -130,8 +139,16 @@
               <li>Supervision : Shinken, Pynag, Adagios.</li>
               <li>Serveur : Ubuntu, Apache, Docker.</li>
             </ul>
+          </p>
+          <p>Contact :
+            <ul>
+              <li>Courriel : <a href="mailto:supervision@savoirfairelinux.com">supervision@savoirfairelinux.com</a>.</li>
+              <li><a href="https://github.com/matthieucan/quebec-monitoring/issues/new">Rapporter un bug</a>.</li>
+              <li><a href="https://github.com/matthieucan/quebec-monitoring">Parcourir le code source, fork, pull-request...</a></li>
+            </ul>
+          </p>
         </div>
-      </p>
+      </div>
     </div>
     <hr style="height: 1px; border: 0; border-top: 1px solid white;" />
     
@@ -139,10 +156,10 @@
     <div class="row-fluid">
       {% for box in data_ %}
       {% with lines=box.list|dictsort:"notes" %}
-      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.name }}'); {{ lines.0.name }}_map.map.updateSize();" id="box_{{ lines.0.name }}">
+      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();" id="box_{{ lines.0.description }}">
         <div class="box border border-{{ lines.0.state }}">
           <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
-          <h2>{{ lines.0.name }}</h2>
+          <h2>{{ lines.0.description }}</h2>
           <p>
             {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
               OK
@@ -152,13 +169,16 @@
               {{ lines.0.plugin_output|length }} problems
             {% endif %}
           </p>
-          <div class="hidden" id="">
+          <div class="hidden box_hidden_content" id="">
             <div class="map_outer">
-              <div class="map_container" id="map_{{ lines.0.name }}"></div>
+              <div class="map_container" id="map_{{ lines.0.description }}"></div>
             </div>
             <ul>
             {% for line in lines|slice:"1:" %}
-              <li><span class="color-{{ line.state }}">{{ line.display_name }}</span></li>
+              <li>
+                <span class="color-{{ line.state }}">{{ line.display_name }}
+                <br /><em>{{ line.plugin_output }}</em></span>
+              </li>
             {% endfor %}
             </ul>
             <div style="clear:both;">&nbsp;</div>
@@ -259,18 +279,18 @@
     
     {% for box in data_ %}
     {% with lines=box.list|dictsort:"notes" %}
-      var {{ lines.0.name }}_map = create_map();
+      var {{ lines.0.description }}_map = create_map();
       {% for line in lines|slice:"1:" %}
-        {% with loc=line.address|locateip %}
+        {% with loc=line.host_address|locateip %}
           {% if loc %}
-            {{ lines.0.name }}_map.markers.addMarker(new OpenLayers.Marker(
+            {{ lines.0.description }}_map.markers.addMarker(new OpenLayers.Marker(
                             new OpenLayers.LonLat({{ loc }}).transform(fromProjection, toProjection),
                             icon_{{ line.state }}.clone()));
           {% endif %}
         {% endwith %}
       {% endfor %}
       
-      {{ lines.0.name }}_map.map.render("map_{{ lines.0.name }}");
+      {{ lines.0.description }}_map.map.render("map_{{ lines.0.description }}");
     {% endwith %}
     {% endfor %}
   </script>
