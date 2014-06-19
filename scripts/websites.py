@@ -22,7 +22,7 @@ define host {
 define service {
        use                      generic-service
        host_name                %(host)s.qc.ca
-       check_command            check_http_service!%(host)s.qc.ca!/
+       check_command            check_http2!%(host)s.qc.ca
        display_name             %(host)s.qc.ca
        service_description      %(host)s.qc.ca
        servicegroups            group-websites

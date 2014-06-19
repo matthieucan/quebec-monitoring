@@ -75,7 +75,7 @@ template = (
 define service {
        use                      generic-service
        host_name                %(domain)s
-       check_command            check_http_service!%(domain)s!%(path)s%(more_options)s
+       check_command            check_http2!%(url)s
        display_name             %(isp)s
        service_description      %(domain)s
        servicegroups            group-isp
@@ -108,16 +108,14 @@ define service {
 def main():
     all_isp = []
     for order, (isp, values) in enumerate(ISPS.iteritems()):
-        protocol, address = values['url'].split('://')
-        domain, path = address.split('/', 1)
-        path = '/' + path
+        address = values['url'].split('://')[1]
+        domain = address.split('/')[0]
         all_isp.append('%s,%s' % (domain, domain))
         
         print template % {'isp': isp,
                          'domain': domain,
-                         'path': path,
-                         'order': order + 1,
-                         'more_options': '!--ssl' if protocol == 'https' else ''}
+                         'url': values['url'],
+                         'order': order + 1}
     all_isp = '&'.join(all_isp)
     print business_rule % {'all_isp': all_isp}
 

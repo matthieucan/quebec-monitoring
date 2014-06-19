@@ -66,7 +66,7 @@ template = (
 define service {
        use                      generic-service
        host_name                %(domain)s
-       check_command            check_http_service!%(domain)s!%(path)s%(more_options)s
+       check_command            check_http2!%(url)s
        display_name             %(bank)s
        service_description      %(domain)s
        servicegroups            group-banks
@@ -104,11 +104,11 @@ def main():
     all_banks = []
     for order, (bank, values) in enumerate(BANKS.iteritems()):
         all_banks.append('%s,%s' % (values['domain'], values['domain']))
+        url = values['protocol'] + '://' + values['domain'] + values['path']
         print template % {'bank': bank.replace('_', ' '),
                           'domain': values['domain'],
-                          'path': values['path'],
                           'order': order + 1,
-                          'more_options': '!--ssl' if values['protocol'] == 'https' else ''}
+                          'url': url}
     all_banks = '&'.join(all_banks)
     print business_rule % {'all_banks': all_banks}
 
