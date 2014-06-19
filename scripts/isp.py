@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# from http://listingsca.com/computing/internet/providers/#
 ISPS = {
     'AOL Canada': {
         'url': 'http://www.aol.ca/',
