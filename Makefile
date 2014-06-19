@@ -4,7 +4,7 @@ run:
 	docker.io build -t quebec .
 	docker.io run -d -t quebec
 
-conf: banks dns websites hospitals transports dating
+conf: banks dns websites hospitals transports dating isp
 
 banks:
 	scripts/banks.py > etc/shinken/adagios/banks.cfg
@@ -23,3 +23,6 @@ transports:
 
 dating:
 	scripts/dating.py > etc/shinken/adagios/dating.cfg
+
+isp:
+	scripts/isp.py > etc/shinken/adagios/isp.cfg
