@@ -32,8 +32,8 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Metro
-       alias                          Metro
+       host_name                      Transports
+       alias                          Transports
        check_command                  check_dummy!0!OK
 }
 define service {
