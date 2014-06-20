@@ -281,7 +281,7 @@
     {% with lines=box.list|dictsort:"notes" %}
       var {{ lines.0.description }}_map = create_map();
       {% for line in lines|slice:"1:" %}
-        {% with loc=line.host_address|locateip %}
+        {% with loc=line.icon_image_alt %}
           {% if loc %}
             {{ lines.0.description }}_map.markers.addMarker(new OpenLayers.Marker(
                             new OpenLayers.LonLat({{ loc }}).transform(fromProjection, toProjection),
