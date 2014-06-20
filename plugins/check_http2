@@ -84,6 +84,8 @@ Usage:
     Print detailed help screen
  -U, --url=ADDRESS
     URL
+ -A, --user-agent=STR
+    User-Agent header
  -V, --version
     Print version information
 """ % PLUGIN_NAME
@@ -96,7 +98,13 @@ def get_data(args):
     url = args['url']
     
     try:
-        code = urllib2.urlopen(url).getcode()
+        request = urllib2.Request(url)
+        opener = urllib2.build_opener()
+        if args.get('user-agent'):
+            request.add_header('User-Agent', args['user-agent'])
+            
+        code = opener.open(request).getcode()
+        #code = urllib2.urlopen(url).getcode()
     except Exception as e:
         try:
             code = e.code
@@ -131,7 +139,7 @@ def main():
     """
     try:
         options, args = getopt.getopt(sys.argv[1:],
-                        'U:hV',
+                        'A:U:hV',
                         ['hostname=', 'help', 'version'])
     except getopt.GetoptError, err:
         print str(err)
@@ -143,6 +151,8 @@ def main():
     for option_name, value in options:
         if option_name in ("-U", "--url"):
             args['url'] = value
+        elif option_name in ("-A", "--user-agent"):
+            args['user-agent'] = value
         elif option_name in ("-h", "--help"):
             print_version()
             print_usage()
