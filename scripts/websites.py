@@ -14,17 +14,17 @@ template = (
 """
 define host {
        use                      generic-host
-       host_name                %(host)s.qc.ca
-       address                  %(host)s.qc.ca
-       alias                    %(host)s.qc.ca
+       host_name                %(host)s
+       address                  %(host)s
+       alias                    %(host)s
        check_command            check_dummy!0!OK
 }
 define service {
        use                      generic-service
-       host_name                %(host)s.qc.ca
-       check_command            check_http2!%(host)s.qc.ca
-       display_name             %(host)s.qc.ca
-       service_description      %(host)s.qc.ca
+       host_name                %(host)s
+       check_command            check_http2!%(host)s
+       display_name             %(host)s
+       service_description      %(host)s
        servicegroups            group-websites
        notes                    order_%(order)d
 }
@@ -58,9 +58,9 @@ def get_hosts_list():
     hosts = soup.find_all('a', href=re.compile('.qc.ca'))
     res = set()
     for host in hosts:
-        r = re.search('://((.*).qc.ca)', host['href'])
+        r = re.search('^(https?://.*.qc.ca)', host['href'])
         if r is not None:
-            res.add(r.group(2))
+            res.add(r.group(1))
     
     return res
 
@@ -70,7 +70,7 @@ def main():
     for (order, host) in enumerate(get_hosts_list()):
         print template % {'host': host,
                           'order': order + 1}
-        websites.append('%(host)s.qc.ca,%(host)s.qc.ca' % {'host': host})
+        websites.append('%(host)s,%(host)s' % {'host': host})
     all_websites = '&'.join(websites)
     print postfix % {'all_websites': all_websites}
 
