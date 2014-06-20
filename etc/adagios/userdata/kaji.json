@@ -27,7 +27,7 @@
                "name" : "service_description"
             },
             {
-               "name" : "host_address",
+               "name" : "icon_image_alt",
                "widget" : "default.html"
             },
             {
