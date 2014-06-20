@@ -134,7 +134,7 @@ def get_data(args):
         final_msg = ('%(msg)s - %(problems)d problem%(plural)s %(list)s'
                      % {'msg': msg,
                         'problems': len(problems),
-                        'plural': 's' if is_problems else '',
+                        'plural': 's' if len(problems) >= 2 else '',
                         'list': ': ' + ', '.join(problems) if is_problems else ''})
         
         print('%(msg)s|problems=%(problems)d;;;0;;'
