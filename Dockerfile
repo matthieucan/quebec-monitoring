@@ -35,15 +35,6 @@ RUN apt-get install -y python-lxml # required by scrapers plugins
 
 RUN apt-get install -y nagios-plugins
 
-### Nagvis
-
-#ADD nagvis_debconf.dat /tmp/nagvis_debconf.dat 
-#RUN DEBCONF_DB_OVERRIDE='File /tmp/nagvis_debconf.dat' apt-get install -y nagvis
-RUN apt-get install -y nagvis
-#RUN apt-get install -y sqlite3
-#temporary fix
-#ADD auth.db /etc/nagvis/auth.db
-
 ### SSH
 
 RUN apt-get install -y openssh-server
@@ -83,7 +74,7 @@ RUN chmod u+s /bin/ping6
 
 ADD etc /etc
 ADD plugins /usr/lib/nagios/plugins
-#ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
+ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
 ADD templates/media /usr/local/lib/python2.7/dist-packages/adagios/media
 
 RUN chown -R shinken: /etc/adagios
