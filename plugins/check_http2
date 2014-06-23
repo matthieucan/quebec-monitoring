@@ -104,11 +104,10 @@ def get_data(args):
             request.add_header('User-Agent', args['user-agent'])
             
         code = opener.open(request).getcode()
-        #code = urllib2.urlopen(url).getcode()
     except Exception as e:
         try:
             code = e.code
-            print 'CRITICAL - HTTP %s' % code
+            print 'CRITICAL - HTTP %s - %s' % (code, e)
             sys.exit(STATE_CRITICAL)
 
         except Exception:
