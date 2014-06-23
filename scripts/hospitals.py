@@ -399,7 +399,7 @@ define service {
        display_name             %(region)s
        service_description      %(name)s
        servicegroups            group-hospitals
-       notes                    order_%(order)d
+       labels                   order_%(order)d
        icon_image_alt           %(2d_coords)s
 }
 """)
@@ -420,7 +420,7 @@ define service {
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
-       notes                          order_0
+       labels                         order_0
        icon_image                     fa-h-square
 }
 """)

@@ -70,7 +70,7 @@ define service {
        display_name             %(bank)s
        service_description      %(domain)s
        servicegroups            group-banks
-       notes                    order_%(order)d
+       labels                   order_%(order)d
 
 }
 """)
@@ -91,7 +91,7 @@ define service {
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_banks)s
        business_rule_output_template  $(x)$
-       notes                          order_0
+       labels                         order_0
        icon_image                     fa-btc
 }
 """)

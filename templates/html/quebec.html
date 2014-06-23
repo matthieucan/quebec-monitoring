@@ -173,7 +173,7 @@
     {% regroup data by groups as data_ %}
     <div class="row-fluid">
       {% for box in data_ %}
-      {% with lines=box.list|dictsort:"notes" %}
+      {% with lines=box.list|dictsort:"labels" %}
       <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();" id="box_{{ lines.0.description }}">
         <div class="box border border-{{ lines.0.state }}">
           <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
@@ -314,7 +314,7 @@
    var icon_3 = icon_1;
     
    {% for box in data_ %}
-   {% with lines=box.list|dictsort:"notes" %}
+   {% with lines=box.list|dictsort:"labels" %}
      var {{ lines.0.description }}_map = create_map();
      {% for line in lines|slice:"1:" %}
        {% with loc=line.icon_image_alt %}

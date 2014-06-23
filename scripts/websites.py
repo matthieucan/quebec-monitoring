@@ -26,7 +26,7 @@ define service {
        display_name             %(host)s
        service_description      %(host)s
        servicegroups            group-websites
-       notes                    order_%(order)d
+       labels                   order_%(order)d
 }
 """)
 
@@ -45,7 +45,7 @@ define service {
        check_command                  bp_rule!%(all_websites)s
        service_description            Websites
        business_rule_output_template  $(x)$
-       notes                          order_0
+       labels                         order_0
        icon_image                     fa-desktop
 }
 """)

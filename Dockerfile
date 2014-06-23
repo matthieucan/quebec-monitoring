@@ -88,6 +88,10 @@ RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 # Allow ssh connection from host
 # ADD id_rsa.pub /root/home/.ssh/authorized_keys
 
+# temporary fix while we wait for https://github.com/shinken-monitoring/mod-livestatus/pull/26
+ADD mod-livestatus-labels.patch /mod-livestatus-labels.patch
+RUN cd /usr/share/pyshared/shinken/modules/livestatus && git apply /mod-livestatus-labels.patch
+
 ADD etc /etc
 
 EXPOSE 80

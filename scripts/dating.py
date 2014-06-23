@@ -32,7 +32,7 @@ define service {
        service_description      %(hostname)s
        check_command            %(command)s
        servicegroups            group-dating
-       notes                    order_%(order)d
+       labels                   order_%(order)d
 }
 
 """)
@@ -53,7 +53,7 @@ define service {
        check_command                    bp_rule!%(all_dating)s
        business_rule_output_template    $(x)$
        servicegroups                    group-dating
-       notes                            order_0
+       labels                           order_0
        icon_image                       fa-heart-o
 }
 
