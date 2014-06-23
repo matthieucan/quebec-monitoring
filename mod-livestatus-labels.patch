@@ -1,0 +1,41 @@
+From 6ce6271889225595d24345d4d5945fa9e9ebfcb4 Mon Sep 17 00:00:00 2001
+From: Matthieu Caneill <matthieu.caneill@savoirfairelinux.com>
+Date: Mon, 23 Jun 2014 14:47:38 -0400
+Subject: [PATCH] Fix: add missing column 'labels' for hosts and services
+
+This was missing.
+---
+ mapping.py | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/mapping.py b/mapping.py
+index 754108e..52c08cd 100644
+--- a/mapping.py
++++ b/mapping.py
+@@ -448,6 +448,11 @@ def get_livestatus_full_name(item, req):
+             'function': lambda item, req: item.is_problem,
+             'datatype': bool,
+         },
++        'labels': {
++            'description': 'Arbitrary labels (separated by comma character)',
++            'function': lambda item, req: item.labels,
++            'datatype': list,
++        },
+         'last_check': {
+             'description': 'Time of the last check (Unix timestamp)',
+             'function': lambda item, req: int(item.last_chk),
+@@ -1283,6 +1288,11 @@ def get_livestatus_full_name(item, req):
+             'function': lambda item, req: item.is_problem,
+             'datatype': bool,
+         },
++        'labels': {
++            'description': 'Arbitrary labels (separated by comma character)',
++            'function': lambda item, req: item.labels,
++            'datatype': list,
++        },
+         'latency': {
+             'description': 'Time difference between scheduled check time and actual check time',
+             'function': lambda item, req: item.latency,  # CONTROLME INSORTME
+-- 
+1.9.3
+
