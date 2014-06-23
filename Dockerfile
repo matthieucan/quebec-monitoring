@@ -72,7 +72,6 @@ RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
-ADD etc /etc
 ADD plugins /usr/lib/nagios/plugins
 ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
 ADD templates/media /usr/local/lib/python2.7/dist-packages/adagios/media
@@ -88,6 +87,8 @@ RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 
 # Allow ssh connection from host
 # ADD id_rsa.pub /root/home/.ssh/authorized_keys
+
+ADD etc /etc
 
 EXPOSE 80
 EXPOSE 22
