@@ -19,6 +19,12 @@
      -o-background-size: cover;
      background-size: cover;
    }
+   .transparent {
+     background-color: black;
+     filter: alpha(opacity=85); /* YEAH IE */
+     background: rgba(0, 0, 0, 0.85);
+     color: white;
+   }
    #wrap {
      padding: 50px;
      width: 960px;
@@ -50,6 +56,13 @@
      text-align: left;
      display: none;
      margin-top: 20px;
+   }
+   #settings {
+     top: 0;
+     right: 0;
+     margin: 0;
+     padding: 5px;
+     position: fixed;
    }
    .big-button {
      cursor: pointer;
@@ -117,7 +130,7 @@
   </style>
 </head>
 <body>
-  <div id="wrap">
+  <div id="wrap" class="transparent">
     <div class="jumbotron header">
       <h1>Québec 24x7</h1>
       <div style="margin-top: 20px;">
@@ -147,6 +160,11 @@
               <li><a href="https://github.com/matthieucan/quebec-monitoring">Parcourir le code source, fork, pull-request...</a></li>
             </ul>
           </p>
+        </div>
+        <div id="settings" class="transparent">
+            <label for="checbox-reload" style="display: inline;">Auto-reload</label>
+            <input type="checkbox" name="checkbox-reload" id="checkbox-reload"
+                   {% if "autoreload" in request.GET %} checked="checked"{% endif %} />
         </div>
       </div>
     </div>
@@ -200,99 +218,117 @@
   <script src="{% url media path="external/openlayers/lib/OpenLayers.js" %}"></script>
 
   <script type="text/javascript">
-    function tell_me_more() {
-      $('#tell_me_more').toggle(400);
-      if ($('#click_tell_me_more')[0].innerHTML == "En savoir plus") {
-        $('#click_tell_me_more')[0].innerHTML = "Masquer";
-      }
-      else {
-        $('#click_tell_me_more')[0].innerHTML = "En savoir plus";
-      }
-    }
-    function toggle_box(id) {
-      var box = $("#" + id);
-      if (box.hasClass("span3")) {
-        $('.outerbox').hide();
-        box.show();
-        box[0].classList.remove("span3");
-        box[0].classList.add("outerbox_large");
-        $("#" + id + " .hidden").toggle(400);
-        $("#" + id + " .hidden")[0].classList.remove("invisible");
-      }
-      else {
-        $("#" + id + " .hidden")[0].classList.add("invisible");
-        $("#" + id + " .hidden").toggle(400);
-        box[0].classList.remove("outerbox_large");
-        box[0].classList.add("span3");
-        //
-        $('.outerbox').show();
-      }
-    }
+   /* dirty hack, which manipulates GET elements in the url */
+   $("#checkbox-reload").change(function() {
+     if($("#checkbox-reload").is(":checked")) {
+       window.location.replace(window.location.origin + window.location.pathname + "?autoreload");
+     }
+     else {
+       window.location.replace(window.location.origin + window.location.pathname);
+     }
+   });
    
-    var fromProjection = new OpenLayers.Projection("EPSG:4326");
-    var toProjection   = new OpenLayers.Projection("EPSG:900913");
-    
-    function create_map() {
-      var position       = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);//.transform(new OpenLayers.Projection('EPSG:4326'), new OpenLayers.Projection('EPSG:3857'));
-      var zoom           = 4;
-      
-      var markers = new OpenLayers.Layer.Markers("Markers");
-      
-      var OSMLayer = new OpenLayers.Layer.OSM('OSM Map', null, {
-        eventListeners: {
-          tileloaded: function(evt) {
-            var ctx = evt.tile.getCanvasContext();
-            if (ctx) {
-              var imgd = ctx.getImageData(0, 0, evt.tile.size.w, evt.tile.size.h);
-              var pix = imgd.data;
-              for (var i = 0, n = pix.length; i < n; i += 4) {
-                if (pix[i] == 181 && pix[i+1] == 208 && pix[i+2] == 208) {
-                  // makes the ocean transparent
-                  pix[i+3] = 0;
-                  pix[i] = pix[i + 1] = pix[i + 2] = 255;
-                }
-                else if (pix[i] == 241 && pix[i+1] == 238 && pix[i+2] == 232) {
-                  // makes the land white
-                  pix[i] = pix[i + 1] = pix[i + 2] = 255;
-                }
-              }
-              ctx.putImageData(imgd, 0, 0);
-              evt.tile.imgDiv.removeAttribute("crossorigin");
-              evt.tile.imgDiv.src = ctx.canvas.toDataURL();
-            }
-          }
-        },
-      });
-      
-      var map = new OpenLayers.Map({
+   var autoReload = window.setInterval(reload, 30000);
+   function reload() {
+     if($("#checkbox-reload").is(":checked")) {
+       window.location.reload();
+     }
+   }
+   
+   function tell_me_more() {
+     $('#tell_me_more').toggle(400);
+     if ($('#click_tell_me_more')[0].innerHTML == "En savoir plus") {
+       $('#click_tell_me_more')[0].innerHTML = "Masquer";
+     }
+     else {
+       $('#click_tell_me_more')[0].innerHTML = "En savoir plus";
+     }
+   }
+   function toggle_box(id) {
+     var box = $("#" + id);
+     
+     if (box.hasClass("span3")) {
+       $('.outerbox').hide();
+       box.show();
+       box[0].classList.remove("span3");
+       box[0].classList.add("outerbox_large");
+       $("#" + id + " .hidden").toggle(400);
+       $("#" + id + " .hidden")[0].classList.remove("invisible");
+     }
+     else {
+       $("#" + id + " .hidden")[0].classList.add("invisible");
+       $("#" + id + " .hidden").toggle(400);
+       box[0].classList.remove("outerbox_large");
+       box[0].classList.add("span3");
+       //
+       $('.outerbox').show();
+     }
+   }
+   
+   var fromProjection = new OpenLayers.Projection("EPSG:4326");
+   var toProjection   = new OpenLayers.Projection("EPSG:900913");
+   
+   function create_map() {
+     var position       = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);//.transform(new OpenLayers.Projection('EPSG:4326'), new OpenLayers.Projection('EPSG:3857'));
+     var zoom           = 4;
+     
+     var markers = new OpenLayers.Layer.Markers("Markers");
+     
+     var OSMLayer = new OpenLayers.Layer.OSM('OSM Map', null, {
+       eventListeners: {
+         tileloaded: function(evt) {
+           var ctx = evt.tile.getCanvasContext();
+           if (ctx) {
+             var imgd = ctx.getImageData(0, 0, evt.tile.size.w, evt.tile.size.h);
+             var pix = imgd.data;
+             for (var i = 0, n = pix.length; i < n; i += 4) {
+               if (pix[i] == 181 && pix[i+1] == 208 && pix[i+2] == 208) {
+                 // makes the ocean transparent
+                 pix[i+3] = 0;
+                 pix[i] = pix[i + 1] = pix[i + 2] = 255;
+               }
+               else if (pix[i] == 241 && pix[i+1] == 238 && pix[i+2] == 232) {
+                 // makes the land white
+                 pix[i] = pix[i + 1] = pix[i + 2] = 255;
+               }
+             }
+             ctx.putImageData(imgd, 0, 0);
+             evt.tile.imgDiv.removeAttribute("crossorigin");
+             evt.tile.imgDiv.src = ctx.canvas.toDataURL();
+           }
+         }
+       },
+     });
+     
+     var map = new OpenLayers.Map({
        layers: [OSMLayer, markers],
        center: position,
        zoom: zoom,
-      });
-      return {map: map, markers: markers};
-    }
+     });
+     return {map: map, markers: markers};
+   }
+   
+   var icon_0 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker-green.png" %}');
+   var icon_1 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker.png" %}');
+   var icon_2 = icon_1;
+   var icon_3 = icon_1;
     
-    var icon_0 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker-green.png" %}');
-    var icon_1 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker.png" %}');
-    var icon_2 = icon_1;
-    var icon_3 = icon_1;
-    
-    {% for box in data_ %}
-    {% with lines=box.list|dictsort:"notes" %}
-      var {{ lines.0.description }}_map = create_map();
-      {% for line in lines|slice:"1:" %}
-        {% with loc=line.icon_image_alt %}
-          {% if loc %}
-            {{ lines.0.description }}_map.markers.addMarker(new OpenLayers.Marker(
-                            new OpenLayers.LonLat({{ loc }}).transform(fromProjection, toProjection),
-                            icon_{{ line.state }}.clone()));
-          {% endif %}
-        {% endwith %}
-      {% endfor %}
-      
-      {{ lines.0.description }}_map.map.render("map_{{ lines.0.description }}");
-    {% endwith %}
-    {% endfor %}
+   {% for box in data_ %}
+   {% with lines=box.list|dictsort:"notes" %}
+     var {{ lines.0.description }}_map = create_map();
+     {% for line in lines|slice:"1:" %}
+       {% with loc=line.icon_image_alt %}
+         {% if loc %}
+           {{ lines.0.description }}_map.markers.addMarker(new OpenLayers.Marker(
+                           new OpenLayers.LonLat({{ loc }}).transform(fromProjection, toProjection),
+                           icon_{{ line.state }}.clone()));
+         {% endif %}
+       {% endwith %}
+     {% endfor %}
+     
+     {{ lines.0.description }}_map.map.render("map_{{ lines.0.description }}");
+   {% endwith %}
+   {% endfor %}
   </script>
 </body>
 </html>
