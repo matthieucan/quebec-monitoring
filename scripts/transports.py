@@ -5,7 +5,11 @@ TRANSPORTS = {
     'Metro in Montreal': {
         'hostname': 'stm_metro',
         'command': 'check_stm_metro!1!3',
-        }
+    },
+    'Bikes (Bixi) in Montreal': {
+        'hostname': 'bixi_mtl',
+        'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
+    }
 }
 
 template = (
