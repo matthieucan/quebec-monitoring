@@ -9,6 +9,33 @@ http://iceland.adagios.org by @palli.
 
 ## How to: run at home
 
+### Generate the configuration
+
+* (not mandatory) Fill the tokens needed for certain web services
+```
+$ cp scripts/tokens.py.copyme scripts/tokens.py
+$ \<your-favourite-editor> scripts/tokens.py
+```
+
+* (not mandatory) Use python-virtualenv if you're not root or you
+  want to keep your machine clean of Python packages
+```
+$ virtualenv VENV
+$ . VENV/bin/activate
+```
+
+* Install the needed Python packages
+```
+$ pip install -r scripts/requirements.txt
+```
+
+* Generate the configuration
+```
+$ make conf
+```
+
+### Run the Docker container
+
 The only dependency is Docker, on Debian- or Ubuntu-based distros you
 can:
 ```
