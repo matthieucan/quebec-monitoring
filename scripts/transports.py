@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from tokens import TOKENS
+
 TRANSPORTS = {
     'Metro in Montreal': {
         'hostname': 'stm_metro',
@@ -9,6 +11,10 @@ TRANSPORTS = {
     'Bikes (Bixi) in Montreal': {
         'hostname': 'bixi_mtl',
         'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
+    },
+    'AMT': {
+        'hostname': 'amt_trains',
+        'command': 'check_amt!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
     }
 }
 

@@ -30,6 +30,7 @@ RUN apt-get install -y shinken-module-logstore-sqlite
 
 RUN apt-get install -y python-openssl # required for $plugin
 RUN apt-get install -y python-lxml # required by scrapers plugins
+RUN apt-get install -y python-protobuf # required by check_amt
 
 ### Plugins
 
