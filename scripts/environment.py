@@ -51,7 +51,7 @@ define host {
 define service {
        use                              generic-service
        host_name                        Environment
-       service_description              Environment
+       service_description              Écologie
        check_command                    bp_rule!%(all_environments)s
        business_rule_output_template    $(x)$
        servicegroups                    group-environment

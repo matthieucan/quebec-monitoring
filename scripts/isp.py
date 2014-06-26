@@ -96,8 +96,7 @@ define service {
        use                            generic-service
        host_name                      ISP
        servicegroups                  group-isp
-       service_description            ISP
-       # check_command                  bp_rule!g:group_banks
+       service_description            FAI
        check_command                  bp_rule!%(all_isp)s
        business_rule_output_template  $(x)$
        labels                         order_0

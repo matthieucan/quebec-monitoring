@@ -416,8 +416,7 @@ define service {
        use                            generic-service
        host_name                      Hospitals
        servicegroups                  group-hospitals
-       service_description            Hospitals
-       # check_command                  bp_rule!g:group_banks
+       service_description            Hôpitaux
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
        labels                         order_0,map

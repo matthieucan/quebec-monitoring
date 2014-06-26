@@ -48,8 +48,7 @@ define host {
 define service {
        use                              generic-service
        host_name                        Dating
-       service_description              Dating
-       # check_command                  bp_rule!g:group_banks
+       service_description              Rencontres
        check_command                    bp_rule!%(all_dating)s
        business_rule_output_template    $(x)$
        servicegroups                    group-dating

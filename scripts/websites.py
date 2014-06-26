@@ -41,9 +41,9 @@ define host {
 define service {
        use                            generic-service
        host_name                      Websites
-       servicegroups                     group-websites
+       servicegroups                  group-websites
        check_command                  bp_rule!%(all_websites)s
-       service_description            Websites
+       service_description            Web
        business_rule_output_template  $(x)$
        labels                         order_0
        icon_image                     fa-desktop
