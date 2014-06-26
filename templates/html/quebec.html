@@ -188,9 +188,11 @@
             {% endif %}
           </p>
           <div class="hidden box_hidden_content" id="">
-            <div class="map_outer">
-              <div class="map_container" id="map_{{ lines.0.description }}"></div>
-            </div>
+            {% if "map" in lines.0.labels %}
+              <div class="map_outer">
+                <div class="map_container" id="map_{{ lines.0.description }}"></div>
+              </div>
+            {% endif %}
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>
@@ -315,6 +317,7 @@
     
    {% for box in data_ %}
    {% with lines=box.list|dictsort:"labels" %}
+   {% if "map" in lines.0.labels %}
      var {{ lines.0.description }}_map = create_map();
      {% for line in lines|slice:"1:" %}
        {% with loc=line.icon_image_alt %}
@@ -327,6 +330,7 @@
      {% endfor %}
      
      {{ lines.0.description }}_map.map.render("map_{{ lines.0.description }}");
+   {% endif %}
    {% endwith %}
    {% endfor %}
   </script>

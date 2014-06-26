@@ -420,7 +420,7 @@ define service {
        # check_command                  bp_rule!g:group_banks
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
-       labels                         order_0
+       labels                         order_0,map
        icon_image                     fa-h-square
 }
 """)
