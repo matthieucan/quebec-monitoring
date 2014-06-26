@@ -44,6 +44,8 @@
      padding: 10px;
      margin: 20px;
      text-align: center;
+   }
+   .cursor-pointer {
      cursor: pointer;
    }
    div.close_box {
@@ -70,7 +72,6 @@
      position: fixed;
    }
    .big-button {
-     cursor: pointer;
      display: inline-block;
      border: 1px solid white;
      padding: 15px;
@@ -141,15 +142,15 @@
     <div class="jumbotron header">
       <h1>Québec 24x7</h1>
       <div style="margin-top: 20px;">
-        <div class="big-button" id="click_tell_me_more"
+        <div class="big-button cursor-pointer" id="click_tell_me_more"
              onclick="$('#tell_me_more_map').hide();$('#tell_me_more_code').hide();$('#tell_me_more_info').toggle(400);">
           <i class="fa fa-info fa"></i>
         </div>
-        <!--<div class="big-button" id=""
+        <!--<div class="big-button cursor-pointer" id=""
                  onclick="$('#tell_me_more_info').hide();$('#tell_me_more_code').hide();$('#tell_me_more_map').toggle(400);">
           <i class="fa fa-map-marker"></i>
         </div>-->
-        <div class="big-button" id=""
+        <div class="big-button cursor-pointer" id=""
              onclick="$('#tell_me_more_map').hide();$('#tell_me_more_info').hide();$('#tell_me_more_code').toggle(400);">
           <i class="fa fa-code-fork"></i>
         </div>
@@ -213,10 +214,10 @@
       {% for box in data_ %}
       {% with lines=box.list|dictsort:"labels" %}
       <div class="outerbox span3 color-0" id="box_{{ lines.0.description }}">
-        <div class="box border border-{{ lines.0.state }}">
+        <div class="box border border-{{ lines.0.state }} cursor-pointer">
           
           <div class="close_box hidden" onclick="hide_box('box_{{ lines.0.description }}')">
-            <i class="fa fa-times"></i>
+            <i class="cursor-pointer fa fa-times"></i>
           </div>
           
           <div onclick="show_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();">
@@ -299,6 +300,7 @@
        box.show();
        box[0].classList.remove("span3");
        box[0].classList.add("outerbox_large");
+       $("#" + id + " .box")[0].classList.remove("cursor-pointer");
        $("#" + id + " .hidden").fadeIn(600);
        $("#" + id + " .hidden")[0].classList.remove("invisible");
      }
@@ -310,6 +312,7 @@
      if (!(box.hasClass("span3"))) {
        $("#" + id + " .hidden")[0].classList.add("invisible");
        $("#" + id + " .hidden").hide();
+       $("#" + id + " .box")[0].classList.add("cursor-pointer");
        box[0].classList.remove("outerbox_large");
        box[0].classList.add("span3");
        $('.outerbox').show();
