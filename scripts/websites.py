@@ -27,6 +27,7 @@ define service {
        service_description      %(host)s
        servicegroups            group-websites
        labels                   order_%(order)d
+       action_url               %(host)s
 }
 """)
 

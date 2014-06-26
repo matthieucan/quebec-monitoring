@@ -71,7 +71,7 @@ define service {
        service_description      %(domain)s
        servicegroups            group-banks
        labels                   order_%(order)d
-
+       action_url               %(url)s
 }
 """)
 

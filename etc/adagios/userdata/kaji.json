@@ -62,9 +62,11 @@
             {
                "name" : "notes",
                "widget" : "default.html"
+            },
+            {
+               "name" : "action_url",
+               "widget" : "default.html"
             }
-
-
          ]
       }
    }

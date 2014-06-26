@@ -7,14 +7,17 @@ TRANSPORTS = {
     'Métro à Montréal': {
         'hostname': 'stm_metro',
         'command': 'check_stm_metro!1!3',
+        'url': 'http://www.stm.info/en/info/service-updates/metro',
     },
     'Vélos (Bixi) à Montréal: nombre de stations pleines ou vides': {
         'hostname': 'bixi_mtl',
         'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
+        'url': 'http://montreal.bixi.com',
     },
     "AMT: nombre d'alertes": {
         'hostname': 'amt_trains',
         'command': 'check_amt!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
+        'url': 'http://amt.qc.ca',
     }
 }
 
@@ -34,6 +37,7 @@ define service {
        check_command            %(command)s
        servicegroups            group-transports
        labels                   order_%(order)d
+       action_url               %(url)s
 }
 
 """)
@@ -71,6 +75,7 @@ def main():
         print template % {'name': name,
                           'hostname': values['hostname'],
                           'command': values['command'],
+                          'url': values['url'],
                           'order': order + 1,
                           }
     

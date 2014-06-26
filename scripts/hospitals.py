@@ -401,6 +401,7 @@ define service {
        servicegroups            group-hospitals
        labels                   order_%(order)d
        icon_image_alt           %(2d_coords)s
+       action_url               %(url)s
 }
 """)
 

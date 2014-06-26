@@ -33,6 +33,7 @@ define service {
        check_command            %(command)s
        servicegroups            group-dating
        labels                   order_%(order)d
+       action_url               %(url)s
 }
 
 """)
@@ -70,6 +71,7 @@ def main():
                           'command': values['command'],
                           'address': values['address'],
                           'order': order + 1,
+                          'url': 'http://' + values['hostname'],
                           }
     
     all_dating = '&'.join(all_dating)

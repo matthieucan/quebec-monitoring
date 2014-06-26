@@ -251,8 +251,14 @@
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>
-                <span class="color-{{ line.state }}">{{ line.display_name }}
-                <br /><em>{{ line.plugin_output }}</em></span>
+                <span class="color-{{ line.state }}">
+                  {% if line.action_url %}
+                    <a href="{{ line.action_url }}">{{ line.display_name }}</a>
+                  {% else %}
+                    {{ line.display_name }}
+                  {% endif %}
+                  <br /><em>{{ line.plugin_output }}</em>
+                </span>
               </li>
             {% endfor %}
             </ul>
