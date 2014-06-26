@@ -57,6 +57,7 @@ define service {
        servicegroups                    group-environment
        labels                           order_0
        icon_image                       fa-tree
+       notes_url                        <a href="http://www.meteomedia.com/meteo/canada/quebec/montreal">Meteomedia</a>
 }
 
 """)

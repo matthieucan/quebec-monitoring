@@ -193,6 +193,11 @@
                 <div class="map_container" id="map_{{ lines.0.description }}"></div>
               </div>
             {% endif %}
+            {% if lines.0.notes_url %}
+              <div style="margin-bottom: 1em;">
+                Source: {% autoescape off %}{{ lines.0.notes_url }}{% endautoescape %}
+              </div>
+            {% endif %}
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>

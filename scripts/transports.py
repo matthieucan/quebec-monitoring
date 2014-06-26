@@ -56,6 +56,7 @@ define service {
        servicegroups                    group-transports
        labels                           order_0
        icon_image                       fa-arrow-circle-down
+       notes_url                        <a href="http://www.stm.info/en/info/service-updates/metro">STM</a>, <a href="http://montreal.bixi.com/">BIXI</a>, <a href="http://amt.qc.ca">AMT</a>
 }
 
 """)

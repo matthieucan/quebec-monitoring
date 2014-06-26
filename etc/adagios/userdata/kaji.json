@@ -54,6 +54,10 @@
             {
                "name" : "plugin_output",
                "widget" : "default.html"
+            },
+            {
+               "name" : "notes_url",
+               "widget" : "default.html"
             }
 
          ]
