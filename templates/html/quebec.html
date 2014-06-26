@@ -182,7 +182,9 @@
       <div class="outerbox span3 color-0" id="box_{{ lines.0.description }}">
         <div class="box border border-{{ lines.0.state }}">
           
-          <div class="close_box hidden" onclick="hide_box('box_{{ lines.0.description }}')">X</div>
+          <div class="close_box hidden" onclick="hide_box('box_{{ lines.0.description }}')">
+            <i class="fa fa-times"></i>
+          </div>
           
           <div onclick="show_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();">
             <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
