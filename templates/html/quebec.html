@@ -57,7 +57,7 @@
    div.header h1 {
      font-size: 4em;
    }
-   #tell_me_more {
+   .tell_me_more {
      text-align: left;
      display: none;
      margin-top: 20px;
@@ -74,9 +74,11 @@
      display: inline-block;
      border: 1px solid white;
      padding: 15px;
-     font-size: 1.3em;
+     font-size: 1.8em;
      margin-left: 10px;
      margin-right: 10px;
+     height: 20px;
+     width: 20px;
    }
    .map_container {
      height: 400px;
@@ -139,8 +141,11 @@
     <div class="jumbotron header">
       <h1>Québec 24x7</h1>
       <div style="margin-top: 20px;">
-        <div class="big-button" id="click_tell_me_more" onclick="tell_me_more()">En savoir plus</div>
-        <div id="tell_me_more">
+        <div class="big-button" id="click_tell_me_more" onclick="$('#tell_me_more_map').hide();$('#tell_me_more_code').hide();$('#tell_me_more_info').toggle(400);"><i class="fa fa-info fa"></i></div>
+        <!--<div class="big-button" id="" onclick="$('#tell_me_more_info').hide();$('#tell_me_more_code').hide();$('#tell_me_more_map').toggle(400);"><i class="fa fa-map-marker"></i></div>-->
+        <div class="big-button" id="" onclick="$('#tell_me_more_map').hide();$('#tell_me_more_info').hide();$('#tell_me_more_code').toggle(400);"><i class="fa fa-code-fork"></i></div>
+        
+        <div class="tell_me_more" id="tell_me_more_info">
           <p>Québec 24x7 est une application supervisant en permanence certaines métriques au Québec.</p>
           <p><a href="https://github.com/matthieucan/quebec-monitoring">Sources de l'application</a></p>
           <p>Crédits:
@@ -151,13 +156,6 @@
               <li>Photographie de fond : "Montréal, le soir" par <a href="https://www.flickr.com/photos/xkristinax/7987570964">Kristina Servant</a>.</li>
             </ul>
           </p>
-          <p>Technologies utilisées :
-            <ul>
-              <li>Langages : Python, Javascript, jQuery, HTML, CSS.</li>
-              <li>Supervision : Shinken, Pynag, Adagios.</li>
-              <li>Serveur : Ubuntu, Apache, Docker.</li>
-            </ul>
-          </p>
           <p>Contact :
             <ul>
               <li>Courriel : <a href="mailto:supervision@savoirfairelinux.com">supervision@savoirfairelinux.com</a>.</li>
@@ -166,6 +164,22 @@
             </ul>
           </p>
         </div>
+        
+        <div class="tell_me_more" id="tell_me_more_map">MAP</div>
+        
+        <div class="tell_me_more" id="tell_me_more_code">
+          <p>Technologies utilisées :
+            <ul>
+              <li>Langages : Python, Javascript, jQuery, HTML, CSS.</li>
+              <li>Supervision : Shinken, Pynag, Adagios.</li>
+              <li>Serveur : Ubuntu, Apache, Docker.</li>
+            </ul>
+          </p>
+          <p>
+            <a href="https://github.com/matthieucan/quebec-monitoring">Parcourir le code source</a>, <a href="https://github.com/matthieucan/quebec-monitoring/blob/master/README.md">informations pour contributeurs</a>.
+          </p>
+        </div>
+        
         <div id="settings" class="transparent">
             <label for="checbox-reload" style="display: inline;">Auto-reload</label>
             <input type="checkbox" name="checkbox-reload" id="checkbox-reload"
@@ -258,15 +272,6 @@
      }
    }
    
-   function tell_me_more() {
-     $('#tell_me_more').toggle(400);
-     if ($('#click_tell_me_more')[0].innerHTML == "En savoir plus") {
-       $('#click_tell_me_more')[0].innerHTML = "Masquer";
-     }
-     else {
-       $('#click_tell_me_more')[0].innerHTML = "En savoir plus";
-     }
-   }
    function show_box(id) {
      var box = $("#" + id);
      
