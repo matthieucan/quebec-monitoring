@@ -59,8 +59,8 @@ command.
 <dl>
   <dt>What? You really use sudo? This looks dangerous.</dt>
   <dd>In order to use Docker, admin rights are required. If you're not
-  confident doing this, you can easily check that no OS image is
-  downloaded, everything is built in the Dockerfile.</dd>
+  confident doing this, you can easily check that only the Ubuntu trusted image is
+  downloaded, everything is built from it in the Dockerfile.</dd>
   
   <dt>What does it install on my machine?</dt>
   <dd>Nothing, except for Docker if you didn't have it
