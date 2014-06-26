@@ -193,9 +193,9 @@
               {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
               OK
               {% elif lines.0.plugin_output|length == 1 %}
-              1 problem
+              1 problème
               {% else %}
-              {{ lines.0.plugin_output|length }} problems
+              {{ lines.0.plugin_output|length }} problèmes
               {% endif %}
             </p>
           </div>
