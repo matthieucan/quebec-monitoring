@@ -132,13 +132,13 @@ def get_data(args):
     str_pb = 'problems' if problems >= 2 else 'problem'
     
     if problems < int(args['warning']):
-        print('OK - %d/%d %s' % (problems, total, str_pb))
+        print('OK - %d %s / %d stations' % (problems, str_pb, total))
         sys.exit(STATE_OK)
     elif problems < int(args['critical']):
-        print('WARNING - %d/%d %s' % (problems, total, str_pb))
+        print('WARNING - %d %s / %d stations' % (problems, str_pb, total))
         sys.exit(STATE_WARNING)
     else:
-        print('CRITICAL - %d/%d %s' % (problems, total, str_pb))
+        print('CRITICAL - %d %s / %d stations' % (problems, str_pb, total))
         sys.exit(STATE_CRITICAL)
 
 def check_arguments(args):
