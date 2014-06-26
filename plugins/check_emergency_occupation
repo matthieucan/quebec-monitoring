@@ -124,18 +124,18 @@ def get_data(args):
             data1 = int(data1[0].strip())
             data2 = int(data2[0].strip())
         except Exception as e:
-            print('Not integers: %s - %s' % (data1, data1))
+            print('Not integers: %s - %s' % (data1, data2))
             sys.exit(STATE_UNKNOWN)
         result = 100 * data2 / data1
 
         if result < int(args['warning']):
-            print('OK - %d%%' % result)
+            print('OK - %d%% (%d / %d)' % (result, data2, data2))
             sys.exit(STATE_OK)
         elif result < int(args['critical']):
-            print('WARNING - %d%%' % result)
+            print('WARNING - %d%% (%d / %d)' % (result, data2, data1))
             sys.exit(STATE_WARNING)
         else:
-            print('CRITICAL - %d%%' % result)
+            print('CRITICAL - %d%% (%d / %d)' % (result, data2, data1))
             sys.exit(STATE_CRITICAL)
     
     print('Wrong data extracted: %s - %s' % (data1, data2))
