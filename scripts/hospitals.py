@@ -6,47 +6,6 @@
 # However not everything is usable, since many sites use PDFs
 
 HOSPITALS = {
-    # 'Bas_St_Laurent': {
-    #     'url': 'http://www.agencesssbsl.gouv.qc.ca/index.php?id=179',
-    #     'functional': '//div[@id="etat-des-urgences"]/table//th[@class="darkfirst"]/following-sibling::th[1]//text()',
-    #     'occupied': '//div[@id="etat-des-urgences"]/table//th[@class="darkfirst"]/following-sibling::th[2]//text()',
-    #     '2d_coords': '68.39151881365967,48.400827150479856',
-    #     },
-    # 'Quebec': {
-    #     'url': 'http://www.rrsss03.gouv.qc.ca/urgence/fra/asp/urgence3.asp',
-    #     'functional': '//td[contains(text(), "Ensemble de la r")]/following-sibling::td[1]/text()',
-    #     'occupied': '//td[contains(text(), "Ensemble de la r")]/following-sibling::td[2]/text()',
-    #     '2d_coords': '71.24796412615967,46.797118382573906',
-    #     },
-    # # No totals in the table
-    # # 'Mauricie': {
-    # #     'url': 'http://www.agencesss04.qc.ca/Siurge/Siurge.htm',
-    # #     'functional': '',
-    # #     'occupied': '',
-    # #     }
-    # 'Montreal': {
-    #     # this url uses an iframe (link below)
-    #     #'url': 'http://agence.santemontreal.qc.ca/espace-medias/donnees-urgences-et-chirurgies/releve-quotidien-de-la-situation-des-salles-durgence/',
-    #     'url': 'http://agence.santemontreal.qc.ca/fileadmin/asssm/rapports/urgence_quotidien_media.html',
-    #     'functional': '//td/div[text()="Total"]/../following-sibling::td[2]/div/text()',
-    #     'occupied': '//td/div[text()="Total"]/../following-sibling::td[3]/div/text()',
-    #     '2d_coords': '73.59766505389405,45.503817122600815',
-    #     },
-    # 'Chaudiere-Appalaches': {
-    #     'url': 'http://www.agencesss12.gouv.qc.ca/situation-dans-les-urgences/',
-    #     'functional': '//td[contains(text(), "Ensemble de la r")]/following-sibling::td[1]/text()',
-    #     'occupied': '//td[contains(text(), "Ensemble de la r")]/following-sibling::td[2]/text()',
-    #     '2d_coords': '71.29933181349179,46.698141208582655',
-    #     },
-    # 'Monteregie': {
-    #     # this url uses an iframe (link below)
-    #     #'url': 'http://www.santemonteregie.qc.ca/champlaincharleslemoyne/services/salle-urgence/situation-dans-les-urgences.fr.html#.U6CY93X7FhE',
-    #     'url': 'http://www.santemonteregie.qc.ca/userfiles/file/Agence/Situationdanslesurgences/Relevequotidien.htm',
-    #     'functional': '/html//table//tr[last()-1]/td[3]/text()',
-    #     'occupied': '/html//table//tr[last()-1]/td[4]/text()',
-    #     '2d_coords': '',
-    #     },
-
     # Bas St Laurent
     'CSSS des Basques': {
         'url': 'http://www.agencesssbsl.gouv.qc.ca/index.php?id=179',
