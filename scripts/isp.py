@@ -101,6 +101,7 @@ define service {
        business_rule_output_template  $(x)$
        labels                         order_0
        icon_image                     fa-signal
+       notes                          Vérifie la disponibilité des principaux fournisseurs d'accès à Internet.
 }
 """)
 

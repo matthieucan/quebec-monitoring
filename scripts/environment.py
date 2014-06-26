@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 
 ENVS = {
-    'Flu level (Montreal)': {
+    'Niveau de grippe (Montréal)': {
         'hostname': 'env_flu_mtl',
         'command': 'check_env_canada!http://www.meteomedia.com/api/data/caqc0363!flu_level',
     },
-    'Pollen (Montreal)': {
+    'Pollen (Montréal)': {
         'hostname': 'env_pollen_mtl',
         'command': 'check_env_canada!http://www.meteomedia.com/api/data/caqc0363!pollen_adlevel',
     },
-    'UV (Montreal)': {
+    'UV (Montréal)': {
         'hostname': 'env_uv_mtl',
         'command': 'check_env_canada_wc!http://www.meteomedia.com/api/data/caqc0363!last_uv!3!7',
     },
-    'Air quality (Montreal)': {
+    "Qualité de l'air (Montréal)": {
         'hostname': 'env_aq_mtl',
         'command': 'check_env_canada_wc!http://www.meteomedia.com/api/data/caqc0363!aq_index!26!51',
     },
@@ -57,6 +57,7 @@ define service {
        servicegroups                    group-environment
        labels                           order_0
        icon_image                       fa-tree
+       notes                            Vérifie certaines métriques relatives à l'environnement.
        notes_url                        <a href="http://www.meteomedia.com/meteo/canada/quebec/montreal">Meteomedia</a>
 }
 

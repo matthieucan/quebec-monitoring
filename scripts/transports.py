@@ -4,15 +4,15 @@
 from tokens import TOKENS
 
 TRANSPORTS = {
-    'Metro in Montreal': {
+    'Métro à Montréal': {
         'hostname': 'stm_metro',
         'command': 'check_stm_metro!1!3',
     },
-    'Bikes (Bixi) in Montreal': {
+    'Vélos (Bixi) à Montréal: nombre de stations pleines ou vides': {
         'hostname': 'bixi_mtl',
         'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
     },
-    'AMT': {
+    "AMT: nombre d'alertes": {
         'hostname': 'amt_trains',
         'command': 'check_amt!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
     }
@@ -56,6 +56,7 @@ define service {
        servicegroups                    group-transports
        labels                           order_0
        icon_image                       fa-arrow-circle-down
+       notes                            Vérifie les problèmes liés aux transports en commun.
        notes_url                        <a href="http://www.stm.info/en/info/service-updates/metro">STM</a>, <a href="http://montreal.bixi.com/">BIXI</a>, <a href="http://amt.qc.ca">AMT</a>
 }
 

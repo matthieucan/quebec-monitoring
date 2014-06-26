@@ -58,7 +58,12 @@
             {
                "name" : "notes_url",
                "widget" : "default.html"
+            },
+            {
+               "name" : "notes",
+               "widget" : "default.html"
             }
+
 
          ]
       }

@@ -47,6 +47,7 @@ define service {
        business_rule_output_template  $(x)$
        labels                         order_0
        icon_image                     fa-desktop
+       notes                          Verifie les principaux sites web gouvernementaux.
 }
 """)
 

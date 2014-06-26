@@ -80,6 +80,7 @@ define service {
        servicegroups                    group-dns
        labels                           order_0
        icon_image                       fa-gears
+       notes                            Vérifie les principaux serveurs DNS.
 }
 """)
 

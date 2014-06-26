@@ -54,6 +54,7 @@ define service {
        servicegroups                    group-dating
        labels                           order_0
        icon_image                       fa-heart-o
+       notes                            Vérifie les sites de rencontres et leur nombre d'usagers.
 }
 
 """)

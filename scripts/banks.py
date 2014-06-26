@@ -92,6 +92,7 @@ define service {
        business_rule_output_template  $(x)$
        labels                         order_0
        icon_image                     fa-btc
+       notes                          Vérifie les services en ligne des principales banques.
 }
 """)
 

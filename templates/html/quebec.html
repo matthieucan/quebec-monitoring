@@ -210,6 +210,10 @@
                 Source : {% autoescape off %}{{ lines.0.notes_url }}{% endautoescape %}
               </div>
             {% endif %}
+            <div style="margin-bottom: 1em;">
+              <strong>{% autoescape off %}{{ lines.0.notes }}{% endautoescape %}</strong>
+            </div>
+            
             <ul>
             {% for line in lines|slice:"1:" %}
               <li>
