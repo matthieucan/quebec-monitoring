@@ -46,6 +46,11 @@
      text-align: center;
      cursor: pointer;
    }
+   div.close_box {
+     font-size: 2em;
+     font-weight:bold;
+     text-align: right !important;
+   }
    div.header {
      text-align: center;
    }
@@ -174,19 +179,24 @@
     <div class="row-fluid">
       {% for box in data_ %}
       {% with lines=box.list|dictsort:"labels" %}
-      <div class="outerbox span3 color-0" onclick="toggle_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();" id="box_{{ lines.0.description }}">
+      <div class="outerbox span3 color-0" id="box_{{ lines.0.description }}">
         <div class="box border border-{{ lines.0.state }}">
-          <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
-          <h2>{{ lines.0.description }}</h2>
-          <p>
-            {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
+          
+          <div class="close_box hidden" onclick="hide_box('box_{{ lines.0.description }}')">X</div>
+          
+          <div onclick="show_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();">
+            <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
+            <h2>{{ lines.0.description }}</h2>
+            <p>
+              {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
               OK
-            {% elif lines.0.plugin_output|length == 1 %}
+              {% elif lines.0.plugin_output|length == 1 %}
               1 problem
-            {% else %}
+              {% else %}
               {{ lines.0.plugin_output|length }} problems
-            {% endif %}
-          </p>
+              {% endif %}
+            </p>
+          </div>
           <div class="hidden box_hidden_content" id="">
             {% if "map" in lines.0.labels %}
               <div class="map_outer">
@@ -251,7 +261,7 @@
        $('#click_tell_me_more')[0].innerHTML = "En savoir plus";
      }
    }
-   function toggle_box(id) {
+   function show_box(id) {
      var box = $("#" + id);
      
      if (box.hasClass("span3")) {
@@ -259,17 +269,21 @@
        box.show();
        box[0].classList.remove("span3");
        box[0].classList.add("outerbox_large");
-       $("#" + id + " .hidden").toggle(400);
+       $("#" + id + " .hidden").fadeIn(600);
        $("#" + id + " .hidden")[0].classList.remove("invisible");
      }
-     else {
+   }
+   
+   function hide_box(id) {
+     var box = $("#" + id);
+     
+     if (!(box.hasClass("span3"))) {
        $("#" + id + " .hidden")[0].classList.add("invisible");
-       $("#" + id + " .hidden").toggle(400);
+       $("#" + id + " .hidden").hide();
        box[0].classList.remove("outerbox_large");
        box[0].classList.add("span3");
-       //
        $('.outerbox').show();
-     }
+     }  
    }
    
    var fromProjection = new OpenLayers.Projection("EPSG:4326");
