@@ -59,6 +59,11 @@ RUN cd /var && git clone https://github.com/matthieucan/adagios.git
 RUN cd /var/adagios && git checkout feature-view-engine-newstuff && make trad && python setup.py install
 RUN pip install git+git://github.com/pynag/pynag.git
 
+### InfluxDB
+
+RUN wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
+RUN dpkg -i influxdb_latest_amd64.deb
+
 ### Configuration
 
 ## Docker
@@ -96,6 +101,7 @@ RUN cd /usr/share/pyshared/shinken/modules/livestatus && git apply /mod-livestat
 ADD etc /etc
 
 EXPOSE 80
+EXPOSE 8083
 EXPOSE 22
 
 CMD ["/usr/bin/supervisord"]
