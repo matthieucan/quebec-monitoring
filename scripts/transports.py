@@ -17,7 +17,7 @@ TRANSPORTS = {
     "AMT: nombre d'alertes": {
         'hostname': 'amt_trains',
         'command': 'check_amt!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
-        'url': 'http://amt.qc.ca',
+        'url': 'http://amt.qc.ca/train/deux-montagnes.aspx',
     }
 }
 
