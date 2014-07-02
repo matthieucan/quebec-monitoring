@@ -129,6 +129,13 @@ def get_data(args):
         else:
             msg = 'CRITICAL'
             code = STATE_CRITICAL
+        
+        perfdata = ('problems=%(problems)d;%(warning)d;%(critic)d;0;%(max)d'
+                    % {'problems': len(problems),
+                       'warning': int(args['warning']),
+                       'critic': int(args['critical']),
+                       'max': 4,
+                      })
 
         is_problems = len(problems) > 0
         final_msg = ('%(msg)s - %(problems)d problem%(plural)s %(list)s'
