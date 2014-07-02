@@ -128,14 +128,20 @@ def get_data(args):
             sys.exit(STATE_UNKNOWN)
         result = 100 * data2 / data1
 
+        perfdata = ('stretchers=%(percentage)d%%;%(warning)d;%(critic)d;0;'
+                    % {'percentage': result,
+                       'warning': int(args['warning']),
+                       'critic': int(args['critical']),
+                       })
+
         if result < int(args['warning']):
-            print('OK - %d%% (%d / %d)' % (result, data2, data1))
+            print('OK - %d%% (%d / %d)|%s' % (result, data2, data1, perfdata))
             sys.exit(STATE_OK)
         elif result < int(args['critical']):
-            print('WARNING - %d%% (%d / %d)' % (result, data2, data1))
+            print('WARNING - %d%% (%d / %d)|%s' % (result, data2, data1, perfdata))
             sys.exit(STATE_WARNING)
         else:
-            print('CRITICAL - %d%% (%d / %d)' % (result, data2, data1))
+            print('CRITICAL - %d%% (%d / %d)|%s' % (result, data2, data1, perfdata))
             sys.exit(STATE_CRITICAL)
     
     print('Wrong data extracted: %s - %s' % (data1, data2))
