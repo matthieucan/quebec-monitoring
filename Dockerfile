@@ -56,7 +56,7 @@ RUN pip install django\<1.5 python-geoip python-geoip-geolite2
 RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
 
 RUN cd /var && git clone https://github.com/matthieucan/adagios.git
-RUN cd /var/adagios && git checkout feature-view-engine-newstuff && make trad && python setup.py install
+RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
 RUN pip install git+git://github.com/pynag/pynag.git
 
 ### InfluxDB
