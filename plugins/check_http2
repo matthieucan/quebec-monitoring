@@ -37,6 +37,7 @@ import getopt
 import sys
 
 import urllib2
+import datetime
 
 PLUGIN_NAME = "check_http2"
 PLUGIN_VERSION = "0.1"
@@ -102,8 +103,11 @@ def get_data(args):
         opener = urllib2.build_opener()
         if args.get('user-agent'):
             request.add_header('User-Agent', args['user-agent'])
-            
+        
+        start = datetime.datetime.now()
         code = opener.open(request).getcode()
+        end = datetime.datetime.now()
+    
     except Exception as e:
         try:
             code = e.code
@@ -113,12 +117,17 @@ def get_data(args):
         except Exception:
             print 'UNKNOWN - %s' % e
             sys.exit(STATE_UNKNOWN)
+
+    response_time = end - start
+    perfdata = ('response_time=%(time)dms;;;0;'
+                % {'time': response_time.microseconds / 1000 + response_time.seconds * 1000,
+                  })
     
     if code < 400:
-        print 'OK - HTTP %s' % code
+        print 'OK - HTTP %s|%s' % (code, perfdata)
         sys.exit(STATE_OK)
     else:
-        print 'CRITICAL - HTTP %s' % code
+        print 'CRITICAL - HTTP %s|%s' % (code, perfdata)
         sys.exit(STATE_CRITICAL)
 
 def check_arguments(args):
