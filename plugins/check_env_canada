@@ -130,17 +130,29 @@ def get_data(args):
         except Exception as e:
             print('Error, %s is not a number' % result)
             sys.exit(STATE_UNKNOWN)
+
+        perfdata = ('%(label)s=%(num)s;%(warning)s;%(critic)s;0;'
+                    % {'label': args['metric'],
+                       'num': result,
+                       'warning': float(args['warning']),
+                       'critic': float(args['critical']),
+                      })
+
         if result < float(args['warning']):
-            print('OK - %s' % result)
+            print('OK - %s|%s' % (result, perfdata))
             sys.exit(STATE_OK)
         elif result < float(args['critical']):
-            print('WARNING - %s' % result)
+            print('WARNING - %s|%s' % (result, perfdata))
             sys.exit(STATE_WARNING)
         else:
-            print('CRITICAL - %s' % result)
+            print('CRITICAL - %s|%s' % (result, perfdata))
             sys.exit(STATE_CRITICAL)
     else:
-        print('OK - %s' % result)
+        perfdata = ('%(label)s=%(num)s;;;0;'
+                    % {'label': args['metric'],
+                       'num': result,
+                      })
+        print('OK - %s|%s' % (result, perfdata))
         sys.exit(STATE_OK)
 
 def check_arguments(args):
