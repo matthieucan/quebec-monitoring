@@ -123,14 +123,21 @@ def get_data(args):
     
     nb = len(alerts.entity)
     str_plural = 'problems' if nb >= 2 else 'problem'
+
+    perfdata = ('problems=%(problems)d;%(warning)d;%(critic)d;0;'
+                % {'problems': nb,
+                   'warning': int(args['warning']),
+                   'critic': int(args['critical']),
+                  })
+    
     if nb < int(args['warning']):
-        print('OK - %d %s' % (nb, str_plural))
+        print('OK - %d %s|%s' % (nb, str_plural, perfdata))
         sys.exit(STATE_OK)
     elif nb < int(args['critical']):
-        print('WARNING - %d %s' % (nb, str_plural))
+        print('WARNING - %d %s|%s' % (nb, str_plural, perfdata))
         sys.exit(STATE_WARNING)
     else:
-        print('CRITICAL - %d %s' % (nb, str_plural))
+        print('CRITICAL - %d %s|%s' % (nb, str_plural, perfdata))
         sys.exit(STATE_CRITICAL)
 
 def check_arguments(args):
