@@ -368,10 +368,10 @@
      return {map: map, markers: markers};
    }
    
-   var icon_0 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker-green.png" %}');
-   var icon_1 = new OpenLayers.Icon('{% url media path="external/openlayers/img/marker.png" %}');
-   var icon_2 = icon_1;
-   var icon_3 = icon_1;
+   var icon_0 = new OpenLayers.Icon('{% url media path="img/marker-0.png" %}');
+   var icon_1 = new OpenLayers.Icon('{% url media path="img/marker-1.png" %}');
+   var icon_2 = new OpenLayers.Icon('{% url media path="img/marker-2.png" %}');
+   var icon_3 = new OpenLayers.Icon('{% url media path="img/marker-3.png" %}');
     
    {% for box in data_ %}
    {% with lines=box.list|dictsort:"labels" %}
