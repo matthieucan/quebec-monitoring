@@ -8,9 +8,6 @@ DNS = {
     # Videotron.CA 
     'videotron.ca': ['205.151.222.250', '205.151.222.251'],
     
-    # Videotron.NET
-    'videotron.net': ['205.151.222.254', '205.151.222.253'],
-    
     # Colbanet
     'colba.net': ['69.28.239.8', '69.28.239.9'],
     }
