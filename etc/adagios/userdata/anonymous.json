@@ -1,0 +1,73 @@
+{
+   "language" : "en",
+   "refresh_rate" : "30",
+   "theme" : "default",
+   "views" : {
+      "quebec" : {
+         "filters" : [],
+         "metadata" : [
+            {
+               "reload_interval" : "0",
+               "fullscreen" : false,
+               "data_source" : "services",
+               "template" : "quebec.html",
+               "view_name" : "quebec"
+            }
+         ],
+         "stats" : [],
+         "sorts" : [
+            {
+               "reverse" : false,
+               "column" : "groups"
+            }
+         ],
+         "columns" : [
+            {
+               "widget" : "default.html",
+               "name" : "service_description"
+            },
+            {
+               "name" : "icon_image_alt",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "display_name",
+               "widget" : "default.html"
+            },
+
+            {
+               "widget" : "default.html",
+               "name" : "state"
+            },
+            {
+               "name" : "groups",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "labels",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "icon_image",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "plugin_output",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "notes_url",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "notes",
+               "widget" : "default.html"
+            },
+            {
+               "name" : "action_url",
+               "widget" : "default.html"
+            }
+         ]
+      }
+   }
+}
