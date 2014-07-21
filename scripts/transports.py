@@ -6,7 +6,7 @@ from tokens import TOKENS
 TRANSPORTS = {
     'Métro à Montréal': {
         'hostname': 'stm_metro',
-        'command': 'check_stm_metro!1!3',
+        'command': 'check_stm_metro_montreal!1!3',
         'url': 'http://www.stm.info/en/info/service-updates/metro',
     },
     'Vélos (Bixi) à Montréal: nombre de stations pleines ou vides': {
@@ -16,7 +16,7 @@ TRANSPORTS = {
     },
     "AMT: nombre d'alertes": {
         'hostname': 'amt_trains',
-        'command': 'check_amt!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
+        'command': 'check_amt_montreal!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
         'url': 'http://amt.qc.ca/train/deux-montagnes.aspx',
     }
 }

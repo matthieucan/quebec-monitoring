@@ -354,7 +354,7 @@ define host {
 define service {
        use                      generic-service
        host_name                %(name)s
-       check_command            check_emergency_occupation!%(url)s!%(functional)s!%(occupied)s
+       check_command            check_emergency_rooms_quebec!%(url)s!%(functional)s!%(occupied)s
        display_name             %(region)s
        service_description      %(name)s
        servicegroups            group-hospitals

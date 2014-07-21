@@ -12,10 +12,14 @@ RUN apt-get update
 
 RUN apt-get install -y git python-pip emacs curl
 
-### Kaji sources
+### Other .deb sources
 
 RUN curl http://download.opensuse.org/repositories/home:/kaji-project/xUbuntu_14.04/Release.key | apt-key add -
 RUN echo 'deb http://download.opensuse.org/repositories/home:/kaji-project/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/kaji.list
+
+RUN curl http://download.opensuse.org/repositories/home:/ReAzem:/sfl-shinken-plugins/xUbuntu_14.04/Release.key | apt-key add -
+RUN echo 'deb http://download.opensuse.org/repositories/home:/ReAzem:/sfl-shinken-plugins/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/shinkenplugins.list
+
 RUN apt-get update
 
 ### Shinken
@@ -28,13 +32,17 @@ RUN apt-get install -y shinken-module-simple-log
 RUN apt-get install -y shinken-module-booster-nrpe
 RUN apt-get install -y shinken-module-logstore-sqlite
 
-RUN apt-get install -y python-openssl # required for $plugin
-RUN apt-get install -y python-lxml # required by scrapers plugins
-RUN apt-get install -y python-protobuf # required by check_amt
+#RUN apt-get install -y python-openssl # required for $plugin
+#RUN apt-get install -y python-lxml # required by scrapers plugins
+#RUN apt-get install -y python-protobuf # required by check_amt
 
 ### Plugins
 
 RUN apt-get install -y nagios-plugins
+RUN apt-get update -v
+RUN apt-get update
+#delete me
+RUN apt-get install -y plugin-check-amt-montreal plugin-check-bixi-montreal plugin-check-emergency-rooms-quebec plugin-check-environment-canada plugin-check-http2 plugin-check-quebecrencontrescom plugin-check-reseaucontactcom plugin-check-stm-metro-montreal
 
 ### SSH
 
@@ -85,7 +93,6 @@ RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
-ADD plugins /usr/lib/nagios/plugins
 ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
 ADD templates/media /usr/local/lib/python2.7/dist-packages/adagios/media
 
