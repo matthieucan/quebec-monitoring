@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from tokens import TOKENS
+from collections import defaultdict
+
+
+try:
+    from tokens import TOKENS
+except ImportError:
+    TOKENS = defaultdict(lambda: '')
 
 TRANSPORTS = {
     'Métro à Montréal': {
