@@ -101,8 +101,17 @@ RUN chown -R shinken: /etc/shinken
 
 RUN mv /etc/shinken/logstore_sqlite.cfg/logstore_sqlite.cfg /etc/shinken/modules/
 RUN sed -i 's/logstore-sqlite/logsqlite/g' /etc/shinken/modules/logstore_sqlite.cfg
+
 RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
-RUN sed -i 's/Simple-log/simple-log/g' /etc/shinken/brokers/broker.cfg
+RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/modules/livestatus.cfg
+
+RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/modules/booster_nrpe.cfg/booster_nrpe.cfg
+
+RUN sed -i 's/SimpleLog/simple-log/g' /etc/shinken/brokers/broker.cfg
+RUN sed -i 's/Graphite/graphite/g' /etc/shinken/brokers/broker.cfg
+RUN sed -i 's/BoosterNrpe/booster-nrpe/g' /etc/shinken/brokers/broker.cfg
+
+
 RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 
 # Allow ssh connection from host
