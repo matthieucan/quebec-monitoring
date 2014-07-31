@@ -49,7 +49,8 @@ $ sudo make run
 
 If you installed Docker manually, perhaps the command to run it is
 `docker` instead of `docker.io`. In this case, run `sed -i
-s/docker.io/docker/g Makefile`
+s/docker.io/docker/g Makefile`, or symlink docker.io to your docker
+binary.
 
 And now, navigate to your container IP. In order to know your
 container IP, you can run `sudo docker.io inspect <container-number>`,
