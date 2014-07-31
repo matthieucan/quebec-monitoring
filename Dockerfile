@@ -60,16 +60,18 @@ RUN cd /var && git clone https://github.com/matthieucan/adagios.git
 RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
 RUN pip install git+git://github.com/pynag/pynag.git
 
+# Not used (yet)
+
 ### InfluxDB
 
-RUN wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
-RUN dpkg -i influxdb_latest_amd64.deb
-RUN rm influxdb_latest_amd64.deb
+# RUN wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
+# RUN dpkg -i influxdb_latest_amd64.deb
+# RUN rm influxdb_latest_amd64.deb
 
 ### Grafana
 
-RUN cd /var && wget https://github.com/grafana/grafana/archive/v1.6.1.tar.gz
-RUN cd /var && tar xzvf v1.6.1.tar.gz && rm v1.6.1.tar.gz
+# RUN cd /var && wget https://github.com/grafana/grafana/archive/v1.6.1.tar.gz
+# RUN cd /var && tar xzvf v1.6.1.tar.gz && rm v1.6.1.tar.gz
 
 
 ### Configuration
