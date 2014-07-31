@@ -17,8 +17,8 @@ RUN apt-get install -y git python-pip emacs curl
 RUN curl http://download.opensuse.org/repositories/home:/kaji-project/xUbuntu_14.04/Release.key | apt-key add -
 RUN echo 'deb http://download.opensuse.org/repositories/home:/kaji-project/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/kaji.list
 
-RUN curl http://download.opensuse.org/repositories/home:/ReAzem:/sfl-shinken-plugins/xUbuntu_14.04/Release.key | apt-key add -
-RUN echo 'deb http://download.opensuse.org/repositories/home:/ReAzem:/sfl-shinken-plugins/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/shinkenplugins.list
+RUN curl http://download.opensuse.org/repositories/home:/sfl-monitoring:/monitoring-tools/xUbuntu_14.04/Release.key | apt-key add -
+RUN echo 'deb http://download.opensuse.org/repositories/home:/sfl-monitoring:/monitoring-tools/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/shinkenplugins.list
 
 RUN apt-get update
 
