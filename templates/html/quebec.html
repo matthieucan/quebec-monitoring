@@ -372,6 +372,14 @@
    {% endwith %}
    {% endfor %}
   </script>
+  <script>
+    if (window.location.href.indexOf('geocities') > -1) {
+     $('head > style').remove();
+     $('head').append('<link href="http://code.divshot.com/geo-bootstrap/swatch/bootstrap.min.css" rel="stylesheet">');
+     $('.box .hidden').css('display', 'none');
+     $('.tell_me_more').css('display', 'none');
+   }
+  </script>
   
 <!-- Piwik -->
 <script type="text/javascript">
