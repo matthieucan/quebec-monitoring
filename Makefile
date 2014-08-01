@@ -1,8 +1,8 @@
 all: conf run
 
 run:
-	docker.io build -t quebec .
-	docker.io run -d -p 8080:80 quebec
+	docker build -t quebec .
+	docker run -d -p 8080:80 quebec
 
 conf: banks dns websites hospitals transports dating isp environment
 
