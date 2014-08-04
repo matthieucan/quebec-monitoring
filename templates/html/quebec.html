@@ -4,6 +4,7 @@
 <head>
   <meta charset=utf-8 />
   <title>Québec 24x7</title>
+  <basefont size="16px">
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -13,7 +14,8 @@
   <style type="text/css">
    body {
      font-family: 'Open Sans', sans-serif;
-     background: url("{% url media path="img/montreal.jpg" %}") no-repeat center center fixed; 
+     background: url("{% url media path="img/montreal.jpg" %}") no-repeat center top fixed; 
+     background-color: black;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -41,10 +43,45 @@
      text-decoration: underline;
    }
    div.box {
-     padding: 10px;
      margin: 20px;
      text-align: center;
+     background-color:  #000000;
+     border-radius: 50%;
+     width: 200px;
+     height: 200px;
    }
+
+   div.box i {
+      padding-top: 30px;
+   }
+
+   div.box h2 {
+      color:  #ffffff;
+      font-size: 23.79px; /* Approximation due to font substitution */
+      font-weight: 700;
+      line-height: 43.606px;
+      width:200px;
+      height:45px;
+      position:relative;
+      margin: 10px 0px;
+   }
+
+   div.box h2:before,
+   div.box h2:after {
+      width: 33px;
+      display: block;
+      content: "";
+      margin: 5px auto 2px auto;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.4);
+   }
+
+   div.box p.status {
+      font-size: 14px; /* Approximation due to font substitution */
+      font-weight: 400;
+      padding-top: 10px;
+   }
+
    .cursor-pointer {
      cursor: pointer;
    }
@@ -113,25 +150,25 @@
      border-style: solid;
    }
    .border-0 {
-     border-color: white;
+     border-color: #65c178;
    }
    .border-1 {
-     border-color: orange;
+     border-color: #f39c12;
    }
    .border-2 {
-     border-color: red;
+     border-color: #e74c3c;
    }
    .border-3 {
      border-color: white;
    }
    .color-0 {
-     color: white;
+     color: #65c178;
    }
    .color-1 {
-     color: orange;
+     color: #f39c12;
    }
    .color-2 {
-     color: red;
+     color: #e74c3c;
    }
    .color-3 {
      color: white;
@@ -230,7 +267,7 @@
           <div onclick="show_box('box_{{ lines.0.description }}'); {{ lines.0.description }}_map.map.updateSize();">
             <i class="color-{{ lines.0.state }} fa {{ lines.0.icon_image }} fa-3x"></i>
             <h2>{{ lines.0.description }}</h2>
-            <p>
+            <p class="status color-{{ lines.0.state }}">
               {% if lines.0.plugin_output == "all checks were successful." or lines.0.plugin_output|length == 0 %}
               OK
               {% elif lines.0.plugin_output|length == 1 %}
