@@ -1,7 +1,7 @@
 {% load adagiostags %}
 <!DOCTYPE html>
 <html>
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
   <meta charset=utf-8 />
   <title>Québec 24x7</title>
   <basefont size="16px">
@@ -11,6 +11,9 @@
   <link href="{% url media path="external/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="icon" 
+      type="image/png" 
+      href="{% url media path='img/logo.png' %}" />
   <style type="text/css">
    body {
      font-family: 'Open Sans', sans-serif;
