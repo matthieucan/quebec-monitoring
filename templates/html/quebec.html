@@ -3,12 +3,14 @@
 <html>
 <head profile="http://www.w3.org/2005/10/profile">
   <meta charset=utf-8 />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Québec 24x7</title>
   <basefont size="16px">
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link href="{% url media path="external/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <link href="{% url media path="external/bootstrap/css/bootstrap-responsive.min.css" %}" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="icon" 
@@ -32,7 +34,7 @@
    }
    #wrap {
      padding: 50px;
-     width: 960px;
+     max-width: 960px;
      margin: auto;
      margin-top: 50px;
      border: 1px solid black;
@@ -50,6 +52,9 @@
      text-align: center;
      background-color:  #000000;
      border-radius: 50%;
+     -mox-box-shadow: 0 0 1px white;
+     -webkit-box-shadow: 0 0 1px white;
+     box-shadow: 0 0 1px white;
      width: 200px;
      height: 200px;
    }
@@ -347,8 +352,7 @@
    
    function show_box(id) {
      var box = $("#" + id);
-     
-     if (box.hasClass("span3")) {
+     //if (box.hasClass("span3")) {
        $('.outerbox').hide();
        box.show();
        box[0].classList.remove("span3");
@@ -356,7 +360,7 @@
        $("#" + id + " .box")[0].classList.remove("cursor-pointer");
        $("#" + id + " .hidden").fadeIn(600);
        $("#" + id + " .hidden")[0].classList.remove("invisible");
-     }
+    // }
    }
    
    function hide_box(id) {
