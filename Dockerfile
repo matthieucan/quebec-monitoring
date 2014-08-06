@@ -56,9 +56,10 @@ RUN apt-get install -y python-simplejson coffeescript gettext make
 RUN pip install django\<1.5 python-geoip python-geoip-geolite2
 RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
 
-RUN cd /var && git clone https://github.com/matthieucan/adagios.git
-RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
+#RUN cd /var && git clone https://github.com/matthieucan/adagios.git
+#RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
 RUN pip install git+git://github.com/pynag/pynag.git
+RUN pip install git+git://github.com/opinkerfi/adagios.git
 
 # Not used (yet)
 
@@ -88,8 +89,7 @@ RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
-ADD templates/html /usr/local/lib/python2.7/dist-packages/adagios/status/templates/custom_views/templates
-ADD templates/media /usr/local/lib/python2.7/dist-packages/adagios/media
+ADD app/app /srv/
 
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken
