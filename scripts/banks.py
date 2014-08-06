@@ -55,8 +55,6 @@ prefix = (
 
 template = (
 """define host {
-       # not working yet, bug reported on Shinken:
-       # https://github.com/naparuba/shinken/issues/1218#issuecomment-46223079
        use                      generic-host
        host_name                %(domain)s
        address                  %(domain)s
