@@ -89,7 +89,7 @@ RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
-ADD app/app /srv/
+ADD app/app /srv/app
 
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken

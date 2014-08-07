@@ -1,8 +1,16 @@
-all: conf run
+all: run
 
-run:
-	docker build -t quebec .
-	docker run -d -p 8080:80 quebec
+deps:
+	(cd app && npm install)
+
+build: deps conf
+	sudo docker build -t quebec .
+
+run: build
+	sudo docker run -d -p 8080:80 quebec
+
+dev: build
+	sudo docker run -i -t -p 8080:80 -v $(pwd)/app/app:/srv/app quebec bash
 
 conf: banks dns websites hospitals transports dating isp environment
 
