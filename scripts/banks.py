@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 BANKS = {
-    'RBC_banque_royale': {
+    'RBC Banque Royale': {
         'protocol': 'https',
         'domain': 'www1.royalbank.com',
         'path': '/cgi-bin/rbaccess/rbunxcgi?F6=1&F7=IB&F21=IB&F22=IB&REQUEST=ClientSignin&LANGUAGE=FRENCH',
         },
-    'TD_Canada_Trust': {
+    'TD Canada Trust': {
         'protocol': 'https',
         'domain': 'banquenetcpo.td.com',
         'path': '/waw/idp/login.htm?execution=e1s1',
@@ -22,7 +22,7 @@ BANKS = {
         'domain': 'www.cibc.com',
         'path': '/ca/personal.html?int_id=HP_PersonalBanking',
         },
-    'Banque_de_Montreal': {
+    'Banque de Montreal': {
         'protocol': 'https',
         'domain': 'www1.bmo.com',
         'path': '/onlinebanking/cgi-bin/netbnx/NBmain?product=6',
@@ -37,7 +37,7 @@ BANKS = {
         'domain': 'bvi.bnc.ca',
         'path': '/',
         },
-    'Banque_Laurentienne': {
+    'Banque Laurentienne': {
         'protocol': 'https',
         'domain': 'blcweb.banquelaurentienne.ca',
         'path': '/BLCDirect/',
@@ -48,10 +48,6 @@ BANKS = {
         'path': '/fr/accesd/',
         },
     }
-
-prefix = (
-"""
-""")
 
 template = (
 """define host {
@@ -67,7 +63,7 @@ define service {
        check_command            check_http2!%(url)s
        display_name             %(bank)s
        service_description      %(domain)s
-       servicegroups            group-banks
+       servicegroups            banks
        labels                   order_%(order)d
        action_url               %(url)s
 }
@@ -77,27 +73,26 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Banks
-       alias                          Banks
+       host_name                      banks
+       alias                          banks
        check_command                  check_dummy!0!OK
 }
 define service {
        use                            generic-service
-       host_name                      Banks
-       servicegroups                  group-banks
-       service_description            Banques
+       host_name                      banks
+       service_description            banks
+       servicegroups                  main
+       display_name                   Banques
+       notes                          Vérifie les services en ligne des principales banques.
        check_command                  bp_rule!%(all_banks)s
        business_rule_output_template  $(x)$
-       labels                         order_0
        icon_image                     fa-btc
-       notes                          Vérifie les services en ligne des principales banques.
 }
 """)
 
 
 
 def main():
-    print prefix
     # all_banks is a workaround while we wait for g:group_banks to work
     all_banks = []
     for order, (bank, values) in enumerate(BANKS.iteritems()):

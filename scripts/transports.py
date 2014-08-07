@@ -41,7 +41,7 @@ define service {
        display_name             %(name)s
        service_description      %(hostname)s
        check_command            %(command)s
-       servicegroups            group-transports
+       servicegroups            transports
        labels                   order_%(order)d
        action_url               %(url)s
 }
@@ -52,21 +52,21 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Transports
-       alias                          Transports
+       host_name                      transports
+       alias                          transports
        check_command                  check_dummy!0!OK
 }
 define service {
        use                              generic-service
-       host_name                        Transports
-       service_description              Transports
+       host_name                        transports
+       display_name                     Transports
+       service_description              transports
+       notes                            Vérifie les problèmes liés aux transports en commun.
        # check_command                  bp_rule!g:group_banks
        check_command                    bp_rule!%(all_transports)s
        business_rule_output_template    $(x)$
-       servicegroups                    group-transports
-       labels                           order_0
+       servicegroups                    main
        icon_image                       fa-arrow-circle-down
-       notes                            Vérifie les problèmes liés aux transports en commun.
        notes_url                        <a href="http://www.stm.info/en/info/service-updates/metro">STM</a>, <a href="http://montreal.bixi.com/">BIXI</a>, <a href="http://amt.qc.ca">AMT</a>
 }
 

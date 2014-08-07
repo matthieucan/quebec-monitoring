@@ -12,10 +12,6 @@ DNS = {
     'colba.net': ['69.28.239.8', '69.28.239.9'],
     }
 
-prefix = (
-"""
-""")
-
 template_host = (
 """
 define host {
@@ -35,36 +31,34 @@ define service {
        check_command            check_dig_service!%(ip)s!www.gouv.qc.ca
        display_name             %(host)s (%(ip)s)
        service_description      %(ip)s
-       servicegroups            group-dns
+       servicegroups            dns
        labels                   order_%(order)d
 }
 """)
 
-postfix = (
+business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      DNS
-       alias                          DNS
+       host_name                      dns
+       alias                          dns
        check_command                  check_dummy!0!OK
 }
 define service {
        use                              generic-service
-       host_name                        DNS
-       service_description              DNS
-       hostgroups                       group-dns
+       host_name                        dns
+       service_description              dns
+       display_name                     DNS
+       notes                            Vérifie les principaux serveurs DNS.
        check_command                    bp_rule!%(all_dns)s
        business_rule_output_template    $(x)$
-       servicegroups                    group-dns
-       labels                           order_0
+       servicegroups                    main
        icon_image                       fa-gears
-       notes                            Vérifie les principaux serveurs DNS.
 }
 """)
 
 
 def main():
-    print prefix
     all_dns = []
     order = 1
     for host, ips in DNS.iteritems():
@@ -73,7 +67,7 @@ def main():
             print template_service % {'host': host, 'ip': ip, 'order': order}
             all_dns.append('%(host)s,%(ip)s' % {'host': host, 'ip': ip})
             order += 1
-    print postfix % {'all_dns': '&'.join(all_dns)}
+    print business_rule % {'all_dns': '&'.join(all_dns)}
         
 
 if __name__ == '__main__':

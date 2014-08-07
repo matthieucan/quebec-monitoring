@@ -6,10 +6,6 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-prefix = (
-"""
-""")
-
 template = (
 """
 define host {
@@ -25,30 +21,30 @@ define service {
        check_command            check_http2!%(host)s
        display_name             %(host)s
        service_description      %(host)s
-       servicegroups            group-websites
+       servicegroups            websites
        labels                   order_%(order)d
        action_url               %(host)s
 }
 """)
 
-postfix = (
+business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Websites
-       alias                          Websites
+       host_name                      websites
+       alias                          websites
        check_command                  check_dummy!0!OK
 }
 define service {
        use                            generic-service
-       host_name                      Websites
-       servicegroups                  group-websites
+       host_name                      websites
+       service_description            websites
+       display_name                   Sites web
+       servicegroups                  main
        check_command                  bp_rule!%(all_websites)s
-       service_description            Web
-       business_rule_output_template  $(x)$
-       labels                         order_0
-       icon_image                     fa-desktop
        notes                          Verifie les principaux sites web gouvernementaux.
+       business_rule_output_template  $(x)$
+       icon_image                     fa-desktop
 }
 """)
 
@@ -67,14 +63,13 @@ def get_hosts_list():
     return res
 
 def main():
-    print prefix
     websites = []
     for (order, host) in enumerate(get_hosts_list()):
         print template % {'host': host,
                           'order': order + 1}
         websites.append('%(host)s,%(host)s' % {'host': host})
     all_websites = '&'.join(websites)
-    print postfix % {'all_websites': all_websites}
+    print business_rule % {'all_websites': all_websites}
 
 if __name__ == '__main__':
     main()

@@ -78,7 +78,7 @@ define service {
        check_command            check_http2!%(url)s
        display_name             %(isp)s
        service_description      %(domain)s
-       servicegroups            group-isp
+       servicegroups            isp
        labels                   order_%(order)d
        action_url               %(url)s
 }
@@ -88,20 +88,20 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      ISP
-       alias                          ISP
+       host_name                      isp
+       alias                          isp
        check_command                  check_dummy!0!OK
 }
 define service {
        use                            generic-service
-       host_name                      ISP
-       servicegroups                  group-isp
-       service_description            FAI
+       host_name                      isp
+       service_description            isp
+       servicegroups                  main
+       display_name                   FAI
+       notes                          Vérifie la disponibilité des principaux fournisseurs d'accès à Internet.
        check_command                  bp_rule!%(all_isp)s
        business_rule_output_template  $(x)$
-       labels                         order_0
        icon_image                     fa-signal
-       notes                          Vérifie la disponibilité des principaux fournisseurs d'accès à Internet.
 }
 """)
 

@@ -3,22 +3,22 @@
 
 ENVS = {
     'Niveau de grippe (Montréal)': {
-        'hostname': 'env_flu_mtl',
+        'hostname': 'environment_flu_montreal',
         'command': 'check_environment_canada!http://www.meteomedia.com/api/data/caqc0363!flu_level',
         'url': 'http://www.msss.gouv.qc.ca/sujets/prob_sante/influenza/index.php?aid=29',
     },
     'Pollen (Montréal)': {
-        'hostname': 'env_pollen_mtl',
+        'hostname': 'environment_pollen_montreal',
         'command': 'check_environment_canada!http://www.meteomedia.com/api/data/caqc0363!pollen_adlevel',
         'url': 'http://www.meteomedia.com/plein-air/pollen/canada/quebec/montreal',
     },
     'UV (Montréal)': {
-        'hostname': 'env_uv_mtl',
+        'hostname': 'environment_uv_montreal',
         'command': 'check_environment_canada_wc!http://www.meteomedia.com/api/data/caqc0363!last_uv!3!7',
         'url': 'http://www.meteomedia.com/previsions/uv/canada/quebec/montreal',
     },
     "Qualité de l'air (Montréal)": {
-        'hostname': 'env_aq_mtl',
+        'hostname': 'environment_airquality_montreal',
         'command': 'check_environment_canada_wc!http://www.meteomedia.com/api/data/caqc0363!aq_index!26!51',
         'url': 'http://www.meteomedia.com/previsions/qualite-air/canada/quebec/montreal',
     },
@@ -38,7 +38,7 @@ define service {
        display_name             %(name)s
        service_description      %(hostname)s
        check_command            %(command)s
-       servicegroups            group-environment
+       servicegroups            environment
        labels                   order_%(order)d
        action_url               %(url)s
 }
@@ -49,20 +49,20 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Environment
-       alias                          Environment
+       host_name                      environment
+       alias                          environment
        check_command                  check_dummy!0!OK
 }
 define service {
        use                              generic-service
-       host_name                        Environment
-       service_description              Écologie
+       host_name                        environment
+       service_description              environment
+       display_name                     Écologie
+       notes                            Vérifie certaines métriques relatives à l'environnement.
        check_command                    bp_rule!%(all_environments)s
        business_rule_output_template    $(x)$
-       servicegroups                    group-environment
-       labels                           order_0
+       servicegroups                    main
        icon_image                       fa-tree
-       notes                            Vérifie certaines métriques relatives à l'environnement.
        notes_url                        <a href="http://www.meteomedia.com/meteo/canada/quebec/montreal">Meteomedia</a>
 }
 

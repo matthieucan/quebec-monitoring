@@ -31,7 +31,7 @@ define service {
        display_name             %(display_name)s
        service_description      %(hostname)s
        check_command            %(command)s
-       servicegroups            group-dating
+       servicegroups            dating
        labels                   order_%(order)d
        action_url               %(url)s
 }
@@ -42,20 +42,20 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Dating
-       alias                          Dating
+       host_name                      dating
+       alias                          dating
        check_command                  check_dummy!0!OK
 }
 define service {
        use                              generic-service
-       host_name                        Dating
-       service_description              Rencontres
+       host_name                        dating
+       service_description              dating
+       display_name                     Rencontres
+       notes                            Vérifie les sites de rencontres et leur nombre d'usagers.
        check_command                    bp_rule!%(all_dating)s
        business_rule_output_template    $(x)$
-       servicegroups                    group-dating
-       labels                           order_0
+       servicegroups                    main
        icon_image                       fa-heart-o
-       notes                            Vérifie les sites de rencontres et leur nombre d'usagers.
 }
 
 """)

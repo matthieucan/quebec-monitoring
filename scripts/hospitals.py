@@ -357,7 +357,7 @@ define service {
        check_command            check_emergency_rooms_quebec!%(url)s!%(functional)s!%(occupied)s
        display_name             %(region)s
        service_description      %(name)s
-       servicegroups            group-hospitals
+       servicegroups            hospitals
        labels                   order_%(order)d
        icon_image_alt           %(2d_coords)s
        action_url               %(url)s
@@ -368,26 +368,27 @@ business_rule = (
 """
 define host {
        use                            generic-host
-       host_name                      Hospitals
-       alias                          Hospitals
+       host_name                      hospitals
+       alias                          hospitals
        check_command                  check_dummy!0!OK
 }
 define service {
        use                            generic-service
-       host_name                      Hospitals
-       servicegroups                  group-hospitals
-       service_description            Hôpitaux
+       host_name                      hospitals
+       display_name                   Hôpitaux
+       service_description            hospitals
+       servicegroups                  main
+       notes                          Vérifie le taux de remplissage des civières.
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
-       labels                         order_0,map
+       labels                         map
        icon_image                     fa-h-square
-       notes                          Vérifie le taux de remplissage des civières.
        notes_url                      <a href="http://www.informa.msss.gouv.qc.ca/Listes.aspx?Name=y9M4IcKgjFYapz02jKwkUg==&Key=hhKpcdsNkJS+eg2gWNwm7A==&OrderByClause=8jnVPckjxX8dPG+Ajs/DlA==&idDimension=hqx1rRlrkPQ=">Informa.msss.gouv.qc.ca</a>
 }
 """)
 
 def main():
-    # all_hospitals is a workaround while we wait for g:group-hospitals to work
+    # all_hospitals is a workaround while we wait for g:hospitals to work
     all_hospitals = []
     for order, (region, values) in enumerate(HOSPITALS.iteritems()):
         name = 'hospital_' + str(order)
