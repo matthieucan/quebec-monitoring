@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-repeat="box in boxes">
+      <a href="#/details/{{box.host_name}}">
+        <div class="span3">
+          {{box.display_name}}, {{box.state}}, {{box.icon_image}}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
