@@ -20,8 +20,8 @@ http://iceland.adagios.org by @palli.
 * (not mandatory) Use python-virtualenv if you're not root or you
   want to keep your machine clean of Python packages
   ```
-  $ virtualenv VENV
-  $ . VENV/bin/activate
+  $ virtualenv venv
+  $ . venv/bin/activate
   ```
 
 * Install the needed Python packages
