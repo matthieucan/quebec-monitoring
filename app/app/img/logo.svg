@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="54"
+   height="54"
+   id="svg3133"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/mcaneill/work/quebec-monitoring/app/app/img/favicon.ico.png"
+   inkscape:export-xdpi="52.599998"
+   inkscape:export-ydpi="52.599998">
+  <defs
+     id="defs3135" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="-13.977392"
+     inkscape:cy="43.412295"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1918"
+     inkscape:window-height="1059"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3138">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-592.6215,-145.18418)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#65c178"
+       d="m 599.4665,192.19318 c 3.773,0 6.845,-3.002 6.845,-6.693 v -16.065 -17.202 c 0,-0.738 0.614,-1.338 1.369,-1.338 0.755,0 1.368,0.601 1.368,1.338 v 17.201 5.856 c 0,3.69 3.07,6.694 6.845,6.694 3.775,0 6.844,-3.004 6.844,-6.694 v -5.856 -6.193 c 0,-0.738 0.616,-1.338 1.37,-1.338 0.754,0 1.369,0.601 1.369,1.338 v 6.194 23.055 c 0,3.691 3.07,6.694 6.845,6.694 3.773,0 6.845,-3.003 6.845,-6.694 v -19.837 c 0,-0.738 0.614,-1.339 1.369,-1.339 0.754,0 1.368,0.601 1.368,1.339 v 4.017 c 0,1.477 1.228,2.677 2.738,2.677 1.509,0 2.737,-1.2 2.737,-2.677 v -4.017 c 0,-3.691 -3.071,-6.694 -6.844,-6.694 -3.774,0 -6.846,3.002 -6.846,6.694 v 19.837 c 0,0.738 -0.614,1.339 -1.368,1.339 -0.756,0 -1.368,-0.601 -1.368,-1.339 v -23.055 -6.194 c 0,-3.69 -3.071,-6.693 -6.846,-6.693 -3.773,0 -6.845,3.003 -6.845,6.693 v 6.194 5.855 c 0,0.739 -0.613,1.339 -1.369,1.339 -0.755,0 -1.369,-0.6 -1.369,-1.339 v -5.855 -17.202 c 0,-3.69 -3.07,-6.693 -6.844,-6.693 -3.774,0 -6.846,3.003 -6.846,6.693 v 17.201 16.065 c 0,0.739 -0.614,1.339 -1.368,1.339 -0.754,0 -1.369,-0.601 -1.369,-1.339 v -15.605 c 0,-1.477 -1.229,-2.678 -2.739,-2.678 -1.508,0 -2.736,1.201 -2.736,2.678 v 15.606 c 0,3.691 3.072,6.693 6.845,6.693 z"
+       id="path2988" />
+  </g>
+</svg>

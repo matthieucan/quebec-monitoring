@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="54.757"
+   height="53.644001"
+   id="svg3133"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="logo-1.svg">
+  <defs
+     id="defs3135" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-72.890155"
+     inkscape:cy="3.2288262"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3138">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-592.6215,-145.54018)">
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#e74c3c;fill-opacity:1"
+       d="m 598.71651,192.91751 c 3.91081,0 7.09502,-3.11165 7.09502,-6.93746 v -16.65178 -17.8303 c 0,-0.76496 0.63642,-1.38687 1.419,-1.38687 0.78258,0 1.41797,0.62295 1.41797,1.38687 v 17.82926 6.0699 c 0,3.82477 3.18213,6.93849 7.09501,6.93849 3.91288,0 7.09398,-3.11372 7.09398,-6.93849 v -6.0699 -6.41919 c 0,-0.76496 0.6385,-1.38688 1.42004,-1.38688 0.78154,0 1.419,0.62296 1.419,1.38688 v 6.42023 23.89709 c 0,3.82581 3.18213,6.93849 7.09501,6.93849 3.91081,0 7.09502,-3.11268 7.09502,-6.93849 v -20.56155 c 0,-0.76496 0.63642,-1.38791 1.419,-1.38791 0.78154,0 1.41797,0.62295 1.41797,1.38791 v 4.16372 c 0,1.53095 1.27285,2.77478 2.838,2.77478 1.56412,0 2.83697,-1.24383 2.83697,-2.77478 v -4.16372 c 0,-3.82582 -3.18317,-6.9385 -7.09398,-6.9385 -3.91184,0 -7.09605,3.11165 -7.09605,6.9385 v 20.56155 c 0,0.76495 -0.63642,1.3879 -1.41796,1.3879 -0.78362,0 -1.41797,-0.62295 -1.41797,-1.3879 v -23.89709 -6.42023 c 0,-3.82478 -3.18317,-6.93747 -7.09605,-6.93747 -3.91081,0 -7.09501,3.11269 -7.09501,6.93747 v 6.42023 6.06886 c 0,0.76599 -0.63539,1.3879 -1.41901,1.3879 -0.78257,0 -1.419,-0.62191 -1.419,-1.3879 v -6.06886 -17.8303 c 0,-3.82478 -3.18213,-6.93746 -7.09398,-6.93746 -3.91184,0 -7.09605,3.11268 -7.09605,6.93746 v 17.82926 16.65178 c 0,0.76599 -0.63642,1.38791 -1.41796,1.38791 -0.78154,0 -1.41901,-0.62296 -1.41901,-1.38791 v -16.17497 c 0,-1.53095 -1.27388,-2.77582 -2.83904,-2.77582 -1.56308,0 -2.83593,1.24487 -2.83593,2.77582 v 16.17601 c 0,3.82581 3.1842,6.93746 7.09501,6.93746 z"
+       id="path2988"
+       inkscape:export-filename="/home/tcohen/projet_communautaire/quebec-monitoring/templates/media/img/logo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
