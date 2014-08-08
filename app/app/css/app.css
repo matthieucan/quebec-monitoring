@@ -2,20 +2,24 @@
 
 body {
     /*font-family: 'Open Sans', sans-serif;*/
-    background: url("../img/montreal.jpg") no-repeat center top fixed; 
+    background: url("../img/montreal.jpg") no-repeat center top fixed !important;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover !important;
+    color: white !important;
 }
 
-#wrapper {
+#wrapper {}
+
+.fixed-width {
     max-width: 972px;
     margin: auto;
 }
 
 h1 {
+    margin-top: 1.2em!important;
     margin-bottom: 1.5em!important;
 }
 
@@ -23,7 +27,6 @@ h1 {
     background: black;
     filter: alpha(opacity=50); /* YEAH IE */
     background: rgba(0, 0, 0, 0.50);
-    color: white;
 }
 
 #banner {
@@ -32,7 +35,6 @@ h1 {
 
 #banner-left {
     font-size: 2em;
-    color: white;
     border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
 
@@ -52,7 +54,6 @@ h1 {
 
 #banner2 {
     font-size: 2em;
-    color: white;
     margin-top: 1em;
 }
 
@@ -112,8 +113,6 @@ a:active {color: white!important;}
 .icon_color {color: rgba(255, 255, 255, 0.7);}
 
 a.box {
-    display: inline-block;
-    vertical-align: middle;
     position: absolute;
     top: 15%;
     bottom: 15%;
@@ -128,8 +127,24 @@ a.box {
     box-shadow: 0 0 1px white;
 }
 
+.box_inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-top: -0.3em;
+}
+
+.box_inner_center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+
 a.box h2 {
-    color:  white;
     font-weight: 800;
     font-size: 1.6em;
     margin-top: 0.5em;
@@ -144,4 +159,14 @@ a.box h2:after {
     margin: 5px auto 5px auto;
     height: 2px;
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+#banner_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #65c178;
+    padding: 0;
 }
