@@ -1,30 +1,141 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+body {
+    /*font-family: 'Open Sans', sans-serif;*/
+    background: url("../img/montreal.jpg") no-repeat center top fixed; 
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.menu:before {
-  content: "[";
+#wrapper {
+    max-width: 1024px;
+    margin: auto;
 }
 
-.menu:after {
-  content: "]";
+.transparent {
+    background: black;
+    filter: alpha(opacity=50); /* YEAH IE */
+    background: rgba(0, 0, 0, 0.50);
+    color: white;
 }
 
-.menu > li {
-  display: inline;
+.banner-left {
+    font-size: 2em;
+    color: white;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.banner-right {
+
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+div.box_cont {
+    position:relative;
+    padding: 0;
+}
+
+div.box_cont:after {
+    /* trick to keep height==width
+       http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
+    */
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+
+h1 {
+    color: white!important;
+}
+
+a {
+    color: white!important;
+}
+a:hover {
+    color: white!important;
+    text-decoration: none!important;
+}
+a:visited {
+    color: white!important;
+}
+a:active {
+    color: white!important;
+}
+
+.bordercolor_0 {
+    border-color: #65c178;
+}
+
+.bordercolor_1 {
+    border-color: #f39c12;
+}
+
+.bordercolor_2 {
+    border-color: #e74c3c;
+}
+
+.bordercolor_3 {
+    border-color: grey;
+}
+.color_0 {
+    color: #65c178;
+}
+
+.color_1 {
+    color: #f39c12;
+}
+
+.color_2 {
+    color: #e74c3c;
+}
+
+.color_3 {
+    color: grey;
+}
+
+.icon_color {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+a.box {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    text-align: center;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    -mox-box-shadow: 0 0 1px white;
+    -webkit-box-shadow: 0 0 1px white;
+    box-shadow: 0 0 1px white;
+}
+
+a.box h2 {
+    color:  white;
+    /*font-size: 23.79px;*/ /* Approximation due to font substitution */
+    font-weight: 800;
+    font-size: 2em;
+    /*line-height: 43.606px;
+    position:relative;*/
+}
+
+a.box h2:before,
+a.box h2:after {
+    width: 15%;
+    display: block;
+    content: "";
+    margin: 5px auto 2px auto;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+div.box p.status {
+    font-size: 14px; /* Approximation due to font substitution */
+    font-weight: 400;
+    padding-top: 10px;
 }

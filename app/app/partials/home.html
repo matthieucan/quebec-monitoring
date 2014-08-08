@@ -1,10 +1,29 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" ng-repeat="box in boxes">
-      <a href="#/details/{{box.host_name}}">
-        <div class="span3">
-          {{box.display_name}}, {{box.state}}, {{box.icon_image}}
-        </div>
+<div class="container-fluid container-xs-height">
+  <div class="row transparent">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 banner-left">
+      Condition de l'ensemble des infrastructures au Québec
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 banner-right text-center">
+      Image etc
+    </div>
+  </div>
+  <div class="row row-xs-height">
+    <div class="box_cont col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xs-height"
+         ng-repeat="box in boxes">
+      <a class="box bordercolor_{{box.state}}" href="#/details/{{box.host_name}}">
+        <i class="fa fa-3x {{box.icon_image}} icon_color"></i>
+        <h2>{{box.display_name}}</h2>
+        <span ng-if="box.plugin_output == 'all checks were successful.'" class="color_{{box.state}}">
+          ok
+        </span>
+        <span ng-if="box.plugin_output != 'all checks were successful.'" class="color_{{box.state}}">
+          <span ng-if="box.plugin_output.length < 2">
+            {{box.plugin_output.length}} problème
+          </span>
+          <span ng-if="box.plugin_output.length >= 2">
+            {{box.plugin_output.length}} problèmes
+          </span>
+        </span>
       </a>
     </div>
   </div>

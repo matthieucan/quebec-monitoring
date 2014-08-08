@@ -11,12 +11,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="css/app.css"/>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  /* favicons */
+  <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
+  <meta name="msapplication-TileColor" content="#65C178">
+  <meta name="msapplication-TileImage" content="img/144tileicon.png">
+  <link rel="icon" href="img/favicon96.png">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-  <div ng-view></div>
+  <div id="wrapper">
+    <h1 class="text-center">
+      <img src="img/logo.png"> QUÉBEC <span style="font-weight: 700">24X7</span> <img src="img/beta.png">
+    </h1>
+    <div ng-view></div>
+  </div>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
