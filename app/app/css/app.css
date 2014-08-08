@@ -86,9 +86,9 @@ h1 {
     color: white!important;
 }
 
-a {color: white!important;}
+a {color: white!important; text-decoration: underline !important;}
 
-a:hover {color: white!important; text-decoration: none!important;}
+a:hover {color: white!important;}
 
 a:visited {color: white!important;}
 
@@ -126,6 +126,8 @@ a.box {
     -webkit-box-shadow: 0 0 1px white;
     box-shadow: 0 0 1px white;
 }
+
+a.box:hover {text-decoration: none!important;}
 
 .box_inner {
     display: table;
@@ -169,4 +171,13 @@ a.box h2:after {
     width: 100%;
     background-color: #65c178;
     padding: 0;
+}
+
+#more-info {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #65c178;
 }
