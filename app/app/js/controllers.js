@@ -25,11 +25,37 @@ angular.module('myApp.controllers', [])
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
+
       });
-      
+
       /* elements in this box */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url&groups__has_field=' + $routeParams.name).success(function(data) {
         $scope.elements = data;
+
+        /* how many problems? */
+        var problems = 0;
+        data.forEach(function(entry) {
+          if (entry.state > 0) {
+            problems++;
+          }
+          });
+
+        /* gauge loader */
+        var g = new JustGage({
+          id: "gauge",
+          value: problems,
+          min: 0,
+          max: data.length,
+          title: "Problèmes",
+          hideMinMax: true,
+          valueFontColor: "white",
+          titleFontColor: "white",
+          gaugeWidthScale: 0.3,
+          gaugeColor: "black",
+          levelColors: ["#ffffff"],
+          shadowOpacity: 0.5
+        });
+
       });
-      
+
   }]);
