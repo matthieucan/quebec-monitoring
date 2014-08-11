@@ -154,7 +154,7 @@ a.box:hover {text-decoration: none!important;}
     margin: 0;
 }
 
-a.box h2, #big-box h2 {
+a.box h2, #details-banner-left h2 {
     font-weight: 800;
     font-size: 1.6em;
     margin-top: 0.5em;
@@ -213,7 +213,11 @@ h2:after {
     font-size: 1.3em;
 }
 
-#big-box {
+.details-banner {
+    height: 180px;
+}
+
+#details-banner-left {
     background-color: black;
     padding: 1em;
 }
