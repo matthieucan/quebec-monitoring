@@ -146,7 +146,7 @@ a.box:hover {text-decoration: none!important;}
     margin: 0;
 }
 
-a.box h2, .big-box h2 {
+a.box h2, #big-box h2 {
     font-weight: 800;
     font-size: 1.6em;
     margin-top: 0.5em;
@@ -203,4 +203,9 @@ h2:after {
     height: 3em;
     font-weight: 100;
     font-size: 1.3em;
+}
+
+#big-box {
+    background-color: black;
+    padding: 1em;
 }
