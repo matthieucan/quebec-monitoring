@@ -184,8 +184,10 @@ a.box h2:after {
 
 #cross-close-info {
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #299138;
 }
 
 .info-button {
