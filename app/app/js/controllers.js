@@ -24,7 +24,7 @@ angular.module('myApp.controllers', [])
       
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image&host_name=' + $routeParams.name).success(function(data) {
-        $scope.box = data;
+        $scope.box = data[0];
       });
       
       /* elements in this box */
