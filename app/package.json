@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "An application to monitor various metrics in Quebec.",
   "repository": "https://github.com/savoirfairelinux/quebec-monitoring",
-  "license": "MIT",
+  "license": "AGPL3",
   "devDependencies": {
     "karma": "~0.10",
     "protractor": "~0.20.1",
