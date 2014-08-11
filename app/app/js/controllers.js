@@ -23,7 +23,7 @@ angular.module('myApp.controllers', [])
     function($scope, $routeParams, $http) {
       
       /* box general information */
-      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image&host_name=' + $routeParams.name).success(function(data) {
+      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
       });
       
