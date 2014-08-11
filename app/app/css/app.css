@@ -146,16 +146,17 @@ a.box:hover {text-decoration: none!important;}
     margin: 0;
 }
 
-a.box h2 {
+a.box h2, .big-box h2 {
     font-weight: 800;
     font-size: 1.6em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
 
-a.box h2:before,
-a.box h2:after {
+h2:before,
+h2:after {
     width: 15%;
+    max-width: 30px;
     display: block;
     content: "";
     margin: 5px auto 5px auto;
