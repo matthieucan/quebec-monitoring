@@ -22,16 +22,8 @@
           <div class="box_inner_center">
             <i class="fa fa-3x {{box.icon_image}} icon_color"></i>
             <h2>{{box.display_name}}</h2>
-            <span ng-if="box.plugin_output == 'all checks were successful.'" class="color_{{box.state}}">
-              ok
-            </span>
-            <span ng-if="box.plugin_output != 'all checks were successful.'" class="color_{{box.state}}">
-              <span ng-if="box.plugin_output.length < 2">
-                {{box.plugin_output.length}} problème
-              </span>
-              <span ng-if="box.plugin_output.length >= 2">
-                {{box.plugin_output.length}} problèmes
-              </span>
+            <span class="color_{{box.state}}">
+              {{box.output}}
             </span>
           </div>
         </div>

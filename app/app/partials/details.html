@@ -3,18 +3,9 @@
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center details-banner" id="details-banner-left">
       <i class="fa fa-4x {{box.icon_image}}"></i>
       <h2>{{box.display_name}}</h2>
-      <span ng-if="box.plugin_output == 'all checks were successful.'" class="color_{{box.state}}">
-        ok
+      <span class="color_{{box.state}}">
+        {{box.output}}
       </span>
-      <span ng-if="box.plugin_output != 'all checks were successful.'" class="color_{{box.state}}">
-        <span ng-if="box.plugin_output.length < 2">
-          {{box.plugin_output.length}} problème
-        </span>
-        <span ng-if="box.plugin_output.length >= 2">
-          {{box.plugin_output.length}} problèmes
-        </span>
-      </span>
-
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bgcolor_{{box.state}} text-center details-banner">
       <div id="gauge" class="200x160px"></div>

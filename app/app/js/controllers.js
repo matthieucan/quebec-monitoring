@@ -1,5 +1,23 @@
 'use strict';
 
+/* utils */
+function correct_output(plugin_output) {
+  var output = '';
+  if (plugin_output == "all checks were successful.") {
+    output = 'ok';
+  }
+  else {
+    if (plugin_output.length < 2) {
+      output = plugin_output.length + " problème";
+    }
+    else {
+      output = plugin_output.length + " problèmes";
+    }
+  }
+  return output;
+}
+
+
 /* Controllers */
 
 angular.module('myApp.controllers', [])
@@ -9,6 +27,9 @@ angular.module('myApp.controllers', [])
       /* all boxes information */
       $http.get('/adagios/rest/status/json/services/?fields=host_name,display_name,state,icon_image,plugin_output,&groups__has_field=main').success(function(data) {
         $scope.boxes = data;
+        $scope.boxes.forEach(function(entry) {
+          entry.output = correct_output(entry.plugin_output);
+        });
       });
 
   }])
@@ -25,7 +46,7 @@ angular.module('myApp.controllers', [])
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
-
+        $scope.box.output = correct_output($scope.box.plugin_output);
       });
 
       /* elements in this box */
