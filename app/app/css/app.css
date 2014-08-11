@@ -174,10 +174,30 @@ a.box h2:after {
 }
 
 #more-info {
-    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     background-color: #65c178;
+    padding-top: 4.5em;
+}
+
+#cross-close-info {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.info-button {
+    display: table-cell;
+    vertical-align: middle;
+    width: 400px;
+    color: white;
+    background-color: #299138;
+    text-align: center;
+    text-decoration: none !important;
+    margin-top: 1em;
+    height: 3em;
+    font-weight: 100;
+    font-size: 1.3em;
 }

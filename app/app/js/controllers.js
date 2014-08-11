@@ -13,6 +13,11 @@ angular.module('myApp.controllers', [])
 
   }])
 
+  /* infos page */
+  .controller('InfosCtrl', ['$scope',
+    function($scope) {
+  }])
+
   /* details view page */
   .controller('DetailsCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
