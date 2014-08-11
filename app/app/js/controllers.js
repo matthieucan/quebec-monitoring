@@ -44,13 +44,14 @@ angular.module('myApp.controllers', [])
     function($scope, $routeParams, $http) {
       
       /* box general information */
-      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output&host_name=' + $routeParams.name).success(function(data) {
+      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
         $scope.box.output = correct_output($scope.box.plugin_output);
+        $scope.box.display_map = ($.inArray('map', $scope.box.labels) == 0);
       });
 
       /* elements in this box */
-      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url&groups__has_field=' + $routeParams.name).success(function(data) {
+      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url,icon_image_alt&groups__has_field=' + $routeParams.name).success(function(data) {
         $scope.elements = data;
 
         /* how many problems? */

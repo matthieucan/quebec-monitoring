@@ -15,7 +15,8 @@
     "jquery": "1.10.2",
     "angular-animate": "~1.2.x",
     "justgage": "https://github.com/toorshia/justgage.git#b5398633c52c2027607d93f88432ce176ddac9c6",
-    "raphael": "~2.1.2"
+    "raphael": "~2.1.2",
+    "openlayers": "~2.13.1"
   },
   "resolutions": {
     "jquery": "1.10.2"
