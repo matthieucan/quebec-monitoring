@@ -11,6 +11,11 @@
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.x",
     "html5-boilerplate": "~4.3.0",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "jquery": "1.10.2",
+    "angular-animate": "~1.2.x"
+  },
+  "resolutions": {
+    "jquery": "1.10.2"
   }
 }
