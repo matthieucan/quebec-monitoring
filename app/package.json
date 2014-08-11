@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "quebec-monitoring",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "An application to monitor various metrics in Quebec.",
+  "repository": "https://github.com/savoirfairelinux/quebec-monitoring",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
