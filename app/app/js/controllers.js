@@ -21,6 +21,7 @@ function correct_output(plugin_output) {
 /* Controllers */
 
 angular.module('myApp.controllers', [])
+
   /* home page */
   .controller('HomeCtrl', ['$scope', '$http',
     function($scope, $http) {
@@ -40,14 +41,21 @@ angular.module('myApp.controllers', [])
   }])
 
   /* details view page */
-  .controller('DetailsCtrl', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http) {
+  .controller('DetailsCtrl', ['$scope', '$routeParams', '$http', 'mapService',
+    function($scope, $routeParams, $http, mapService) {
       
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
         $scope.box.output = correct_output($scope.box.plugin_output);
         $scope.box.display_map = ($.inArray('map', $scope.box.labels) == 0);
+
+        if ($scope.box.display_map) {
+          /* let's create the map */
+          var map = mapService.create();
+          map.map.render('map');
+        }
+
       });
 
       /* elements in this box */
