@@ -63,7 +63,7 @@ define service {
        business_rule_output_template    $(x)$
        servicegroups                    main
        icon_image                       fa-tree
-       notes_url                        <a href="http://www.meteomedia.com/meteo/canada/quebec/montreal">Meteomedia</a>
+       notes_url                        http://www.meteomedia.com/meteo/canada/quebec/montreal
 }
 
 """)

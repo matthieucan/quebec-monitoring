@@ -15,7 +15,7 @@
   </div>
   <div class="row transparent">
     <div class="col-xs-12 box-content">
-      <h2>{{box.notes}}</h2>
+      <h2>{{box.notes}} <small ng-if="box.notes_url"><a href="{{box.notes_url}}">Source</a></small></h2>
     </div>
   </div>
   <pre>{{box | json}}</pre>

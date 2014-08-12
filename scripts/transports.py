@@ -67,7 +67,6 @@ define service {
        business_rule_output_template    $(x)$
        servicegroups                    main
        icon_image                       fa-arrow-circle-down
-       notes_url                        <a href="http://www.stm.info/en/info/service-updates/metro">STM</a>, <a href="http://montreal.bixi.com/">BIXI</a>, <a href="http://amt.qc.ca">AMT</a>
 }
 
 """)

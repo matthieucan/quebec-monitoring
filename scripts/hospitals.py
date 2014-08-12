@@ -383,7 +383,7 @@ define service {
        business_rule_output_template  $(x)$
        labels                         map
        icon_image                     fa-h-square
-       notes_url                      <a href="http://www.informa.msss.gouv.qc.ca/Listes.aspx?Name=y9M4IcKgjFYapz02jKwkUg==&Key=hhKpcdsNkJS+eg2gWNwm7A==&OrderByClause=8jnVPckjxX8dPG+Ajs/DlA==&idDimension=hqx1rRlrkPQ=">Informa.msss.gouv.qc.ca</a>
+       notes_url                      http://www.informa.msss.gouv.qc.ca/Listes.aspx?Name=y9M4IcKgjFYapz02jKwkUg==&Key=hhKpcdsNkJS+eg2gWNwm7A==&OrderByClause=8jnVPckjxX8dPG+Ajs/DlA==&idDimension=hqx1rRlrkPQ=
 }
 """)
 
