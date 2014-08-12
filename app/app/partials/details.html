@@ -50,33 +50,3 @@
   <pre style="display: none;">{{box | json}}</pre>
   <pre style="display: none;">{{elements | json}}</pre>
 </div>
-
-
-<!--
-<div class="outerbox color-0" id="box_{{ elem.host_name }}">
-  {% if elem.notes_url %}
-  <div style="margin-bottom: 1em;">
-    Source : {% autoescape off %}{{ elemnotes_url }}{% endautoescape %}
-  </div>
-  {% endif %}
-  <div style="margin-bottom: 1em;">
-    <strong>{% autoescape off %}{{ elem.description }}{% endautoescape %}</strong>
-  </div>
-  
-  <ul>
-    {% for line in elem.lines|slice:"1:" %}
-    <li>
-      <span class="color-{{ line.state }}">
-        {% if line.action_url %}
-        <a href="{{ line.action_url }}">{{ line.display_name }}</a>
-        {% else %}
-        {{ line.display_name }}
-        {% endif %}
-        <br /><em>{{ line.plugin_output }}</em>
-      </span>
-    </li>
-    {% endfor %}
-  </ul>
-  <div style="clear:both;">&nbsp;</div>
-</div>
--->
