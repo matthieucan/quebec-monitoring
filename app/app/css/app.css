@@ -82,6 +82,12 @@ div.box_cont:after {
     margin-top: 100%;
 }
 
+div.box-content {
+    background: black;
+    filter: alpha(opacity=60); /* YEAH IE */
+    background: rgba(0, 0, 0, 0.60);
+}
+
 h1 {
     color: white!important;
 }
@@ -161,8 +167,8 @@ a.box h2, #details-banner-left h2 {
     margin-bottom: 0.5em;
 }
 
-h2:before,
-h2:after {
+a.box h2:before, #details-banner-left h2:before,
+a.box h2:after, #details-banner-left h2:after {
     width: 15%;
     max-width: 30px;
     display: block;
