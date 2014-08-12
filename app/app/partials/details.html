@@ -16,6 +16,11 @@
   <div class="row transparent">
     <div class="col-xs-12 box-content">
       <h2>{{box.notes}} <small ng-if="box.notes_url"><a href="{{box.notes_url}}">Source</a></small></h2>
+      <tabset type="pills">
+        <tab heading="OK" class="details-tab details-tab-ok"></tab>
+        <tab heading="WARNING" class="details-tab details-tab-warning"></tab>
+        <tab heading="CRITICAL" class="details-tab details-tab-critical"></tab>
+      </tabset>
     </div>
   </div>
   <pre>{{box | json}}</pre>

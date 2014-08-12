@@ -13,6 +13,8 @@ body {
 
 #wrapper {}
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 .fixed-width {
     max-width: 972px;
     margin: auto;
@@ -92,7 +94,7 @@ h1 {
     color: white!important;
 }
 
-a {color: white!important; text-decoration: underline !important;}
+a {color: white!important;}
 
 a:hover {color: white!important;}
 
@@ -197,6 +199,8 @@ a.box h2:after, #details-banner-left h2:after {
     padding-top: 4.5em;
 }
 
+#more-info a {text-decoration: underline !important;}
+
 #cross-close-info {
     position: absolute;
     top: 0;
@@ -226,4 +230,27 @@ a.box h2:after, #details-banner-left h2:after {
 #details-banner-left {
     background-color: black;
     padding: 1em;
+}
+
+.details-tab {
+    width: 33%;
+    margin: 0;
+    text-align: center;
+    text-decoration: none !important;
+    border-radius: 0 !important;
+}
+.details-tab a {
+    background: none !important;
+}
+
+.details-tab-ok.active {
+    background-color: #65c178 !important;
+}
+
+.details-tab-warning.active {
+    background-color: #f39c12 !important;
+}
+
+.details-tab-critical.active {
+    background-color: #e74c3c !important;
 }

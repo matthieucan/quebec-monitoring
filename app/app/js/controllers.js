@@ -45,7 +45,7 @@ angular.module('myApp.controllers', [])
     function($scope, $routeParams, $http, mapService) {
       
       /* box general information */
-      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels,notes&host_name=' + $routeParams.name).success(function(data) {
+      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels,notes,notes_url&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
         $scope.box.output = correct_output($scope.box.plugin_output);
         $scope.box.display_map = ($.inArray('map', $scope.box.labels) == 0);
