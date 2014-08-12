@@ -85,6 +85,8 @@ div.box_cont:after {
 }
 
 div.box-content {
+    margin: 0;
+    padding: 0;
     background: black;
     filter: alpha(opacity=60); /* YEAH IE */
     background: rgba(0, 0, 0, 0.60);
@@ -199,7 +201,7 @@ a.box h2:after, #details-banner-left h2:after {
     padding-top: 4.5em;
 }
 
-#more-info a {text-decoration: underline !important;}
+.link-underline a {text-decoration: underline !important;}
 
 #cross-close-info {
     position: absolute;

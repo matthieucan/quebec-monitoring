@@ -17,14 +17,38 @@
     <div class="col-xs-12 box-content">
       <h2>{{box.notes}} <small ng-if="box.notes_url"><a href="{{box.notes_url}}">Source</a></small></h2>
       <tabset type="pills">
-        <tab heading="OK" class="details-tab details-tab-ok"></tab>
-        <tab heading="WARNING" class="details-tab details-tab-warning"></tab>
-        <tab heading="CRITICAL" class="details-tab details-tab-critical"></tab>
+        <tab heading="OK" class="details-tab details-tab-ok">
+          <ul class="link-underline">
+            <li ng-repeat="elem in elements" ng-if="elem.state == 0">
+                <a href="{{elem.action_url}}">{{elem.display_name}}</a>
+                <br>
+                <span class="color_{{elem.state}}">{{elem.plugin_output}}</span>
+            </li>
+          </ul>
+        </tab>
+        <tab heading="WARNING" class="details-tab details-tab-warning">
+          <ul class="link-underline">
+            <li ng-repeat="elem in elements" ng-if="elem.state == 1">
+                <a href="{{elem.action_url}}">{{elem.display_name}}</a>
+                <br>
+                <span class="color_{{elem.state}}">{{elem.plugin_output}}</span>
+            </li>
+          </ul>
+        </tab>
+        <tab heading="CRITICAL" class="details-tab details-tab-critical">
+          <ul class="link-underline">
+            <li ng-repeat="elem in elements" ng-if="elem.state == 2">
+                <a href="{{elem.action_url}}">{{elem.display_name}}</a>
+                <br>
+                <span class="color_{{elem.state}}">{{elem.plugin_output}}</span>
+            </li>
+          </ul>
+        </tab>
       </tabset>
     </div>
   </div>
-  <pre>{{box | json}}</pre>
-  <pre>{{elements | json}}</pre>
+  <pre style="display: none;">{{box | json}}</pre>
+  <pre style="display: none;">{{elements | json}}</pre>
 </div>
 
 
