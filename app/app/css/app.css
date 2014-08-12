@@ -96,13 +96,13 @@ h1 {
     color: white!important;
 }
 
-a {color: white!important;}
+.link-underline a {text-decoration: underline !important; color: white!important;}
 
-a:hover {color: white!important;}
+.link-underline a:hover {color: white!important;}
 
-a:visited {color: white!important;}
+.link-underline a:visited {color: white!important;}
 
-a:active {color: white!important;}
+.link-underline a:active {color: white!important;}
 
 .bordercolor_0 {border-color: #65c178;}
 
@@ -165,6 +165,7 @@ a.box:hover {text-decoration: none!important;}
 }
 
 a.box h2, #details-banner-left h2 {
+    color: white;
     font-weight: 800;
     font-size: 1.6em;
     margin-top: 0.5em;
@@ -200,8 +201,6 @@ a.box h2:after, #details-banner-left h2:after {
     background-color: #65c178;
     padding-top: 4.5em;
 }
-
-.link-underline a {text-decoration: underline !important;}
 
 #cross-close-info {
     position: absolute;
@@ -240,19 +239,39 @@ a.box h2:after, #details-banner-left h2:after {
     text-align: center;
     text-decoration: none !important;
     border-radius: 0 !important;
+    background-color: black;
 }
 .details-tab a {
     background: none !important;
 }
 
+.details-tab a:hover {
+    color: white;
+}
+
+.details-tab-ok a {
+    color: #65c178;
+}
+
+.details-tab-warning a {
+    color: #f39c12;
+}
+
+.details-tab-critical a {
+    color: #e74c3c;
+}
+
 .details-tab-ok.active {
+    color: white;
     background-color: #65c178 !important;
 }
 
 .details-tab-warning.active {
+    color: white;
     background-color: #f39c12 !important;
 }
 
 .details-tab-critical.active {
+    color: white;
     background-color: #e74c3c !important;
 }
