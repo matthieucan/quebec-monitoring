@@ -62,7 +62,7 @@ angular.module('myApp.controllers', [])
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url,icon_image_alt&groups__has_field=' + $routeParams.name).success(function(data) {
         $scope.elements = data;
 
-        /* how many problems? */
+        /* how many elements for each state (0,1,2,3)? */
         var nb_problems = [0,0,0,0];
         data.forEach(function(entry) {
           nb_problems[entry.state]++;
