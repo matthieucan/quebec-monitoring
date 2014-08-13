@@ -271,6 +271,14 @@ a.box h2:after, #details-banner-left h2:after {
 .details-tab-content {
     margin-top: 1.6em;
     list-style-type: none;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+.details-tab-content li {
+    display: inline-block;
+    width: 100%;
 }
 
 .details-tab a {
