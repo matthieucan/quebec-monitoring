@@ -204,6 +204,10 @@ a.box h2:after, #details-banner-left h2:after {
     padding-top: 4.5em;
 }
 
+.info-buttons a:hover {
+    color: white !important;
+}
+
 .cross-close {
     position: absolute;
     top: 0;
@@ -275,10 +279,10 @@ a.box h2:after, #details-banner-left h2:after {
 }
 
 .details-tab a:hover {
-    color: white;
+    LOLcolor: white;
 }
 
-.details-tab-ok a {
+.details-tab-ok a, .details-tab-ok a:hover {
     color: #65c178;
 }
 
@@ -287,11 +291,11 @@ a.box h2:after, #details-banner-left h2:after {
     border-left: 2px solid #252525 !important;
 }
 
-.details-tab-warning a {
+.details-tab-warning a, .details-tab-warning a:hover {
     color: #f39c12;
 }
 
-.details-tab-critical a {
+.details-tab-critical a, .details-tab-critical a:hover {
     color: #e74c3c;
 }
 
