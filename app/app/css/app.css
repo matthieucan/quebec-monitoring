@@ -252,6 +252,7 @@ a.box h2:after, #details-banner-left h2:after {
     border-radius: 0 !important;
     background-color: black;
     margin-bottom: 2em;
+    border: 0 !important;
 }
 .details-tab a {
     background: none !important;
