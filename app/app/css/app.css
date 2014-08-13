@@ -92,6 +92,11 @@ div.box-content {
     background: rgba(0, 0, 0, 0.60);
 }
 
+div.box-content h2 {
+    font-size: 1.5em;
+    margin: 1em;
+}
+
 h1 {
     color: white!important;
 }
@@ -240,6 +245,7 @@ a.box h2:after, #details-banner-left h2:after {
     text-decoration: none !important;
     border-radius: 0 !important;
     background-color: black;
+    margin-bottom: 2em;
 }
 .details-tab a {
     background: none !important;
