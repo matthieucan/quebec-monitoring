@@ -82,19 +82,22 @@ angular.module('myApp.controllers', [])
         $scope.nb_problems = nb_problems;
 
         /* gauge loader */
+        var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
         var g = new JustGage({
           id: "gauge",
-          value: nb_problems[1]+nb_problems[2]+nb_problems[3],
+          value: gaugeValue,
           min: 0,
           max: data.length,
-          title: "Problèmes",
+          title: "Aujourd'hui :",
           hideMinMax: true,
           valueFontColor: "white",
           titleFontColor: "white",
           gaugeWidthScale: 0.3,
           gaugeColor: "black",
           levelColors: ["#ffffff"],
-          shadowOpacity: 0.5
+          shadowOpacity: 0.5,
+          label: "problème" + (gaugeValue > 1 ? "s" : ""),
+          labelFontColor: "white"
         });
 
       });
