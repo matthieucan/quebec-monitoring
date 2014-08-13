@@ -209,10 +209,11 @@ a.box h2:after, #details-banner-left h2:after {
 }
 
 .cross-close {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     padding: 1em;
+    z-index: 10;
 }
 
 #cross-close-info {
