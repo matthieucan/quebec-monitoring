@@ -249,8 +249,12 @@ a.box h2:after, #details-banner-left h2:after {
     border-width: 0px 0px 0px 12px;
 }
 
+#details-tab-wrapper li {
+    margin: 0 !important;
+}
+
 .details-tab {
-    width: 33%;
+    width: 33.333%;
     margin: 0;
     text-align: center;
     text-decoration: none !important;
@@ -276,6 +280,11 @@ a.box h2:after, #details-banner-left h2:after {
 
 .details-tab-ok a {
     color: #65c178;
+}
+
+.details-tab-warning {
+    border-right: 2px solid #252525 !important;
+    border-left: 2px solid #252525 !important;
 }
 
 .details-tab-warning a {
