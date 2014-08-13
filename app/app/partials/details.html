@@ -25,7 +25,7 @@
       </small></h2>
       <tabset type="pills" id="details-tab-wrapper">
         <tab heading="OK ({{nb_problems[0]}})" class="details-tab details-tab-ok">
-          <ul class="link-underline">
+          <ul class="link-underline details-tab-content">
             <li ng-repeat="elem in elements" ng-if="elem.state == 0">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>
                 <br>
@@ -34,7 +34,7 @@
           </ul>
         </tab>
         <tab heading="WARNING ({{nb_problems[1]}})" class="details-tab details-tab-warning">
-          <ul class="link-underline">
+          <ul class="link-underline details-tab-content">
             <li ng-repeat="elem in elements" ng-if="elem.state == 1">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>
                 <br>
@@ -43,7 +43,7 @@
           </ul>
         </tab>
         <tab heading="CRITICAL ({{nb_problems[2]+nb_problems[3]}})" class="details-tab details-tab-critical">
-          <ul class="link-underline">
+          <ul class="link-underline details-tab-content">
             <li ng-repeat="elem in elements" ng-if="elem.state >= 2">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>
                 <br>

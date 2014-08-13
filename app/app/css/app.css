@@ -259,15 +259,20 @@ a.box h2:after, #details-banner-left h2:after {
 
 .details-tab {
     width: 33.333%;
-    margin: 0;
     text-align: center;
     text-decoration: none !important;
     border-radius: 0 !important;
     background-color: black;
     background-clip: content-box !important;
-    margin-bottom: 2em;
     border: 0 !important;
 }
+
+
+.details-tab-content {
+    margin-top: 1.6em;
+    list-style-type: none;
+}
+
 .details-tab a {
     background: none !important;
 }
@@ -276,10 +281,6 @@ a.box h2:after, #details-banner-left h2:after {
     color: white;
     border-image-slice: 0% 0% 100% 0% !important;
     border-width: 0 0 12px 0 !important;
-}
-
-.details-tab a:hover {
-    LOLcolor: white;
 }
 
 .details-tab-ok a, .details-tab-ok a:hover {
