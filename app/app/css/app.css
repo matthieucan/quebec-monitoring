@@ -86,9 +86,7 @@ div.box_cont:after {
 div.box-content {
     margin: 0;
     padding: 0;
-    background: black;
-    filter: alpha(opacity=60); /* YEAH IE */
-    background: rgba(0, 0, 0, 0.60);
+    background: #252525;
 }
 
 div.box-content h2 {
@@ -244,6 +242,13 @@ a.box h2:after, #details-banner-left h2:after {
     padding: 1em;
 }
 
+#details-banner-right {
+    padding: 0;
+    border-image-source: url(../img/barre_black.png);
+    border-image-slice: 0% 0% 0% 100%;
+    border-width: 0px 0px 0px 15px;
+}
+
 .details-tab {
     width: 33%;
     margin: 0;
@@ -251,11 +256,18 @@ a.box h2:after, #details-banner-left h2:after {
     text-decoration: none !important;
     border-radius: 0 !important;
     background-color: black;
+    background-clip: content-box !important;
     margin-bottom: 2em;
     border: 0 !important;
 }
 .details-tab a {
     background: none !important;
+}
+
+.details-tab.active {
+    color: white;
+    border-image-slice: 0% 0% 100% 0% !important;
+    border-width: 0 0 15px 0 !important;
 }
 
 .details-tab a:hover {
@@ -275,16 +287,16 @@ a.box h2:after, #details-banner-left h2:after {
 }
 
 .details-tab-ok.active {
-    color: white;
     background-color: #65c178 !important;
+    border-image-source: url(../img/barre_green.png) !important;
 }
 
 .details-tab-warning.active {
-    color: white;
     background-color: #f39c12 !important;
+    border-image-source: url(../img/barre_orange.png) !important;
 }
 
 .details-tab-critical.active {
-    color: white;
     background-color: #e74c3c !important;
+    border-image-source: url(../img/barre_red.png) !important;
 }
