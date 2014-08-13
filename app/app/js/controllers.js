@@ -63,17 +63,16 @@ angular.module('myApp.controllers', [])
         $scope.elements = data;
 
         /* how many problems? */
-        var problems = 0;
+        var nb_problems = [0,0,0,0];
         data.forEach(function(entry) {
-          if (entry.state > 0) {
-            problems++;
-          }
+          nb_problems[entry.state]++;
           });
+        $scope.nb_problems = nb_problems;
 
         /* gauge loader */
         var g = new JustGage({
           id: "gauge",
-          value: problems,
+          value: nb_problems[1]+nb_problems[2]+nb_problems[3],
           min: 0,
           max: data.length,
           title: "Problèmes",
