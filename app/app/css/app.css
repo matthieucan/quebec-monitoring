@@ -271,6 +271,7 @@ a.box h2:after, #details-banner-left h2:after {
 
 .details-tab-content {
     margin-top: 1.6em;
+    margin-bottom: 1.6em;
     list-style-type: none;
     -webkit-column-count: 2;
     -moz-column-count: 2;
