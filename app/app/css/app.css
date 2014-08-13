@@ -244,9 +244,9 @@ a.box h2:after, #details-banner-left h2:after {
 
 #details-banner-right {
     padding: 0;
-    border-image-source: url(../img/barre_black.png);
+    border-image-source: url(../img/triangle_black.png);
     border-image-slice: 0% 0% 0% 100%;
-    border-width: 0px 0px 0px 15px;
+    border-width: 0px 0px 0px 12px;
 }
 
 .details-tab {
@@ -267,7 +267,7 @@ a.box h2:after, #details-banner-left h2:after {
 .details-tab.active {
     color: white;
     border-image-slice: 0% 0% 100% 0% !important;
-    border-width: 0 0 15px 0 !important;
+    border-width: 0 0 12px 0 !important;
 }
 
 .details-tab a:hover {
@@ -288,15 +288,15 @@ a.box h2:after, #details-banner-left h2:after {
 
 .details-tab-ok.active {
     background-color: #65c178 !important;
-    border-image-source: url(../img/barre_green.png) !important;
+    border-image-source: url(../img/triangle_green.png) !important;
 }
 
 .details-tab-warning.active {
     background-color: #f39c12 !important;
-    border-image-source: url(../img/barre_orange.png) !important;
+    border-image-source: url(../img/triangle_orange.png) !important;
 }
 
 .details-tab-critical.active {
     background-color: #e74c3c !important;
-    border-image-source: url(../img/barre_red.png) !important;
+    border-image-source: url(../img/triangle_red.png) !important;
 }
