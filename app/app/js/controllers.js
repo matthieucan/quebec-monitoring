@@ -28,9 +28,21 @@ angular.module('myApp.controllers', [])
       /* all boxes information */
       $http.get('/adagios/rest/status/json/services/?fields=host_name,display_name,state,icon_image,plugin_output,&groups__has_field=main').success(function(data) {
         $scope.boxes = data;
+        /* nicer output to show */
         $scope.boxes.forEach(function(entry) {
           entry.output = correct_output(entry.plugin_output);
         });
+
+        /* compute the global state */
+        var global_state = 0;
+        $scope.boxes.forEach(function(entry) {
+          var s = entry.state;
+          global_state += (s == 0 ? 2 : (s == 1 ? -1 : (s == 2 ? -2 : 0)));
+        });
+        /* if we obtain n<0, global state CRITICAL
+                        n>0, global state WARNING
+                        n>2, global state OK */
+        $scope.global_state = (global_state < 0 ? 2 : (global_state > 2 ? 0 : 1));
       });
 
   }])
