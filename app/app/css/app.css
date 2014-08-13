@@ -68,7 +68,6 @@ h1 {
     background-color: rgba(101, 193, 92, 1.0);
 }
 
-
 div.box_cont {
     position:relative;
     padding: 0;
@@ -207,12 +206,19 @@ a.box h2:after, #details-banner-left h2:after {
     padding-top: 4.5em;
 }
 
-#cross-close-info {
+.cross-close {
     position: absolute;
     top: 0;
     right: 0;
     padding: 1em;
+}
+
+#cross-close-info {
     background-color: #299138;
+}
+
+#cross-close-details {
+    background-color: black;
 }
 
 .info-button {
