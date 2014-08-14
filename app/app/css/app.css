@@ -99,6 +99,17 @@ div.box-content h2 {
     margin: 1em;
 }
 
+div.box-content h2:after {
+    width: 30%;
+    max-width: 50px;
+    display: block;
+    content: "";
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 2px;
+    background-color: rgba(101, 193, 92, 1.0);
+}
+
 h1 {
     color: white!important;
 }
