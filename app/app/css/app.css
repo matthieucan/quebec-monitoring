@@ -43,7 +43,11 @@ h1 a, h1 a:hover, h1 a:active, h1 a:visited {
 
 #banner-left {
     font-size: 2em;
-    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+@media (min-width: 992px) {
+    #banner-left {
+        border-right: 1px solid rgba(255, 255, 255, 0.7);
+    }
 }
 
 #banner-left:before {
