@@ -73,6 +73,11 @@ angular.module('myApp.controllers', [])
           });
           $scope.nb_problems = nb_problems;
 
+          /* which tab should be active at page loading? */
+          $scope.tab_critical_active = nb_problems[2]+nb_problems[3] > 0;
+          $scope.tab_warning_active = nb_problems[2]+nb_problems[3] == 0 && nb_problems[1] > 0;
+          $scope.tab_ok_active  =nb_problems[1]+nb_problems[2]+nb_problems[3] == 0;
+
           /* gauge loader */
           var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
           var g = gaugeService.create(gaugeValue, data.length);
