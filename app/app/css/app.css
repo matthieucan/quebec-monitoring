@@ -265,9 +265,13 @@ a.box h2:after, #details-banner-left h2:after {
 
 #details-banner-right {
     padding: 0;
-    border-image-source: url(../img/triangle_black.png);
-    border-image-slice: 0% 0% 0% 100%;
-    border-width: 0px 0px 0px 12px;
+}
+@media (min-width: 992px) {
+    #details-banner-right {
+        border-image-source: url(../img/triangle_black.png);
+        border-image-slice: 0% 0% 0% 100%;
+        border-width: 0px 0px 0px 12px;
+    }
 }
 
 #details-tab-wrapper li {
