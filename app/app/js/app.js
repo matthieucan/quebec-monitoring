@@ -38,4 +38,28 @@ angular.module('myApp', [
       icon_3: new OpenLayers.Icon('img/marker-3.png')
 
     }
+  })
+
+  .factory('gaugeService', function () {
+    return {
+      create: function (value, dataSize) {
+        var g = new JustGage({
+          id: "gauge",
+          value: value,
+          min: 0,
+          max: dataSize,
+          title: "Aujourd'hui :",
+          hideMinMax: true,
+          valueFontColor: "white",
+          titleFontColor: "white",
+          gaugeWidthScale: 0.3,
+          gaugeColor: "black",
+          levelColors: ["#ffffff"],
+          shadowOpacity: 0.5,
+          label: "problème" + (value > 1 ? "s" : ""),
+          labelFontColor: "white"
+        });
+        return g;
+      }
+    }
   });

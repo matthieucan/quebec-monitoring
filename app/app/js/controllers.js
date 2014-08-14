@@ -53,8 +53,8 @@ angular.module('myApp.controllers', [])
   }])
 
   /* details view page */
-  .controller('DetailsCtrl', ['$scope', '$routeParams', '$http', 'mapService',
-    function($scope, $routeParams, $http, mapService) {
+  .controller('DetailsCtrl', ['$scope', '$routeParams', '$http', 'mapService', 'gaugeService',
+    function($scope, $routeParams, $http, mapService, gaugeService) {
       
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels,notes,notes_url&host_name=' + $routeParams.name).success(function(data) {
@@ -87,23 +87,7 @@ angular.module('myApp.controllers', [])
 
         /* gauge loader */
         var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
-        var g = new JustGage({
-          id: "gauge",
-          value: gaugeValue,
-          min: 0,
-          max: data.length,
-          title: "Aujourd'hui :",
-          hideMinMax: true,
-          valueFontColor: "white",
-          titleFontColor: "white",
-          gaugeWidthScale: 0.3,
-          gaugeColor: "black",
-          levelColors: ["#ffffff"],
-          shadowOpacity: 0.5,
-          label: "problème" + (gaugeValue > 1 ? "s" : ""),
-          labelFontColor: "white"
-        });
-
+        var g = gaugeService.create(gaugeValue, data.length);
       });
 
   }]);
