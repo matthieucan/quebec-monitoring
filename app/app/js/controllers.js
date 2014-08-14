@@ -62,32 +62,37 @@ angular.module('myApp.controllers', [])
         $scope.box.output = correct_output($scope.box.plugin_output);
         $scope.box.display_map = ($.inArray('map', $scope.box.labels) == 0);
 
-        if ($scope.box.display_map) {
-          /* let's create the map */
-          var map = mapService.create();
-          $scope.map = map;
-          /* map init function */
-          $scope.renderMap = function(){
-            $scope.map.map.render('map');
-          }
+        /* elements in this box */
+        $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url,icon_image_alt&groups__has_field=' + $routeParams.name).success(function(data) {
+          $scope.elements = data;
 
-        }
-      });
-
-      /* elements in this box */
-      $http.get('/adagios/rest/status/json/services/?fields=display_name,state,plugin_output,action_url,icon_image_alt&groups__has_field=' + $routeParams.name).success(function(data) {
-        $scope.elements = data;
-
-        /* how many elements for each state (0,1,2,3)? */
-        var nb_problems = [0,0,0,0];
-        data.forEach(function(entry) {
-          nb_problems[entry.state]++;
+          /* how many elements for each state (0,1,2,3)? */
+          var nb_problems = [0,0,0,0];
+          data.forEach(function(entry) {
+            nb_problems[entry.state]++;
           });
-        $scope.nb_problems = nb_problems;
+          $scope.nb_problems = nb_problems;
 
-        /* gauge loader */
-        var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
-        var g = gaugeService.create(gaugeValue, data.length);
+          /* gauge loader */
+          var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
+          var g = gaugeService.create(gaugeValue, data.length);
+
+          /* let's create the map */
+          var coords = [];
+          if ($scope.box.display_map) {
+
+            /* get the map */
+            var map = mapService.create(coords);
+            $scope.map = map;
+
+            /* map init function */
+            $scope.renderMap = function(){
+              $scope.map.map.render('map');
+            }
+
+            /* map rendering */
+            $scope.renderMap();
+          }
+        });
       });
-
-  }]);
+    }]);
