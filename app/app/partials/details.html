@@ -24,9 +24,9 @@
           <a href="{{box.notes_url}}">Source</a>
       </small></h2>
       <tabset type="pills" id="details-tab-wrapper">
-        <tab heading="OK ({{nb_problems[0]}})" class="details-tab details-tab-ok">
+        <tab heading="CRITICAL ({{nb_problems[2]+nb_problems[3]}})" class="details-tab details-tab-critical">
           <ul class="link-underline details-tab-content">
-            <li ng-repeat="elem in elements" ng-if="elem.state == 0">
+            <li ng-repeat="elem in elements" ng-if="elem.state >= 2">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>
                 <br>
                 <span class="color_{{elem.state}}">{{elem.plugin_output}}</span>
@@ -42,9 +42,9 @@
             </li>
           </ul>
         </tab>
-        <tab heading="CRITICAL ({{nb_problems[2]+nb_problems[3]}})" class="details-tab details-tab-critical">
+        <tab heading="OK ({{nb_problems[0]}})" class="details-tab details-tab-ok">
           <ul class="link-underline details-tab-content">
-            <li ng-repeat="elem in elements" ng-if="elem.state >= 2">
+            <li ng-repeat="elem in elements" ng-if="elem.state == 0">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>
                 <br>
                 <span class="color_{{elem.state}}">{{elem.plugin_output}}</span>
