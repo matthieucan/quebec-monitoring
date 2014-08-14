@@ -65,9 +65,13 @@ angular.module('myApp.controllers', [])
         if ($scope.box.display_map) {
           /* let's create the map */
           var map = mapService.create();
-          map.map.render('map');
-        }
+          $scope.map = map;
+          /* map init function */
+          $scope.renderMap = function(){
+            $scope.map.map.render('map');
+          }
 
+        }
       });
 
       /* elements in this box */

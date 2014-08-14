@@ -16,7 +16,7 @@
       <div id="gauge" class="200x160px"></div>
     </div>
   </div>
-  <div class="row" ng-if="box.display_map" id="map">
+  <div class="row" ng-if="box.display_map" id="map" ng-init="renderMap()">
   </div>
   <div class="row transparent">
     <div class="col-xs-12 box-content">
@@ -24,7 +24,8 @@
           <a href="{{box.notes_url}}">Source</a>
       </small></h2>
       <tabset type="pills" id="details-tab-wrapper">
-        <tab heading="CRITICAL ({{nb_problems[2]+nb_problems[3]}})" class="details-tab details-tab-critical">
+        <tab heading="CRITICAL ({{nb_problems[2]+nb_problems[3]}})"
+             class="details-tab details-tab-critical">
           <ul class="link-underline details-tab-content">
             <li ng-repeat="elem in elements" ng-if="elem.state >= 2">
                 <a href="{{elem.action_url}}">{{elem.display_name}}</a>

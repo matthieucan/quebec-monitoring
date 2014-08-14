@@ -324,3 +324,7 @@ a.box h2:after, #details-banner-left h2:after {
     background-color: #e74c3c !important;
     border-image-source: url(../img/triangle_red.png) !important;
 }
+
+#map {
+    height: 300px;
+}
