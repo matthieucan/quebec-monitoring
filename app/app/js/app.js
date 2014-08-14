@@ -29,8 +29,8 @@ angular.module('myApp', [
                      new OpenLayers.Icon('img/marker-2.png'),
                      new OpenLayers.Icon('img/marker-3.png')];
 
-        var position = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);
-        var zoom = 4;
+        var position = new OpenLayers.LonLat(-71.59765625,47.346927610556655).transform(fromProjection, toProjection);
+        var zoom = 6;
         var markers = new OpenLayers.Layer.Markers("Markers");
         var OSMLayer = new OpenLayers.Layer.OSM('OSM Map', null, {});
         var map = new OpenLayers.Map({
