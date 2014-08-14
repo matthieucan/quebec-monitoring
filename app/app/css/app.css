@@ -25,6 +25,11 @@ h1 {
     margin-bottom: 1.5em!important;
 }
 
+h1 a, h1 a:hover, h1 a:active, h1 a:visited {
+    color: white;
+    text-decoration: none;
+}
+
 .transparent {
     background: black;
     filter: alpha(opacity=50); /* YEAH IE */
