@@ -20,7 +20,15 @@ angular.module('myApp', [
 
   .factory('mapService', function () {
     return {
-      create: function () {
+      create: function (coords) {
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");
+        var toProjection   = new OpenLayers.Projection("EPSG:900913");
+
+        var icons = [new OpenLayers.Icon('img/marker-0.png'),
+                     new OpenLayers.Icon('img/marker-1.png'),
+                     new OpenLayers.Icon('img/marker-2.png'),
+                     new OpenLayers.Icon('img/marker-3.png')];
+
         var position = new OpenLayers.LonLat(-7864933.6056233 ,7223393.3176719);
         var zoom = 4;
         var markers = new OpenLayers.Layer.Markers("Markers");
@@ -30,13 +38,19 @@ angular.module('myApp', [
           center: position,
           zoom: zoom,
         });
-        return {map: map, markers: markers};
-      },
-      icon_0: new OpenLayers.Icon('img/marker-0.png'),
-      icon_1: new OpenLayers.Icon('img/marker-1.png'),
-      icon_2: new OpenLayers.Icon('img/marker-2.png'),
-      icon_3: new OpenLayers.Icon('img/marker-3.png')
+        /* add all markers */
+        coords.forEach(function(state_loc) {
+          var state = state_loc[0];
+          var loc = state_loc[1];
+          var marker = new OpenLayers.Marker(
+            new OpenLayers.LonLat.fromString(loc).transform(fromProjection, toProjection),
+            icons[state].clone()
+          );
+          markers.addMarker(marker);
+        });
 
+        return {map: map, markers: markers};
+      }
     }
   })
 

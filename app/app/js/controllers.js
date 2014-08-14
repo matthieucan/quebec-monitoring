@@ -78,8 +78,13 @@ angular.module('myApp.controllers', [])
           var g = gaugeService.create(gaugeValue, data.length);
 
           /* let's create the map */
-          var coords = [];
           if ($scope.box.display_map) {
+
+            /* compute the coords */
+            var coords = [];
+            $scope.elements.forEach(function(entry) {
+              coords.push([entry.state, entry.icon_image_alt]);
+            });
 
             /* get the map */
             var map = mapService.create(coords);
