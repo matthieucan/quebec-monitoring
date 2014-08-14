@@ -16,7 +16,10 @@
       <div id="gauge" class="200x160px"></div>
     </div>
   </div>
-  <div class="row" ng-if="box.display_map" id="map" ng-init="renderMap()">
+  <div class="row transparent" ng-if="box.display_map">
+    <div class="col-xs-12 box-content" id="map"
+         ng-init="renderMap()">
+    </div>
   </div>
   <div class="row transparent">
     <div class="col-xs-12 box-content">

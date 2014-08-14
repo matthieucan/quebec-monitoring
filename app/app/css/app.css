@@ -327,4 +327,5 @@ a.box h2:after, #details-banner-left h2:after {
 
 #map {
     height: 300px;
+    margin: 0;
 }
