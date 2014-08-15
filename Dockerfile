@@ -10,7 +10,8 @@ RUN apt-get update
 
 ### Utils
 
-RUN apt-get install -y git python-pip emacs curl
+RUN apt-get install -y git python-pip emacs curl nodejs nodejs-legacy npm
+RUN npm install -g bower
 
 ### Other .deb sources
 
@@ -89,10 +90,13 @@ RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
-ADD app/app /srv/app
+ADD app /srv/app
 
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken
+
+# APP
+RUN cd /srv/app && yes | bower install --allow-root
 
 # fixed upstream, should be fixed in newer Debian packages
 RUN mv /etc/shinken/logstore_sqlite.cfg/logstore_sqlite.cfg /etc/shinken/modules/
