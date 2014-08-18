@@ -228,6 +228,7 @@ a.box h2:after, #details-banner-left h2:after {
     top: 0;
     background-color: #65c178;
     padding-top: 4.5em;
+    overflow: scroll;
 }
 
 .info-buttons a:hover {
