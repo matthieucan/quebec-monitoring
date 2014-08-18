@@ -1,3 +1,5 @@
+WD = $(shell pwd)
+
 all: run
 
 build: conf
@@ -8,8 +10,7 @@ run: build
 
 dev: build
 	(cd app && npm install)
-	sudo docker run -i -t -p 8080:80 -v $(pwd)/app/app:/srv/app quebec bash
-
+	sudo docker run -i -t -p 8080:80 -v $(WD)/app:/srv/app quebec bash
 
 # configuration
 conf: banks dns websites hospitals transports dating isp environment
