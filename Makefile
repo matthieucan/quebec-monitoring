@@ -10,7 +10,7 @@ run: build
 
 dev: conf build
 	(cd app && npm install)
-	sudo docker run -i -t -p 8080:80 -v $(WD)/app:/srv/app quebec bash
+	sudo docker run -i -t -p 8080:80 -v $(WD)/app:/srv/app -v $(WD)/etc/shinken/adagios:/etc/shinken/adagios quebec bash
 
 # configuration
 conf: banks dns websites hospitals transports dating isp environment

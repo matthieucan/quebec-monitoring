@@ -17,23 +17,6 @@ http://iceland.adagios.org by @palli.
   $ <your-favourite-editor> scripts/tokens.py
   ```
 
-* (not mandatory) Use python-virtualenv if you're not root or you
-  want to keep your machine clean of Python packages
-  ```
-  $ virtualenv venv
-  $ . venv/bin/activate
-  ```
-
-* Install the needed Python packages
-  ```
-  $ pip install -r scripts/requirements.txt
-  ```
-
-* Generate the configuration
-  ```
-  $ make conf
-  ```
-
 ### Run the Docker container
 
 The only dependency is Docker, on Debian- or Ubuntu-based distros you
@@ -93,6 +76,19 @@ relevant information in `scripts/<category>.py`.
 
 If you want to create a new category, create a script in
 `scripts/<your-cool-idea>.py`, and an entry in the Makefile.
+
+To have a nice development environment:
+
+`make dev` will:
+* generate the configuration from your scripts/ (look in the Makefile),
+* bring you in an interactive Docker environment (where you can play with Shinken,
+Apache, and the various scripts),
+* map the frontend application from your harddrive to your container,
+* map the specific Quebec247 configuration from your harddrive to your container.
+
+Now run `service shinken start && service apache2 start` in your
+container. Make changes to the `scripts/*.py` (backend) or `app/*`
+(frontend), it will be automatically updated!
 
 __Pull requests, patches, bug reports, feedback and pizzas are always
 welcome!__
