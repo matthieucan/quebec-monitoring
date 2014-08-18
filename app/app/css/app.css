@@ -230,6 +230,11 @@ a.box h2:after, #details-banner-left h2:after {
     background-color: #65c178;
     padding: 0;
 }
+@media (max-width: 500px) {
+    #banner_bottom {
+        font-size: 70%;
+    }
+}
 
 #more-info {
     position: fixed;
