@@ -58,7 +58,7 @@ command.
 #### Analytics
 
 If you want to host this and get analytics, adapt the Piwik
-configuration in apache-quebec.conf and templates/html/quebec.html
+configuration in `apache-quebec.conf` and `app/app/index.html`.
 
 For an easy-to-setup Piwik in Docker, try
 https://github.com/matthieucan/Dockerfiles/piwik
