@@ -62,19 +62,6 @@ RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
 RUN pip install git+git://github.com/pynag/pynag.git
 RUN pip install git+git://github.com/opinkerfi/adagios.git
 
-# Not used (yet)
-
-### InfluxDB
-
-# RUN wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
-# RUN dpkg -i influxdb_latest_amd64.deb
-# RUN rm influxdb_latest_amd64.deb
-
-### Grafana
-
-# RUN cd /var && wget https://github.com/grafana/grafana/archive/v1.6.1.tar.gz
-# RUN cd /var && tar xzvf v1.6.1.tar.gz && rm v1.6.1.tar.gz
-
 
 ### Configuration
 
