@@ -88,6 +88,16 @@ div.box_cont {
         font-size: 90%;
     }
 }
+@media (max-width: 500px) {
+    div.box_cont {
+        font-size: 80%;
+    }
+}
+@media (max-width: 380px) {
+    div.box_cont {
+        font-size: 70%;
+    }
+}
 
 div.box_cont:after {
     /* trick to keep height==width
