@@ -82,6 +82,19 @@ ADD app /srv/app
 RUN chown -R shinken: /etc/adagios
 RUN chown -R shinken: /etc/shinken
 
+## Shinken hosts/services configuration
+RUN apt-get install -y python-bs4 python-requests
+ADD scripts /scripts
+RUN mkdir /etc/shinken/adagios
+RUN scripts/banks.py > etc/shinken/adagios/banks.cfg
+RUN scripts/dns.py > etc/shinken/adagios/dns.cfg
+RUN scripts/websites.py > etc/shinken/adagios/websites.cfg
+RUN scripts/hospitals.py > etc/shinken/adagios/hospitals.cfg
+RUN scripts/transports.py > etc/shinken/adagios/transports.cfg
+RUN scripts/dating.py > etc/shinken/adagios/dating.cfg
+RUN scripts/isp.py > etc/shinken/adagios/isp.cfg
+RUN scripts/environment.py > etc/shinken/adagios/environment.cfg
+
 # APP
 RUN cd /srv/app && yes | bower install --allow-root
 
