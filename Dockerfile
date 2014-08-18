@@ -96,6 +96,8 @@ RUN sed -i 's/Graphite/graphite/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/BoosterNrpe/booster-nrpe/g' /etc/shinken/brokers/broker.cfg
 RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 
+RUN sed -i 's/WebUI/livestatus/g' /etc/shinken/brokers/broker.cfg
+
 # Allow ssh connection from host
 # ADD id_rsa.pub /root/home/.ssh/authorized_keys
 
