@@ -6,7 +6,7 @@ build:
 	sudo docker build -t quebec .
 
 run: build
-	sudo docker run -d -p 8080:80 quebec
+	sudo docker run -d -p 8080:80 -v $(WD)/app/app:/srv/app/app quebec
 
 dev: conf build
 	(cd app && npm install)
