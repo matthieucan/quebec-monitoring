@@ -35,10 +35,7 @@ If you installed Docker manually, perhaps the command to run it is
 s/docker.io/docker/g Makefile`, or symlink docker.io to your docker
 binary.
 
-And now, navigate to your container IP. In order to know your
-container IP, you can run `sudo docker.io inspect <container-number>`,
-replacing `<container-number>` by the last line returned by the previous
-command.
+And now, navigate to `http://localhost:8080`. Say hello to your instance!
 
 <dl>
   <dt>What? You really use sudo? This looks dangerous.</dt>
