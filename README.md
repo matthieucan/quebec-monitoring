@@ -88,7 +88,8 @@ Apache, and the various scripts),
 
 Now run `service shinken start && service apache2 start` in your
 container. Make changes to the `scripts/*.py` (backend) or `app/*`
-(frontend), it will be automatically updated!
+(frontend), run your scripts, restart Shinken in your container, and everything
+will be automatically updated!
 
 __Pull requests, patches, bug reports, feedback and pizzas are always
 welcome!__
