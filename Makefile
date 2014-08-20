@@ -8,7 +8,7 @@ build:
 run: build
 	sudo docker run -d -p 8080:80 quebec
 
-updatable-prod:
+updatable-prod: build
 	(cd app && npm install)
 	sudo docker run -d -t -p 8080:80 -v $(WD)/app:/srv/app -v $(WD)/etc/shinken/adagios:/etc/shinken/adagios quebec
 
