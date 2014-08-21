@@ -74,6 +74,17 @@ relevant information in `scripts/<category>.py`.
 If you want to create a new category, create a script in
 `scripts/<your-cool-idea>.py`, and an entry in the Makefile.
 
+The scripts are used to generate the Shinken configuration, which uses
+plugins. Most of the plugins are hosted on
+[Open Build Service](https://build.opensuse.org/project/show/home:sfl-monitoring:monitoring-tools),
+a service from OpenSuse which allows us to build Debian packages,
+which are easier to install in the Docker container. If you need
+inspiration to write new plugins, check out
+[their source code](https://github.com/savoirfairelinux/monitoring-tools/tree/master/plugins)
+and
+[our plugins library](https://github.com/savoirfairelinux/monitoring-tools#create-a-plugin):
+`make new-plugin` and follow your terminal!
+
 To have a nice development environment:
 
 `make dev` will:
