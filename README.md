@@ -12,6 +12,7 @@ http://iceland.adagios.org by @palli.
 ### Generate the configuration
 
 * (not mandatory) Fill the tokens needed for certain web services
+
   ```
   $ cp scripts/tokens.py.copyme scripts/tokens.py
   $ <your-favourite-editor> scripts/tokens.py
