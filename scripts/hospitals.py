@@ -378,7 +378,7 @@ define service {
        display_name                   Hôpitaux
        service_description            hospitals
        servicegroups                  main
-       notes                          Vérifie le taux de remplissage des civières.
+       notes                          Vérifie le taux d'occupation des civières.
        check_command                  bp_rule!%(all_hospitals)s
        business_rule_output_template  $(x)$
        labels                         map
