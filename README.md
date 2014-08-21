@@ -82,8 +82,7 @@ which are easier to install in the Docker container. If you need
 inspiration to write new plugins, check out
 [their source code](https://github.com/savoirfairelinux/monitoring-tools/tree/master/plugins)
 and
-[our plugins library](https://github.com/savoirfairelinux/monitoring-tools#create-a-plugin):
-`make new-plugin` and follow your terminal!
+[our plugins library](https://github.com/savoirfairelinux/monitoring-tools#create-a-plugin).
 
 To have a nice development environment:
 
