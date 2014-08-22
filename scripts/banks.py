@@ -83,7 +83,7 @@ define service {
        service_description            banks
        servicegroups                  main
        display_name                   Banques
-       notes                          Vérifie les services en ligne des principales banques.
+       notes                          Services en ligne des principales banques.
        check_command                  bp_rule!%(all_banks)s
        business_rule_output_template  $(x)$
        icon_image                     fa-btc
