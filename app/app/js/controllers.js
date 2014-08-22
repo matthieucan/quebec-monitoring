@@ -59,7 +59,8 @@ angular.module('myApp.controllers', [])
       /* box general information */
       $http.get('/adagios/rest/status/json/services/?fields=display_name,state,icon_image,plugin_output,labels,notes,notes_url&host_name=' + $routeParams.name).success(function(data) {
         $scope.box = data[0];
-        $scope.box.output = correct_output($scope.box.plugin_output);
+        // overrided later anyway:
+        //$scope.box.output = correct_output($scope.box.plugin_output);
         $scope.box.display_map = ($.inArray('map', $scope.box.labels) == 0);
 
         /* elements in this box */
@@ -67,20 +68,25 @@ angular.module('myApp.controllers', [])
           $scope.elements = data;
 
           /* how many elements for each state (0,1,2,3)? */
-          var nb_problems = [0,0,0,0];
+          var nbProblems = [0,0,0,0];
           data.forEach(function(entry) {
-            nb_problems[entry.state]++;
+            nbProblems[entry.state]++;
           });
-          $scope.nb_problems = nb_problems;
+          $scope.nb_problems = nbProblems;
 
           /* which tab should be active at page loading? */
-          $scope.tab_critical_active = nb_problems[2]+nb_problems[3] > 0;
-          $scope.tab_warning_active = nb_problems[2]+nb_problems[3] == 0 && nb_problems[1] > 0;
-          $scope.tab_ok_active  =nb_problems[1]+nb_problems[2]+nb_problems[3] == 0;
+          $scope.tab_critical_active = nbProblems[2]+nbProblems[3] > 0;
+          $scope.tab_warning_active = nbProblems[2]+nbProblems[3] == 0 && nbProblems[1] > 0;
+          $scope.tab_ok_active  =nbProblems[1]+nbProblems[2]+nbProblems[3] == 0;
 
           /* gauge loader */
-          var gaugeValue = nb_problems[1]+nb_problems[2]+nb_problems[3];
-          var g = gaugeService.create(gaugeValue, data.length);
+          var nbProblems123 = nbProblems[1]+nbProblems[2]+nbProblems[3];
+          var g = gaugeService.create(nbProblems123, data.length);
+          
+          /* here we override $scope.box.output, which is the value computed by Shinken
+             in the business rule. If the checks have runned again but not the bp_rule,
+             the value is outdated and different results are displayed in the page. */
+          $scope.box.output = (nbProblems123 > 0 ? (nbProblems123.toString() + 'problème' + (nbProblems123 > 1 : 's' : '') : 'ok');
 
           /* let's create the map */
           if ($scope.box.display_map) {
