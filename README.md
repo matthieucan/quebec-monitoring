@@ -52,6 +52,9 @@ And now, navigate to `http://localhost:8080`. Say hello to your instance!
   <dd>Yes.</dd>
 </dl>
 
+To a list of all installation guides for Docker, visit
+http://docs.docker.com/installation/#installation
+
 #### Analytics
 
 If you want to host this and get analytics, adapt the Piwik
