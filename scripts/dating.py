@@ -51,7 +51,7 @@ define service {
        host_name                        dating
        service_description              dating
        display_name                     Rencontres
-       notes                            Vérifie les sites de rencontres et leur nombre d'usagers.
+       notes                            Sites de rencontres et leur nombre d'usagers.
        check_command                    bp_rule!%(all_dating)s
        business_rule_output_template    $(x)$
        servicegroups                    main
