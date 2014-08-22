@@ -49,7 +49,7 @@ define service {
        host_name                        dns
        service_description              dns
        display_name                     DNS
-       notes                            Vérifie les principaux serveurs DNS.
+       notes                            Principaux serveurs DNS.
        check_command                    bp_rule!%(all_dns)s
        business_rule_output_template    $(x)$
        servicegroups                    main
