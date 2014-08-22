@@ -58,7 +58,7 @@ define service {
        host_name                        environment
        service_description              environment
        display_name                     Écologie
-       notes                            Vérifie certaines métriques relatives à l'environnement.
+       notes                            Métriques relatives à l'environnement.
        check_command                    bp_rule!%(all_environments)s
        business_rule_output_template    $(x)$
        servicegroups                    main
