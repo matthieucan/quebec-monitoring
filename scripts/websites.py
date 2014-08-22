@@ -42,7 +42,7 @@ define service {
        display_name                   Sites web
        servicegroups                  main
        check_command                  bp_rule!%(all_websites)s
-       notes                          Verifie les principaux sites web gouvernementaux.
+       notes                          Principaux sites web gouvernementaux.
        business_rule_output_template  $(x)$
        icon_image                     fa-desktop
 }
