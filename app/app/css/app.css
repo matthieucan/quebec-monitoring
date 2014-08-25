@@ -11,16 +11,22 @@
  *
  * COMPONENTS
  * Page-head............The main page header.
- * Page-foot............The main page footer.
+ * Banner-top...........The main banner top.
+ * Banner-bottom........The main banner bottom.
  * Buttons..............Button elements.
+ * Homepage.............Homepage elements.
+ * Decorative lines.....Lines used as decoration on titles & other elements.
+ * Icons................Icons elements.
+ * State-color..........Colors for changes of states.
  *
  * RESPONSIVE
+ * Large devices........Responsive ajustments for large devices
  * Medium devices.......Responsive ajustments for medium devices
  * Small devices........Responsive ajustments for small devices
  * Extra small devices..Responsive ajustments for extra-small devices
  *
- * TRUMPS
- * Text.................Text helpers.
+ * HACKS................Correctives for bugs
+ *
  */
 
 body {
@@ -42,11 +48,6 @@ body {
     cursor: pointer;
 }
 
-.fixed-width {
-    margin: auto;
-    max-width: 972px;
-}
-
 .transparent {
     background: black;
     filter: alpha(opacity=50); /* YEAH IE */
@@ -58,9 +59,13 @@ body {
 \*------------------------------------*/
 
 /* Headings */
-h1 {
+h1, h2, h3, h4, h5 {
+    color: #fff;
 }
 
+h2 {
+    font-size: 1.6em;
+}
 /*------------------------------------*\
     #COMPONENTS
 \*------------------------------------*/
@@ -68,7 +73,6 @@ h1 {
 /* Page-head */
 .site-title {
     text-align: center;
-    margin-top: 1.2em;
     margin-bottom: 1.5em;
 }
 .site-title a,
@@ -78,6 +82,7 @@ h1 {
     color: white;
     text-decoration: none;
 }
+/* Banner-top*/
 .banner {
     padding: 1em;
 }
@@ -87,86 +92,42 @@ h1 {
     border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/* Decorative lines */
-.d-line:before {
-    width: 10%;
-    display: block;
-    content: "";
-    margin-bottom: 5px;
-    margin-top: 0.5em;
-    height: 1px;
-
+/* Banner-bottom*/
+.banner-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 3px 0;
+    background-color: #65c178;
 }
 
-.d-line--green:before {
-    background-color: rgba(101, 193, 92, 1.0);
+.banner-bottom a {
+    color: #fff;
+    display: inline-block;
+    vertical-align: text-top;
+}
+.banner-bottom a:hover {
+    color: rgba(255,255,255,0.8);
 }
 
-
-/* Icons */
-.icon--4x {
-    font-size: 4em;
-}
-
-#banner-right {
-
-}
-
-#banner2 {
+/* Homepage */
+.homepage-title {
     font-size: 2em;
     margin-top: 1em;
+    text-align: center;
 }
-
-#banner2:before {
+.homepage-title:before {
+    height: 2px;
     margin: auto;
     width: 5%;
-    display: block;
-    content: "";
-    height: 2px;
-    background-color: rgba(101, 193, 92, 1.0);
 }
-
-div.box_cont {
-    position:relative;
+.infras__box {
     padding: 0;
-    font-size: 100%;
+    font-size: 115%;
 }
-
-/*------------------------------------*\
-    #RESPONSIVE
-\*------------------------------------*/
-/* Medium devices */
-@media (min-width: 992px) {
-    .banner__left {
-        border-right: 1px solid rgba(255, 255, 255, 0.7);
-    }
-}
-
-/* Small devices */
-@media (max-width: 768px) {
-    div.box_cont {
-        font-size: 90%;
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 500px) {
-    #banner_bottom {
-        font-size: 70%;
-    }
-}
-@media (max-width: 500px) {
-    div.box_cont {
-        font-size: 80%;
-    }
-}
-@media (max-width: 380px) {
-    div.box_cont {
-        font-size: 70%;
-    }
-}
-
-div.box_cont:after {
+.infras__box:after {
     /* trick to keep height==width
        http://stackoverflow.com/questions/5445491/height-equal-to-dynamic-width-css-fluid-layout
     */
@@ -175,6 +136,246 @@ div.box_cont:after {
     margin-top: 100%;
 }
 
+.box {
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 3px;
+    bottom: 15%;
+    left: 15%;
+    position: absolute;
+    right: 15%;
+    text-align: center;
+    top: 15%;
+    -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
+    -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
+    transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.box:hover {
+    border-width: 4px;
+    text-decoration: none;
+}
+.box:before,
+.box::after {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 0 2px 10px 0 rgba(0,0,0,.32);
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,.32);
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.32);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -moz-transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
+    -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
+    transition: all .3s cubic-bezier(.4,0,.2,1);
+    width: 100%;
+}
+.box h2 {
+    margin-bottom: 0;
+}
+.box__inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.box__inner_center {
+    display: table-cell;
+    vertical-align: middle;
+}
+.box .d-line:before {
+    width: 65px;
+}
+.box:hover .icon--color{
+    color: rgba(255, 255, 255, 1);
+}
+.box:hover .d-line:before {
+    background: rgba(255, 255, 255, 1);
+}
+
+/***
+ * State-color
+ * 0: Green (OK)
+ * 1: Orange (Warning)
+ * 2: Red (Critical)
+ * 3: Grey
+ *
+ * */
+.bordercolor_0 { border-color: #65c178; }
+.bordercolor_0:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+    box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+}
+
+.bordercolor_1 { border-color: #f39c12; }
+.bordercolor_1:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+    box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+}
+
+.bordercolor_2 { border-color: #e74c3c; }
+.bordercolor_2:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+    box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+}
+
+.bordercolor_3 { border-color: grey; }
+.bordercolor_3:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+    box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+}
+
+.bgcolor_0 { background-color: #65c178; }
+
+.bgcolor_1 { background-color: #f39c12; }
+
+.bgcolor_2 { background-color: #e74c3c; }
+
+.bgcolor_3 { background-color: grey; }
+
+.color_0 { color: #65c178; }
+
+.color_1 { color: #f39c12; }
+
+.color_2 { color: #e74c3c; }
+
+.color_3 { color: grey; }
+
+/* Decorative lines */
+.d-line:before {
+    width: 10%;
+    display: block;
+    content: "";
+    height: 1px;
+    background-color: grey;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
+    -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
+    transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.d-line--2x:before {
+    height: 2px;
+}
+.d-line--green:before {
+    background-color: rgba(101, 193, 92, 1.0);
+}
+
+.d-line--centered:before {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Icons */
+.icon {
+    -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
+    -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
+    transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.icon--2x {
+    font-size: 2em;
+}
+.icon--4x {
+    font-size: 4em;
+}
+.icon--color {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*------------------------------------*\
+    #RESPONSIVE
+\*------------------------------------*/
+/* Large devices */
+@media (min-width: 992px) {
+    #details-banner-right {
+        border-image-source: url(../img/triangle_black.png);
+        border-image-slice: 0% 0% 0% 100%;
+        border-width: 0px 0px 0px 12px;
+    }
+}
+
+/* Medium devices */
+@media(max-width: 992px) {
+    .banner__left {
+        margin-bottom: 0.5em;
+        border-right: none;
+        text-align: center;
+    }
+    .banner__left:before {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .details-tab-content {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    .infras__box {
+        font-size: 100%;
+    }
+}
+
+/* Small devices */
+@media (max-width: 768px) {
+    .infras__box {
+        font-size: 125%;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 500px) {
+    .banner-bottom {
+        font-size: 70%;
+    }
+    .infras__box {
+        font-size: 100%;
+    }
+    .infras__box h2 {
+        margin: 0;
+    }
+    .infras__box .icon {
+        display: none;
+    }
+    .box {
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        top: 5%;
+    }
+}
+
+/* Details Page */
+#details-banner-left h2 {
+    color: white;
+    font-weight: 800;
+    font-size: 1.6em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#details-banner-left h2:before,
+#details-banner-left h2:after {
+    width: 15%;
+    max-width: 30px;
+    display: block;
+    content: "";
+    margin: 5px auto 5px auto;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
 div.box-content {
     margin: 0;
     padding: 0;
@@ -204,95 +405,6 @@ div.box-content h2:after {
 .link-underline a:visited {color: white!important;}
 
 .link-underline a:active {color: white!important;}
-
-.bordercolor_0 {border-color: #65c178;}
-
-.bordercolor_1 {border-color: #f39c12;}
-
-.bordercolor_2 {border-color: #e74c3c;}
-
-.bordercolor_3 {border-color: grey;}
-
-.bgcolor_0 {background-color: #65c178;}
-
-.bgcolor_1 {background-color: #f39c12;}
-
-.bgcolor_2 {background-color: #e74c3c;}
-
-.bgcolor_3 {background-color: grey;}
-
-.color_0 {color: #65c178;}
-
-.color_1 {color: #f39c12;}
-
-.color_2 {color: #e74c3c;}
-
-.color_3 {color: grey;}
-
-.icon_color {color: rgba(255, 255, 255, 0.7);}
-
-a.box {
-    position: absolute;
-    top: 15%;
-    bottom: 15%;
-    left: 15%;
-    right: 15%;
-    text-align: center;
-    border-radius: 50%;
-    border-width: 2px;
-    border-style: solid;
-    -mox-box-shadow: 0 0 1px white;
-    -webkit-box-shadow: 0 0 1px white;
-    box-shadow: 0 0 1px white;
-}
-
-a.box:hover {text-decoration: none!important;}
-
-.box_inner {
-    display: table;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    margin-top: -0.3em;
-}
-
-.box_inner_center {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-    margin: 0;
-}
-
-a.box h2, #details-banner-left h2 {
-    color: white;
-    font-weight: 800;
-    font-size: 1.6em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-a.box h2:before, #details-banner-left h2:before,
-a.box h2:after, #details-banner-left h2:after {
-    width: 15%;
-    max-width: 30px;
-    display: block;
-    content: "";
-    margin: 5px auto 5px auto;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-#banner_bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: #65c178;
-    padding: 0;
-}
 
 #more-info {
     position: fixed;
@@ -350,13 +462,6 @@ a.box h2:after, #details-banner-left h2:after {
 #details-banner-right {
     padding: 0;
 }
-@media (min-width: 992px) {
-    #details-banner-right {
-        border-image-source: url(../img/triangle_black.png);
-        border-image-slice: 0% 0% 0% 100%;
-        border-width: 0px 0px 0px 12px;
-    }
-}
 
 #details-tab-wrapper li {
     margin: 0 !important;
@@ -380,13 +485,6 @@ a.box h2:after, #details-banner-left h2:after {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
-}
-@media (min-width: 768px) {
-    .details-tab-content {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
 }
 
 .details-tab-content li {
@@ -441,6 +539,9 @@ a.box h2:after, #details-banner-left h2:after {
     margin: 0;
 }
 
+/*------------------------------------*\
+    #HACKS
+\*------------------------------------*/
 /* work-around to not display pink zones in Firefox */
 .olImageLoadError{display: none !important;}
 

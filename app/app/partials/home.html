@@ -4,67 +4,67 @@
       Condition de l'ensemble des infrastructures au Québec
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center" if="banner-right">
-      <span class="fa-stack fa-lg icon--4x">
+      <span class="fa-stack fa-lg icon icon--4x">
         <i class="fa fa-circle fa-stack-2x color_{{global_state}}"></i>
         <i class="fa {{global_state|state_to_icon}} fa-stack-1x fa-inverse"></i>
       </span>
     </div>
   </div>
-  <div class="row text-center" id="banner2">
+  <h2 class="homepage-title d-line d-line--green d-line--2x">
     En ce moment au Québec
-  </div>
+  </h2>
   <div class="row">
-    <div class="box_cont col-lg-3 col-md-4 col-sm-4 col-xs-6"
+    <div class="infras__box col-lg-3 col-md-4 col-sm-4 col-xs-6"
          ng-repeat="box in boxes">
       <a class="box bordercolor_{{box.state}}"
          href="#/details/{{box.host_name}}">
-        <div class="box_inner">
-          <div class="box_inner_center">
-            <i class="fa fa-3x {{box.icon_image}} icon_color"></i>
-            <h2>{{box.display_name}}</h2>
-            <span class="color_{{box.state}}">
+        <div class="box__inner">
+          <div class="box__inner_center">
+            <i class="fa fa-3x {{box.icon_image}} icon icon--color"></i>
+            <h2 class="d-line d-line--centered d-line--2x">{{box.display_name}}</h2>
+            <div class="color_{{box.state}}">
               {{box.output}}
-            </span>
+            </div>
           </div>
         </div>
       </a>
     </div>
   </div>
 </div>
-<div id="banner_bottom">
+<div class="banner-bottom">
   <div class="container-fluid">
-    <div class="row link-underline">
+    <div class="row">
       <div class="col-md-7 col-md-offset-2 col-xs-10">
         <a href="https://github.com/savoirfairelinux/quebec-monitoring">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-stack-1x fa-github"></i>
           </span></a>
         <a href="https://twitter.com/share?url=http://quebec247.org&text=I%20monitor%20Quebec%20with&via=SFLinux&">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-stack-1x fa-twitter"></i>
           </span></a>
         <a href="https://plus.google.com/share?url=http://quebec247.org">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-stack-1x fa-google-plus"></i>
           </span></a>
         <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://quebec247.org&title=Monitor%20Quebec&summary=&source=">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-stack-1x fa-linkedin"></i>
           </span></a>
         <a href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=Monitor%20Quebec&amp;p[summary]=summary&amp;p[url]=quebec247.org&amp;p[images][0]=http://quebec247.org/img/logo.png,'sharer','toolbar=0,status=0,width=548,height=325'">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-stack-1x fa-facebook"></i>
           </span></a>
 
       </div>
-      <div class="col-xs-2 col-md-3">
+      <div>
         <a href="#/infos">
-          <span class="fa fa-stack" style="font-size: 2em;">
+          <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-info fa-stack-1x"></i>
           </span>
