@@ -9,3 +9,4 @@ etc/shinken/adagios/isp.cfg
 etc/shinken/adagios/transports.cfg
 etc/shinken/adagios/websites.cfg
 venv
+*.swp
