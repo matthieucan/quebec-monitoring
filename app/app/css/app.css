@@ -67,24 +67,27 @@ body {
 h1, h2, h3, h4, h5 {
     color: #fff;
 }
-
+h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
 h2 {
     font-size: 1.6em;
 }
-
 h2 small {
     margin-left: 0.5em;
 }
-
 /** Links **/
 a {
     color: #fff;
-    display: inline-block;
-    vertical-align: text-top;
 }
 a:active,
 a:hover {
     color: rgba(255,255,255,0.8);
+}
+/** Other **/
+section {
+    margin-bottom: 2em;
 }
 /*------------------------------------*\
     #COMPONENTS
@@ -121,6 +124,9 @@ a:hover {
     width: 100%;
     padding: 3px 0;
     background-color: #65c178;
+}
+.banner-bottom a {
+    vertical-align: text-top;
 }
 
 /** Boxes **/
@@ -310,7 +316,7 @@ a:hover {
 /** Partial Homepage **/
 .homepage-title {
     font-size: 2em;
-    margin-top: 1em;
+    margin-top: 0;
     text-align: center;
 }
 .homepage-title:before {
@@ -453,21 +459,25 @@ a:hover {
     padding-top: 4.5em;
     overflow-y: auto;
 }
+#more-info ul {
+    list-style: none;
+    padding: 0;
+}
 .info-buttons a:hover {
-    color: white !important;
+    color: white;
 }
 .info-button {
-    display: table-cell;
-    vertical-align: middle;
-    width: 400px;
     color: white;
     background-color: #299138;
-    text-align: center;
-    text-decoration: none !important;
-    margin-top: 1em;
-    height: 3em;
-    font-weight: 100;
+    border-radius: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 1.3em;
+    margin-bottom: 1em;
+}
+.info-button:hover,
+.info-button:active {
+    background-color: rgba(41, 145, 56, 0.75);
 }
 
 
