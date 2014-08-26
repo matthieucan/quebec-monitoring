@@ -177,6 +177,7 @@ section {
 }
 .box h2 {
     margin-bottom: 0;
+    margin-top: 0;
 }
 .box__inner {
     display: table;
@@ -356,6 +357,9 @@ section {
 .details-banner__left {
     background-color: black;
 }
+.details-box-state {
+    font-weight: 700;
+}
 .details-tab {
     width: 33.333%;
     text-align: center;
@@ -412,6 +416,7 @@ section {
 #gauge tspan {
     font-size: 1.4em !important;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-weight: 700;
 }
 /* Map */
 #map {
