@@ -85,6 +85,9 @@ a:active,
 a:hover {
     color: rgba(255,255,255,0.8);
 }
+.link-underline a {
+    text-decoration: underline
+}
 /** Other **/
 section {
     margin-bottom: 2em;
@@ -405,6 +408,10 @@ section {
     line-height: 1.5;
     text-decoration: underline;
     font-size: 1.15em;
+}
+#gauge text {
+    font-size: 1.25em !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 /* Map */
 #map {
