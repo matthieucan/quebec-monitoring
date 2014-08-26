@@ -39,7 +39,7 @@
 \*------------------------------------*/
 
 body {
-    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
     background: url("../img/montreal.jpg") no-repeat center top fixed;
     background-color: black;
     -webkit-background-size: cover;
@@ -331,7 +331,7 @@ section {
 }
 .infras__box {
     padding: 0;
-    font-size: 115%;
+    font-size: 110%;
 }
 .infras__box:after {
     /* trick to keep height==width
@@ -378,6 +378,7 @@ section {
 }
 .nav-pills > li.details-tab > a {
     background: none;
+    padding: 15px 5px;
     border-radius: 0;
 }
 .nav-pills > li.details-tab > a:hover {
@@ -535,9 +536,6 @@ section {
 
 /* Small devices */
 @media (max-width: 768px) {
-    .infras__box {
-        font-size: 125%;
-    }
 }
 
 /* Extra small devices */
@@ -546,19 +544,22 @@ section {
         font-size: 70%;
     }
     .infras__box {
-        font-size: 100%;
+        font-size: 95%;
     }
     .infras__box h2 {
         margin: 0;
-    }
-    .infras__box .icon {
-        display: none;
     }
     .box {
         bottom: 5%;
         left: 5%;
         right: 5%;
         top: 5%;
+    }
+    .box__details {
+        position: initial;
+    }
+    .details-banner {
+        height: 150px;
     }
 }
 
