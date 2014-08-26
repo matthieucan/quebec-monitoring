@@ -134,12 +134,12 @@ section {
 
 /** Boxes **/
 .box {
-    bottom: 15%;
-    left: 15%;
+    bottom: 17%;
+    left: 17%;
+    top: 17%;
+    right: 17%;
     position: absolute;
-    right: 15%;
     text-align: center;
-    top: 15%;
     -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
     -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
     transition: all .3s cubic-bezier(.4,0,.2,1);
