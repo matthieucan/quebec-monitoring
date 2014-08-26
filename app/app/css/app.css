@@ -510,6 +510,9 @@ section {
         margin-left: auto;
         margin-right: auto;
     }
+    #more-info {
+        padding-top: 1em;
+    }
 }
 @media (min-width: 768px) and (max-width: 992px) {
     .infras__box {
