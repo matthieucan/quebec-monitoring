@@ -98,7 +98,7 @@ define service {
        service_description            isp
        servicegroups                  main
        display_name                   FAI
-       notes                          Vérifie la disponibilité des principaux fournisseurs d'accès à Internet.
+       notes                          Disponibilité des principaux fournisseurs d'accès à Internet.
        check_command                  bp_rule!%(all_isp)s
        business_rule_output_template  $(x)$
        icon_image                     fa-signal

@@ -61,7 +61,7 @@ define service {
        host_name                        transports
        display_name                     Transports
        service_description              transports
-       notes                            Vérifie les problèmes liés aux transports en commun.
+       notes                            Problèmes liés aux transports en commun.
        # check_command                  bp_rule!g:group_banks
        check_command                    bp_rule!%(all_transports)s
        business_rule_output_template    $(x)$
