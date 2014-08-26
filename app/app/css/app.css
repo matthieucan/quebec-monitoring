@@ -396,7 +396,8 @@ section {
     padding: 0;
 }
 .details-tab-content li {
-    display: block;
+    display: inline-block;
+    width: 100%;
 }
 .details-tab-content a {
     display: block;
