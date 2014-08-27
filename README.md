@@ -25,6 +25,8 @@ can:
 ```
 $ sudo apt-get install docker.io
 ```
+For a list of all installation guides for Docker, visit
+http://docs.docker.com/installation/#installation
 
 After cloning the repository, just do:
 ```
@@ -52,6 +54,7 @@ And now, navigate to `http://localhost:8080`. Say hello to your instance!
   <dt>Is it really that simple to run?</dt>
   <dd>Yes.</dd>
 </dl>
+
 
 #### Analytics
 

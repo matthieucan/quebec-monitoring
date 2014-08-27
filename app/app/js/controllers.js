@@ -86,7 +86,7 @@ angular.module('myApp.controllers', [])
           /* here we override $scope.box.output, which is the value computed by Shinken
              in the business rule. If the checks have runned again but not the bp_rule,
              the value is outdated and different results are displayed in the page. */
-          $scope.box.output = (nbProblems123 > 0 ? (nbProblems123.toString() + 'problème' + (nbProblems123 > 1 ? 's' : '') : 'ok');
+          $scope.box.output = (nbProblems123 > 0 ? (nbProblems123.toString() + ' problème' + (nbProblems123 > 1 ? 's' : '')) : 'ok');
 
           /* let's create the map */
           if ($scope.box.display_map) {

@@ -62,7 +62,7 @@ angular.module('myApp', [
           value: value,
           min: 0,
           max: dataSize,
-          title: "Aujourd'hui :",
+          title: "Aujourd'hui",
           hideMinMax: true,
           valueFontColor: "white",
           titleFontColor: "white",
