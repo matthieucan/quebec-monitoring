@@ -26,17 +26,16 @@ RUN apt-get update
 ### Shinken
 
 RUN apt-get install -y shinken-common
-RUN apt-get install -y shinken-module-graphite
-RUN apt-get install -y shinken-module-livestatus
-RUN apt-get install -y shinken-module-pickle-retention-file-generic
-RUN apt-get install -y shinken-module-simple-log
-RUN apt-get install -y shinken-module-booster-nrpe
-RUN apt-get install -y shinken-module-logstore-sqlite
+RUN apt-get install -y shinken-mod-livestatus
+RUN apt-get install -y shinken-mod-pickle-retention-file-generic
+RUN apt-get install -y shinken-mod-simple-log
+RUN apt-get install -y shinken-mod-booster-nrpe
+RUN apt-get install -y shinken-mod-logstore-sqlite
 
 ### Plugins
 
 RUN apt-get install -y nagios-plugins
-RUN apt-get install -y plugin-check-amt-montreal plugin-check-bixi-montreal plugin-check-emergency-rooms-quebec plugin-check-environment-canada plugin-check-http2 plugin-check-quebecrencontrescom plugin-check-reseaucontactcom plugin-check-stm-metro-montreal
+RUN apt-get install -y plugin-check-amt-montreal plugin-check-bixi-montreal plugin-check-emergency-rooms-quebec plugin-check-environment-canada plugin-check-http2 plugin-check-quebecrencontrescom plugin-check-reseaucontactcom plugin-check-stm-metro-montreal plugin-check-hydro-quebec
 
 ### SSH
 
@@ -94,6 +93,7 @@ RUN scripts/transports.py > etc/shinken/adagios/transports.cfg
 RUN scripts/dating.py > etc/shinken/adagios/dating.cfg
 RUN scripts/isp.py > etc/shinken/adagios/isp.cfg
 RUN scripts/environment.py > etc/shinken/adagios/environment.cfg
+RUN scripts/energy.py > etc/shinken/adagios/energy.cfg
 
 # APP
 RUN cd /srv/app && yes | bower install --allow-root

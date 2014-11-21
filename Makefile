@@ -5,6 +5,9 @@ all: run
 build:
 	sudo docker build -t quebec .
 
+rebuild:
+	sudo docker build --no-cache=true -t quebec .
+
 run: build
 	sudo docker run -d -p 8080:80 quebec
 
