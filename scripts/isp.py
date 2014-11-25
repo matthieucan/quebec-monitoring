@@ -24,9 +24,6 @@ ISPS = {
     'Dialup At Cost': {
         'url': 'http://www.dialupatcost.ca/',
         },
-    'FollowMe Canada': {
-        'url': 'http://www.followme.com/',
-        },
     'ISP.ca': {
         'url': 'http://www.isp.ca/',
         },
