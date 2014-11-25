@@ -10,7 +10,7 @@ RUN apt-get update
 
 ### Utils
 
-RUN apt-get install -y git python-pip emacs curl nodejs nodejs-legacy npm
+RUN apt-get install -y git python-pip emacs curl nodejs nodejs-legacy npm vim wget
 RUN npm install -g bower
 
 ### Other .deb sources
@@ -23,14 +23,15 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/sfl-monitoring:/mo
 
 RUN apt-get update
 
+### InfluxDB
+
+RUN wget http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb
+
+RUN dpkg -i influxdb_latest_amd64.deb
+
 ### Shinken
 
-RUN apt-get install -y shinken-common
-RUN apt-get install -y shinken-mod-livestatus
-RUN apt-get install -y shinken-mod-pickle-retention-file-generic
-RUN apt-get install -y shinken-mod-simple-log
-RUN apt-get install -y shinken-mod-booster-nrpe
-RUN apt-get install -y shinken-mod-logstore-sqlite
+RUN apt-get install -y kaji
 
 ### Plugins
 
@@ -51,15 +52,15 @@ RUN apt-get -y install supervisor
 
 ### Pynag/Adagios
 
-RUN apt-get install -y python-simplejson coffeescript gettext make
+#RUN apt-get install -y python-simplejson coffeescript gettext make
 # We need an old version of Django for Adagios
-RUN pip install django\<1.5 python-geoip python-geoip-geolite2
-RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
+#RUN pip install django\<1.5 python-geoip python-geoip-geolite2
+#RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
 
 #RUN cd /var && git clone https://github.com/matthieucan/adagios.git
 #RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
-RUN pip install git+git://github.com/pynag/pynag.git
-RUN pip install git+git://github.com/opinkerfi/adagios.git
+#RUN pip install git+git://github.com/pynag/pynag.git
+#RUN pip install git+git://github.com/opinkerfi/adagios.git
 
 
 ### Configuration
@@ -70,7 +71,7 @@ RUN pip install git+git://github.com/opinkerfi/adagios.git
 #RUN ln -s /proc/mounts /etc/mtab
 
 # run permissions for user `shinken`
-RUN chmod u+s /usr/lib/nagios/plugins/check_icmp
+#RUN chmod u+s /usr/lib/nagios/plugins/check_icmp
 RUN chmod u+s /bin/ping
 RUN chmod u+s /bin/ping6
 
@@ -78,13 +79,13 @@ RUN chmod u+s /bin/ping6
 
 ADD app /srv/app
 
-RUN chown -R shinken: /etc/adagios
-RUN chown -R shinken: /etc/shinken
+#RUN chown -R shinken: /etc/adagios
+#RUN chown -R shinken: /etc/shinken
 
 ## Shinken hosts/services configuration
 RUN apt-get install -y python-bs4 python-requests
 ADD scripts /scripts
-RUN mkdir /etc/shinken/adagios
+#RUN mkdir /etc/shinken/adagios
 RUN scripts/banks.py > etc/shinken/adagios/banks.cfg
 RUN scripts/dns.py > etc/shinken/adagios/dns.cfg
 RUN scripts/websites.py > etc/shinken/adagios/websites.cfg
@@ -99,26 +100,31 @@ RUN scripts/energy.py > etc/shinken/adagios/energy.cfg
 RUN cd /srv/app && yes | bower install --allow-root
 
 # fixed upstream, should be fixed in newer Debian packages
-RUN mv /etc/shinken/logstore_sqlite.cfg/logstore_sqlite.cfg /etc/shinken/modules/
-RUN sed -i 's/logstore-sqlite/logsqlite/g' /etc/shinken/modules/logstore_sqlite.cfg
-RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
-RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/modules/livestatus.cfg
-RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/modules/booster_nrpe.cfg/booster_nrpe.cfg
-RUN sed -i 's/SimpleLog/simple-log/g' /etc/shinken/brokers/broker.cfg
-RUN sed -i 's/Graphite/graphite/g' /etc/shinken/brokers/broker.cfg
-RUN sed -i 's/BoosterNrpe/booster-nrpe/g' /etc/shinken/brokers/broker.cfg
-RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
+#RUN mv /etc/shinken/logstore_sqlite.cfg/logstore_sqlite.cfg /etc/shinken/modules/
+#RUN sed -i 's/logstore-sqlite/logsqlite/g' /etc/shinken/modules/logstore_sqlite.cfg
+#RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
+#RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/modules/livestatus.cfg
+#RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/modules/booster_nrpe.cfg/booster_nrpe.cfg
+#RUN sed -i 's/SimpleLog/simple-log/g' /etc/shinken/brokers/broker.cfg
+#RUN sed -i 's/Graphite/graphite/g' /etc/shinken/brokers/broker.cfg
+#RUN sed -i 's/BoosterNrpe/booster-nrpe/g' /etc/shinken/brokers/broker.cfg
+#RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
 
-RUN sed -i 's/WebUI/livestatus/g' /etc/shinken/brokers/broker.cfg
+#RUN sed -i 's/WebUI/livestatus/g' /etc/shinken/brokers/broker.cfg
 
 # Allow ssh connection from host
-# ADD id_rsa.pub /root/home/.ssh/authorized_keys
+ADD id_rsa.pub /root/.ssh/authorized_keys
 
 # temporary fix while we wait for https://github.com/shinken-monitoring/mod-livestatus/pull/26
-ADD mod-livestatus-labels.patch /mod-livestatus-labels.patch
-RUN cd /usr/share/pyshared/shinken/modules/livestatus && git apply /mod-livestatus-labels.patch
+#ADD mod-livestatus-labels.patch /mod-livestatus-labels.patch
+#RUN cd /usr/share/pyshared/shinken/modules/livestatus && git apply /mod-livestatus-labels.patch
 
 ADD etc /etc
+
+### Finishing installation
+
+RUN sudo bash /usr/sbin/kaji-finish-install
+
 
 EXPOSE 80
 EXPOSE 8083
