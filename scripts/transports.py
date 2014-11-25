@@ -15,11 +15,11 @@ TRANSPORTS = {
         'command': 'check_stm_metro_montreal!1!3',
         'url': 'http://www.stm.info/en/info/service-updates/metro',
     },
-    'Vélos (Bixi) à Montréal: nombre de stations pleines ou vides': {
-        'hostname': 'bixi_mtl',
-        'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
-        'url': 'http://montreal.bixi.com',
-    },
+#    'Vélos (Bixi) à Montréal: nombre de stations pleines ou vides': {
+#        'hostname': 'bixi_mtl',
+#        'command': 'check_bixi_montreal!http://montreal.bixi.com/data/bikeStations.xml!1!100',
+#        'url': 'http://montreal.bixi.com',
+#    },
     "AMT: nombre d'alertes": {
         'hostname': 'amt_trains',
         'command': 'check_amt_montreal!http://opendata.amt.qc.ca:2539/ServiceGTFSR/Alert.pb!%s!1!30' % TOKENS['AMT'],
