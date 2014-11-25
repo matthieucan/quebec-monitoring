@@ -36,7 +36,7 @@ define host {
        check_command                  check_dummy!0!OK
 }
 define service {
-       use                            generic-service
+       use                            template_bprule
        host_name                      websites
        service_description            websites
        display_name                   Sites web

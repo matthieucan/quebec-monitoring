@@ -90,7 +90,7 @@ def main():
    print "}"
    print ""
    print "define service {"
-   print "   use                               generic-service"
+   print "   use                               template_bprule"
    print "   host_name                         energy"
    print "   check_command                    ",final_host 
    print "   display_name                      Énergies"

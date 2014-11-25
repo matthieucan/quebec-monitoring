@@ -57,7 +57,7 @@ define host {
        check_command                  check_dummy!0!OK
 }
 define service {
-       use                              generic-service
+       use                              template_bprule
        host_name                        transports
        display_name                     Transports
        service_description              transports

@@ -78,7 +78,7 @@ define host {
        check_command                  check_dummy!0!OK
 }
 define service {
-       use                            generic-service
+       use                            template_bprule
        host_name                      banks
        service_description            banks
        servicegroups                  main

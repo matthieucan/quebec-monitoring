@@ -47,7 +47,7 @@ define host {
        check_command                  check_dummy!0!OK
 }
 define service {
-       use                              generic-service
+       use                              template_bprule
        host_name                        dating
        service_description              dating
        display_name                     Rencontres
