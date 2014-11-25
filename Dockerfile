@@ -122,7 +122,7 @@ ADD id_rsa.pub /root/.ssh/authorized_keys
 ADD etc /etc
 
 # rm useless configuration
-RUN rm -rf /etc/shinken/hosts/
+RUN rm -f /etc/shinken/hosts/*
 
 ### Finishing installation
 
