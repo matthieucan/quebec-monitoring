@@ -72,7 +72,7 @@ def main():
    print "define service {"
    print "   use                      generic-service"
    print "   host_name                hydroquebec_total"
-   print "   check_command            check_hydro_quebec!across_quebec" 
+   print "   check_command            check_hydro_quebec!Across Québec"
    print "   display_name             Ensemble du Québec"
    print "   service_description      hydroquebec_total"
    print "   servicegroups            energy"
