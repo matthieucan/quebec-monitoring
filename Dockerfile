@@ -50,19 +50,6 @@ RUN apt-get install -y apache2 libapache2-mod-wsgi
 
 RUN apt-get -y install supervisor
 
-### Pynag/Adagios
-
-#RUN apt-get install -y python-simplejson coffeescript gettext make
-# We need an old version of Django for Adagios
-#RUN pip install django\<1.5 python-geoip python-geoip-geolite2
-#RUN ln -s /usr/bin/django-admin /usr/bin/django-admin.py
-
-#RUN cd /var && git clone https://github.com/matthieucan/adagios.git
-#RUN cd /var/adagios && git checkout feature-view-engine-rebased && make trad && python setup.py install
-#RUN pip install git+git://github.com/pynag/pynag.git
-#RUN pip install git+git://github.com/opinkerfi/adagios.git
-
-
 ### Configuration
 
 ## Docker
@@ -71,16 +58,12 @@ RUN apt-get -y install supervisor
 #RUN ln -s /proc/mounts /etc/mtab
 
 # run permissions for user `shinken`
-#RUN chmod u+s /usr/lib/nagios/plugins/check_icmp
 RUN chmod u+s /bin/ping
 RUN chmod u+s /bin/ping6
 
 ## Shinken, Apache, Adagios
 
 ADD app /srv/app
-
-#RUN chown -R shinken: /etc/adagios
-#RUN chown -R shinken: /etc/shinken
 
 ## Shinken hosts/services configuration
 RUN apt-get install -y python-bs4 python-requests
@@ -99,25 +82,10 @@ RUN scripts/energy.py > etc/shinken/adagios/energy.cfg
 # APP
 RUN cd /srv/app && yes | bower install --allow-root
 
-# fixed upstream, should be fixed in newer Debian packages
-#RUN mv /etc/shinken/logstore_sqlite.cfg/logstore_sqlite.cfg /etc/shinken/modules/
-#RUN sed -i 's/logstore-sqlite/logsqlite/g' /etc/shinken/modules/logstore_sqlite.cfg
-#RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/brokers/broker.cfg
-#RUN sed -i 's/Livestatus/livestatus/g' /etc/shinken/modules/livestatus.cfg
-#RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/modules/booster_nrpe.cfg/booster_nrpe.cfg
-#RUN sed -i 's/SimpleLog/simple-log/g' /etc/shinken/brokers/broker.cfg
-#RUN sed -i 's/Graphite/graphite/g' /etc/shinken/brokers/broker.cfg
-#RUN sed -i 's/BoosterNrpe/booster-nrpe/g' /etc/shinken/brokers/broker.cfg
-#RUN sed -i 's/NrpeBooster/booster-nrpe/g' /etc/shinken/pollers/poller.cfg
-
-#RUN sed -i 's/WebUI/livestatus/g' /etc/shinken/brokers/broker.cfg
-
 # Allow ssh connection from host
-ADD id_rsa.pub /root/.ssh/authorized_keys
-
-# temporary fix while we wait for https://github.com/shinken-monitoring/mod-livestatus/pull/26
-#ADD mod-livestatus-labels.patch /mod-livestatus-labels.patch
-#RUN cd /usr/share/pyshared/shinken/modules/livestatus && git apply /mod-livestatus-labels.patch
+#ADD id_rsa.pub /root/.ssh/authorized_keys
+#RUN echo root:root | chpasswd
+#RUN sed -i 's/PermitRootLogin.*/PermitRootLogin Yes/' /etc/ssh/sshd_config
 
 ADD etc /etc
 

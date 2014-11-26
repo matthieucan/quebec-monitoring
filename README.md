@@ -90,6 +90,9 @@ and
 
 To have a nice development environment:
 
+Please install npm
+`sudo apt-get install npm`
+
 `make dev` will:
 * generate the configuration from your scripts/ (look in the Makefile),
 * bring you in an interactive Docker environment (where you can play with Shinken,
