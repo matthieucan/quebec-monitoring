@@ -51,32 +51,32 @@ define service {
 """)
 
 def chunks(l, n):
-   """ Yield successive n-sized chunks from l.
-   """
-   for i in xrange(0, len(l), n):
-      yield l[i : i + n]
+    """ Yield successive n-sized chunks from l.
+    """
+    for i in xrange(0, len(l), n):
+        yield l[i : i + n]
 
 
 def main():
-   response = urllib.urlopen("http://pannes.hydroquebec.com/pannes/bilan-interruptions-service/#bis")
-   page_source = response.read()
-   root = lxml.html.fromstring(page_source)
-   url_list = root.xpath('//td//@href')
-   regions_list = root.xpath('//td//text()')
-   regions_list = [r[0] for r in chunks(regions_list, 5)]
-   regions_list = regions_list[:-1]
+    response = urllib.urlopen("http://pannes.hydroquebec.com/pannes/bilan-interruptions-service/#bis")
+    page_source = response.read()
+    root = lxml.html.fromstring(page_source)
+    url_list = root.xpath('//td//@href')
+    regions_list = root.xpath('//td//text()')
+    regions_list = [r[0] for r in chunks(regions_list, 5)]
+    regions_list = regions_list[:-1]
 
-   all_host = []
+    all_host = []
 
-   for order in range(len(regions_list)):
-       alias = regions_list[order]
-       url = url_list[order]
-       print template_host % {'order': order + 1, 'alias': alias}
-       print template_service % {'order': order + 1, 'alias': alias, 'url': url}
-       all_host.append('hydroquebec_%d,hydroquebec_%d' % (order + 1, order + 1))
+    for order in range(len(regions_list)):
+        alias = regions_list[order].encode('utf-8')
+        url = url_list[order]
+        print template_host % {'order': order + 1, 'alias': alias}
+        print template_service % {'order': order + 1, 'alias': alias, 'url': url}
+        all_host.append('hydroquebec_%d,hydroquebec_%d' % (order + 1, order + 1))
 
-   all_host.append("hydroquebec_total,hydroquebec_total")
-   print business_rule % {'all_host': '&'.join(all_host)}
+    all_host.append("hydroquebec_total,hydroquebec_total")
+    print business_rule % {'all_host': '&'.join(all_host)}
 
 if __name__ == '__main__':
     main()
