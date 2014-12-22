@@ -36,7 +36,7 @@ RUN apt-get install -y kaji
 ### Plugins
 
 RUN apt-get install -y nagios-plugins
-RUN apt-get install -y plugin-check-amt-montreal plugin-check-bixi-montreal plugin-check-emergency-rooms-quebec plugin-check-environment-canada plugin-check-http2 plugin-check-quebecrencontrescom plugin-check-reseaucontactcom plugin-check-stm-metro-montreal plugin-check-hydro-quebec
+RUN apt-get install -y monitoring-plugins-sfl-check-amt-montreal monitoring-plugins-sfl-check-bixi-montreal monitoring-plugins-sfl-check-emergency-rooms-quebec monitoring-plugins-sfl-check-environment-canada monitoring-plugins-sfl-check-http2 monitoring-plugins-sfl-check-quebecrencontrescom monitoring-plugins-sfl-check-reseaucontactcom monitoring-plugins-sfl-check-stm-metro-montreal monitoring-plugins-sfl-check-hydro-quebec
 
 ### SSH
 
