@@ -1,0 +1,40 @@
+/* app css stylesheet */
+
+/**
+ * CONTENTS
+ *
+ * BASE
+ * Headings.............H1–H6 styles.
+ * Links................Styling for links
+ *
+ * OBJECTS
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ * Page-head............The main page header.
+ * Banner-top...........The main banner top.
+ * Banner-bottom........The main banner bottom.
+ * Boxes................Boxes containing details state.
+ * State-color..........Colors for changes of states.
+ * Decorative lines.....Lines used as decoration on titles & other elements.
+ * Icons................Icons elements.
+ * Cross close..........Cross Close element.
+ * Partial Homepage.....Homepage elements.
+ * Partial Details......Details page elements.
+ * Partial Infos........Infos page elements.
+ *
+ * RESPONSIVE
+ * Large devices........Responsive ajustments for large devices
+ * Medium devices.......Responsive ajustments for medium devices
+ * Small devices........Responsive ajustments for small devices
+ * Extra small devices..Responsive ajustments for extra-small devices
+ *
+ * HACKS................Workarounds
+ *
+ */
+
+@import "base";
+@import "components";
+@import "responsive";
+@import "hacks";
+@import "animations";

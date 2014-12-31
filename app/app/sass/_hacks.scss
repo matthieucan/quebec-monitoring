@@ -1,0 +1,18 @@
+
+/*------------------------------------*\
+    #HACKS
+\*------------------------------------*/
+/* work-around to not display pink zones in Firefox */
+.olImageLoadError{display: none !important;}
+
+/* work-around for a bug affecting OpenLayers+Chrome
+   https://github.com/openlayers/openlayers/issues/1181#issuecomment-29693277 */
+.olTileImage {
+    -webkit-backface-visibility: visible !important;
+    -webkit-transform: none !important;
+}
+.olLayerGrid .olTileImage {
+    -webkit-transition: none !important;
+}
+
+.no-margin-top { margin-top: 0 !important; }

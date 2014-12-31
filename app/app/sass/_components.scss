@@ -1,102 +1,10 @@
-/* app css stylesheet */
+// COMPONENTS
+// =====================================================================
+// =====================================================================
 
-/**
- * CONTENTS
- *
- * BASE
- * Headings.............H1–H6 styles.
- * Links................Styling for links
- *
- * OBJECTS
- * Wrappers.............Wrapping and constraining elements.
- *
- * COMPONENTS
- * Page-head............The main page header.
- * Banner-top...........The main banner top.
- * Banner-bottom........The main banner bottom.
- * Boxes................Boxes containing details state.
- * State-color..........Colors for changes of states.
- * Decorative lines.....Lines used as decoration on titles & other elements.
- * Icons................Icons elements.
- * Cross close..........Cross Close element.
- * Partial Homepage.....Homepage elements.
- * Partial Details......Details page elements.
- * Partial Infos........Infos page elements.
- *
- * RESPONSIVE
- * Large devices........Responsive ajustments for large devices
- * Medium devices.......Responsive ajustments for medium devices
- * Small devices........Responsive ajustments for small devices
- * Extra small devices..Responsive ajustments for extra-small devices
- *
- * HACKS................Workarounds
- *
- */
+// PAGE-HEAD
+// =====================================================================
 
-
-/*------------------------------------*\
-    #BASE
-\*------------------------------------*/
-
-body {
-    font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url("../img/montreal.jpg") no-repeat center top fixed;
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: white;
-    padding-bottom: 5em;
-}
-
-.nav,
-.pagination,
-.carousel,
-.panel-title a { 
-    cursor: pointer;
-}
-
-.transparent {
-    background: black;
-    filter: alpha(opacity=50); /* YEAH IE */
-    background: rgba(0, 0, 0, 0.50);
-}
-
-/** Headings **/
-h1, h2, h3, h4, h5 {
-    color: #fff;
-}
-h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-}
-h2 {
-    font-size: 1.6em;
-}
-h2 small {
-    margin-left: 0.5em;
-}
-/** Links **/
-a {
-    color: #fff;
-}
-a:active,
-a:hover {
-    color: rgba(255,255,255,0.8);
-}
-.link-underline a {
-    text-decoration: underline
-}
-/** Other **/
-section {
-    margin-bottom: 2em;
-}
-/*------------------------------------*\
-    #COMPONENTS
-\*------------------------------------*/
-
-/** Page-head **/
 .site-title {
     text-align: center;
     margin-bottom: 1.5em;
@@ -108,9 +16,13 @@ section {
     color: white;
     text-decoration: none;
 }
-/** Banner-top **/
-.banner {
+
+// BANNER-TOP
+// =====================================================================
+
+.banner { 
     padding: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .banner__left {
@@ -118,7 +30,9 @@ section {
     border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-/** Banner-bottom **/
+// BANNER-BOTTOM
+// =====================================================================
+
 .banner-bottom {
     position: fixed;
     bottom: 0;
@@ -128,22 +42,25 @@ section {
     padding: 3px 0;
     background-color: #65c178;
 }
-.banner-bottom a {
-    vertical-align: text-top;
-}
 
-/** Boxes **/
+.banner-bottom a { vertical-align: text-top; }
+
+// BOXES
+// =====================================================================
+
 .box {
-    bottom: 17%;
-    left: 17%;
-    top: 17%;
-    right: 17%;
+    margin: 20px;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
     position: absolute;
     text-align: center;
     -moz-transition: all .3s cubic-bezier(.4,0,.2,1);
     -webkit-transition: all .3s cubic-bezier(.4,0,.2,1);
     transition: all .3s cubic-bezier(.4,0,.2,1);
 }
+
 .box--round {
     border-radius: 50%;
     border-style: solid;
@@ -320,8 +237,8 @@ section {
 /** Partial Homepage **/
 .homepage-title {
     font-size: 2em;
-    margin-top: 0;
     text-align: center;
+    margin:40px 0;
 }
 .homepage-title:before {
     height: 2px;
@@ -462,7 +379,28 @@ section {
     border-image-source: url(../img/triangle_red.png);
 }
 
-/** Partial Infos **/
+// Partial Infos
+// =======================================================================
+
+.header-info { 
+
+    margin: 40px 0;
+
+    &:after { 
+        content: "";
+        width:50px;
+        height: 2px;
+        background-color: #299138;
+        display: block;
+        margin-top: 40px;
+    }
+}
+
+.section-top-border { 
+    padding-top:30px;
+    border-top: 1px solid #299138; 
+}
+
 #more-info {
     position: fixed;
     width: 100%;
@@ -472,13 +410,16 @@ section {
     padding-top: 4.5em;
     overflow-y: auto;
 }
+
 #more-info ul {
     list-style: none;
     padding: 0;
 }
+
 .info-buttons a:hover {
     color: white;
 }
+
 .info-button {
     color: white;
     background-color: #299138;
@@ -488,92 +429,8 @@ section {
     font-size: 1.3em;
     margin-bottom: 1em;
 }
+
 .info-button:hover,
 .info-button:active {
     background-color: rgba(41, 145, 56, 0.75);
-}
-
-
-
-/*------------------------------------*\
-    #RESPONSIVE
-\*------------------------------------*/
-/* Large devices */
-@media (min-width: 992px) {
-    #details-banner-right {
-        border-image-source: url(../img/triangle_black.png);
-        border-image-slice: 0% 0% 0% 100%;
-        border-width: 0px 0px 0px 12px;
-    }
-    .details-tab-content {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}
-
-/* Medium devices */
-@media(max-width: 992px) {
-    .banner__left {
-        margin-bottom: 0.5em;
-        border-right: none;
-        text-align: center;
-    }
-    .banner__left:before {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #more-info {
-        padding-top: 1em;
-    }
-}
-@media (min-width: 768px) and (max-width: 992px) {
-    .infras__box {
-        font-size: 100%;
-    }
-}
-
-/* Small devices */
-@media (max-width: 768px) {
-}
-
-/* Extra small devices */
-@media (max-width: 500px) {
-    .banner-bottom {
-        font-size: 70%;
-    }
-    .infras__box {
-        font-size: 95%;
-    }
-    .infras__box h2 {
-        margin: 0;
-    }
-    .box {
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
-        top: 5%;
-    }
-    .box__details {
-        position: initial;
-    }
-    .details-banner {
-        height: 150px;
-    }
-}
-
-/*------------------------------------*\
-    #HACKS
-\*------------------------------------*/
-/* work-around to not display pink zones in Firefox */
-.olImageLoadError{display: none !important;}
-
-/* work-around for a bug affecting OpenLayers+Chrome
-   https://github.com/openlayers/openlayers/issues/1181#issuecomment-29693277 */
-.olTileImage {
-    -webkit-backface-visibility: visible !important;
-    -webkit-transform: none !important;
-}
-.olLayerGrid .olTileImage {
-    -webkit-transition: none !important;
 }

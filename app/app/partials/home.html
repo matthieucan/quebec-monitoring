@@ -1,23 +1,28 @@
 <div class="container">
-  <div class="row transparent banner" id="banner">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-line d-line--green banner__left">
-      Condition de l'ensemble des infrastructures au Québec
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center" if="banner-right">
-      <span class="fa-stack fa-lg icon icon--4x">
-        <i class="fa fa-circle fa-stack-2x color_{{global_state}}"></i>
-        <i class="fa {{global_state|state_to_icon}} fa-stack-1x fa-inverse"></i>
-      </span>
+  <div class="row">
+    <div class="banner clearfix" id="banner">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-line d-line--green banner__left">
+        Condition de l'ensemble des infrastructures au Québec
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center" if="banner-right">
+        <span class="fa-stack fa-lg icon icon--4x">
+          <i class="fa fa-circle fa-stack-2x color_{{global_state}}"></i>
+          <i class="fa {{global_state|state_to_icon}} fa-stack-1x fa-inverse"></i>
+        </span>
+      </div>
     </div>
   </div>
-  <h2 class="homepage-title d-line d-line--green d-line--2x">
-    En ce moment au Québec
-  </h2>
+  
+  <div class="row">
+    <div clas="col-sm-12">
+      <h2 class="homepage-title d-line d-line--green d-line--2x">En ce moment au Québec</h2>
+    </div>
+  </div>
+
   <div class="row">
     <div class="infras__box col-lg-3 col-md-4 col-sm-4 col-xs-6"
          ng-repeat="box in boxes">
-      <a class="box box--round bordercolor_{{box.state}}"
-         href="#/details/{{box.host_name}}">
+      <a class="box box--round bordercolor_{{box.state}}" href="#/details/{{box.host_name}}">
         <div class="box__inner">
           <div class="box__inner_center">
             <i class="fa fa-3x {{box.icon_image}} icon icon--color"></i>
@@ -30,11 +35,13 @@
       </a>
     </div>
   </div>
+
 </div>
+
 <div class="banner-bottom">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-xs-10">
+      <div class="col-md-8 col-xs-10">
         <a href="https://github.com/savoirfairelinux/quebec-monitoring">
           <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-square-o fa-stack-2x"></i>

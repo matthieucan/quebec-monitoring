@@ -1,0 +1,55 @@
+
+// BASE
+// ===========================================================================
+// ===========================================================================
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica,Arial,sans-serif;
+    background: url("../img/montreal.jpg") no-repeat center top fixed;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    padding-bottom: 5em;
+}
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a { 
+    cursor: pointer;
+}
+
+.transparent {
+    background: black;
+    filter: alpha(opacity=50); /* YEAH IE */
+    background: rgba(0, 0, 0, 0.50);
+}
+
+// HEADINGS
+// ===========================================================================
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5 { color: #fff; }
+h2 { font-size: 1.6em; }
+h2 small { margin-left: 0.5em; }
+
+// LINKS
+// ===========================================================================
+
+
+a { color: #fff; }
+a:active, a:hover { color: rgba(255,255,255,0.8); }
+.link-underline a { text-decoration: underline; }
+
+// OTHER
+// ===========================================================================
+section {
+    margin-bottom: 2em;
+}
