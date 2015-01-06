@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css"> <!-- Version 4.2 -->
+  <link rel="stylesheet" href="fonts/opensans/stylesheet.css">
   <link rel="stylesheet" href="css/main.css">
   <!-- favicons -->
   <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
@@ -31,10 +32,11 @@
 </head>
 <body>
   <div id="wrapper">
-    <h1 class="site-title">
-      <a href="#/">
-        <img src="img/logo.png" alt="Québec 24/7" /> QUÉBEC <strong>24/7</strong> <img src="img/beta.png" alt="Version Beta" />
-      </a>
+      <h1 class="site-title">
+        <a href="#/">
+          <img class="site-title_logo switch-svg" src="img/logo.png" alt="Québec 24/7" /> QUÉBEC <strong>24 / 7</strong> <img class="site-title_logo-beta switch-svg" src="img/beta.png" alt="Version Beta" />
+        </a>
+      </h1>
     </h1>
     <div ng-view class="content"></div>
   </div>
@@ -56,6 +58,8 @@
   <!--<script src="bower_components/bootstrap/js/tab.js"></script>-->
   <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+  <script src="js/transformations.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>

@@ -1,10 +1,18 @@
-
 // BASE
 // ===========================================================================
 // ===========================================================================
 
+/*
+$open_sansitalic: 'open_sansitalic';
+$open_sansregular: 'open_sansregular';
+$open_sansbold: 'open_sansbold';
+
+$open_sanslight: 'open_sanslight';
+$open_sanssemibold: 'open_sanssemibold';
+*/
+
 body {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica,Arial,sans-serif;
+    font-family: $open_sansregular, "Helvetica Neue", Helvetica,Arial,sans-serif;
     background: url("../img/montreal.jpg") no-repeat center top fixed;
     background-color: black;
     -webkit-background-size: cover;
@@ -23,9 +31,8 @@ body {
 }
 
 .transparent {
-    background: black;
-    filter: alpha(opacity=50); /* YEAH IE */
-    background: rgba(0, 0, 0, 0.50);
+    background:transparent;
+    background-color: rgba(0,0,0,.5);
 }
 
 // HEADINGS

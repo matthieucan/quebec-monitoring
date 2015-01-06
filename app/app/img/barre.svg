@@ -1,61 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="Calque_1"
-   x="0px"
-   y="0px"
-   width="19px"
-   height="139px"
-   viewBox="0 0 19 139"
-   style="enable-background:new 0 0 19 139;"
-   xml:space="preserve"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="barre.svg"
-   inkscape:export-filename="/home/mcaneill/work/quebec-monitoring/app/app/img/barre_green.png"
-   inkscape:export-xdpi="253.33"
-   inkscape:export-ydpi="253.33"><metadata
-     id="metadata3024"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
-     id="defs3022" /><sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1918"
-     inkscape:window-height="1059"
-     id="namedview3020"
-     showgrid="false"
-     inkscape:zoom="12.867483"
-     inkscape:cx="11.981754"
-     inkscape:cy="63.543253"
-     inkscape:window-x="0"
-     inkscape:window-y="19"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="Calque_1" /><path
-     style="fill:#e74c3c;fill-opacity:1;fill-rule:evenodd"
-     d="M 8.8,65 12.805,69.005 8.8,73.01"
-     id="path3016"
-     inkscape:export-filename="/home/mcaneill/work/quebec-monitoring/app/app/img/barre_red.png"
-     inkscape:export-xdpi="253.33"
-     inkscape:export-ydpi="253.33"
-     inkscape:connector-curvature="0" /><path
-     style="fill-rule:evenodd;clip-rule:evenodd;fill:#e74c3c;fill-opacity:1"
-     d="M7,8.005h2v122H7V8.005z"
-     id="path3018"
-     inkscape:export-filename="/home/mcaneill/work/quebec-monitoring/app/app/img/barre_red.png"
-     inkscape:export-xdpi="253.33"
-     inkscape:export-ydpi="253.33" /></svg>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="19px" height="139px" viewBox="0 0 19 139" style="enable-background:new 0 0 19 139;" xml:space="preserve">
+<path style="fill-rule:evenodd;clip-rule:evenodd;fill:#5C5D5D;" d="M9,65l4.005,4.005L9,73.01"/>
+<path style="fill-rule:evenodd;clip-rule:evenodd;fill:#5C5D5D;" d="M7,8.005h2v122H7V8.005z"/>
+</svg>

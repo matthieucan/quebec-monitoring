@@ -1,0 +1,102 @@
+// COLORS
+// =====================================================================
+// =====================================================================
+
+/***
+ * State-color
+ * 0: Green (OK)
+ * 1: Orange (Warning)
+ * 2: Red (Critical)
+ * 3: Grey
+
+$green: #65c178;
+$orange: #f39c12;
+$red: #e74c3c;
+$grey: grey;
+
+ **/
+
+// GREEN
+// ====================================================================
+.bordercolor_0:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+    box-shadow: 0 8px 17px 0 rgba(101,193,120,.31);
+} 
+
+.bordercolor_0 { border-color: $green; }
+.bgcolor_0 { background-color: $green; }
+.color_0 { color: $green; }
+
+/* Green (OK) */
+.details-tab-ok a,
+.details-tab-ok a:hover {
+    color: $green;
+}
+.details-tab-ok.active {
+    background-color: $green;
+    border-image-source: url(../img/triangle_green.png);
+}
+
+// ORANGE
+// =====================================================================
+.bordercolor_1:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+    box-shadow: 0 8px 17px 0 rgba(243,156,18,.31);
+}
+
+.bordercolor_1 { border-color: $orange; }
+.bgcolor_1 { background-color: $orange; }
+.color_1 { color: $orange; }
+
+/* Orange (Warning) */
+.details-tab-warning {
+    border-right: 2px solid #252525;
+    border-left: 2px solid #252525;
+}
+
+.details-tab-warning a, 
+.details-tab-warning a:hover {
+    color: $orange;
+}
+
+.details-tab-warning.active {
+    background-color: $orange;
+    border-image-source: url(../img/triangle_orange.png);
+}
+
+// RED
+// =====================================================================
+.bordercolor_2:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+    box-shadow: 0 8px 17px 0 rgba(231,76,60,.31);
+}
+
+.bordercolor_2 { border-color: $red; }
+.bgcolor_2 { background-color: $red; }
+.color_2 { color: $red; }
+
+/* Red (Critical) */
+.details-tab-critical a, 
+.details-tab-critical a:hover {
+    color: $red;
+}
+
+.details-tab-critical.active {
+    background-color: $red;
+    border-image-source: url(../img/triangle_red.png);
+}
+
+// GREY
+// =====================================================================
+.bordercolor_3:hover:after {
+    -moz-box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+    box-shadow: 0 8px 17px 0 rgba(128,128,128,.31);
+}
+
+.bordercolor_3 { border-color: grey; }
+.bgcolor_3 { background-color: grey; }
+.color_3 { color: grey; }
