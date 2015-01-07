@@ -30,7 +30,7 @@
           <div class="box__inner_center">
             <i class="fa fa-3x {{box.icon_image}} icon icon--color"></i>
             <h2 class="d-line d-line--after d-line--centered d-line--2x">{{box.display_name}}</h2>
-            <div class="color_{{box.state}}">
+            <div class="box__status color_{{box.state}}">
               {{box.output}}
             </div>
           </div>
@@ -79,7 +79,7 @@
 -->
       </div>
       <div class="col-xs-6 text-right">
-        <a class="button-bottom" href="#/infos">
+        <a class="button-bottom" href="#/infos" data-remodal-target="modal">
           <span class="fa fa-stack icon icon--2x">
             <i class="fa fa-info fa-stack-1x"></i>
           </span>

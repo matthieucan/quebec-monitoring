@@ -23,6 +23,8 @@ body {
     padding-bottom: 5em;
 }
 
+html, body { overflow: auto !important; margin: 0; }
+
 .nav,
 .pagination,
 .carousel,
